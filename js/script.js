@@ -2,6 +2,61 @@
 window.addEventListener('scroll', function() {
     const header = document.querySelector('header');
     if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// ===== MOBILE MENU TOGGLE =====
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    
+    if (toggle) {
+        toggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            nav.classList.toggle('open');
+        });
+    }
+});
+
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href.startsWith('#')) {
+            e.preventDefault();
+            const targetId = href;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                // Close mobile menu
+                const nav = document.querySelector('nav');
+                const toggle = document.querySelector('.menu-toggle');
+                if (nav) nav.classList.remove('open');
+                if (toggle) toggle.classList.remove('active');
+            }
+        }
+    });
+});
+
+// ===== DYNAMIC YEAR =====
+const yearSpan = document.querySelector('footer p');
+if (yearSpan) {
+    const currentYear = new Date().getFullYear();
+    yearSpan.textContent = yearSpan.textContent.replace('2026', currentYear);
+}
+
+console.log('🚀 Emmanuel Adekunle Peace website loaded successfully!');
+
+// ===== NAVBAR SCROLL EFFECT =====
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
         header.style.background = '#0a3d62';
         header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
     } else {
