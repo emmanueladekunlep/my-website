@@ -3,541 +3,287 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Service Pricing - Emmanuel Adekunle Peace</title>
+    <title>Pricing - Emmanuel Adekunle Peace | Full Stack Developer</title>
+    <meta name="description" content="Full Stack Web Development pricing by Emmanuel Adekunle Peace — affordable custom websites, e-commerce platforms, and web applications built with React, Node.js, and PostgreSQL." />
+    <meta name="keywords" content="Emmanuel Adekunle Peace, Full Stack Developer, Pricing, Web Development, React, Node.js, PostgreSQL, Website Cost, Nigeria" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://emmanueladekunlepeace.com/pricing.html" />
+    
+    <!-- ====== OPEN GRAPH ====== -->
+    <meta property="og:title" content="Pricing - Emmanuel Adekunle Peace | Full Stack Developer" />
+    <meta property="og:description" content="Full Stack Web Development pricing by Emmanuel Adekunle Peace — affordable custom websites, e-commerce platforms, and web applications." />
+    <meta property="og:image" content="https://labelreach.com/wp-content/uploads/2025/09/Emmanuel-Adekunle-Peace-photo.webp" />
+    <meta property="og:url" content="https://emmanueladekunlepeace.com/pricing.html" />
+    <meta property="og:type" content="website" />
+    
+    <!-- ====== TWITTER CARDS ====== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pricing - Emmanuel Adekunle Peace | Full Stack Developer" />
+    <meta name="twitter:description" content="Full Stack Web Development pricing by Emmanuel Adekunle Peace." />
+    <meta name="twitter:image" content="https://labelreach.com/wp-content/uploads/2025/09/Emmanuel-Adekunle-Peace-photo.webp" />
+    
+    <!-- ====== JSON-LD SCHEMA (Product) ====== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Full Stack Web Development Services",
+      "description": "Professional web development services including custom websites, e-commerce platforms, and full-stack applications.",
+      "brand": {
+        "@type": "Brand",
+        "name": "LabelReach Advertising Ltd"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Basic Website",
+          "price": "150000",
+          "priceCurrency": "NGN",
+          "description": "5-10 page website with contact form and mobile responsiveness"
+        },
+        {
+          "@type": "Offer",
+          "name": "Business Website",
+          "price": "300000",
+          "priceCurrency": "NGN",
+          "description": "15-25 page website with CMS and payment gateway"
+        },
+        {
+          "@type": "Offer",
+          "name": "E-Commerce / Learning Platform",
+          "price": "500000",
+          "priceCurrency": "NGN",
+          "description": "Full online store or learning platform with user accounts"
+        },
+        {
+          "@type": "Offer",
+          "name": "Custom Web Application",
+          "price": "800000",
+          "priceCurrency": "NGN",
+          "description": "Full-stack custom development with database integration"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- ====== BREADCRUMB SCHEMA ====== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://emmanueladekunlepeace.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Pricing",
+          "item": "https://emmanueladekunlepeace.com/pricing.html"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- ====== STYLES ====== -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #f8fafc;
-            color: #1a1a2e;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* ===== HEADER ===== */
-        header {
-            background: #0a3d62;
-            color: white;
-            padding: 16px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .logo img {
-            height: 40px;
-            width: auto;
-        }
-
-        nav {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: white;
-        }
-
-        /* ===== PRICING HERO ===== */
-        .pricing-hero {
-            background: linear-gradient(135deg, #0a3d62 0%, #1e6f5c 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .pricing-hero h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .pricing-hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* ===== PRICING CARDS ===== */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .pricing-card {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 5px solid #ff9900;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-        }
-
-        .pricing-card .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .pricing-card h3 {
-            color: #0a3d62;
-            font-size: 1.4rem;
-            margin-bottom: 8px;
-        }
-
-        .pricing-card .price {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #ff9900;
-            margin: 10px 0;
-        }
-
-        .pricing-card .price span {
-            font-size: 1rem;
-            font-weight: 400;
-            color: #888;
-        }
-
-        .pricing-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 15px 0;
-        }
-
-        .pricing-card ul li {
-            padding: 6px 0;
-            color: #555;
-            font-size: 0.95rem;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .pricing-card ul li:last-child {
-            border-bottom: none;
-        }
-
-        .pricing-card ul li::before {
-            content: '✅ ';
-            color: #2e7d32;
-        }
-
-        .btn-contact {
-            display: inline-block;
-            background: #ff9900;
-            color: #1a1a2e;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s;
-            margin-top: 10px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .btn-contact:hover {
-            background: #e08800;
-            transform: translateY(-2px);
-        }
-
-        /* ===== WHY ME ===== */
-        .why-me {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin: 30px 0;
-        }
-
-        .why-me h2 {
-            color: #0a3d62;
-            margin-bottom: 20px;
-        }
-
-        .why-me-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .why-me-item {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .why-me-item .icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .why-me-item h4 {
-            color: #0a3d62;
-            margin-bottom: 5px;
-        }
-
-        .why-me-item p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* ===== PORTFOLIO LINKS ===== */
-        .portfolio-links {
-            background: #f0f4f8;
-            border-radius: 16px;
-            padding: 30px;
-            margin: 30px 0;
-        }
-
-        .portfolio-links h3 {
-            color: #0a3d62;
-            margin-bottom: 15px;
-        }
-
-        .portfolio-links a {
-            display: inline-block;
-            color: #0a3d62;
-            text-decoration: none;
-            padding: 8px 16px;
-            margin: 4px;
-            background: white;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            border: 1px solid #e0e0e0;
-        }
-
-        .portfolio-links a:hover {
-            background: #ff9900;
-            color: #1a1a2e;
-            border-color: #ff9900;
-        }
-
-        /* ===== CONTACT ===== */
-        .contact-section {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .contact-section h2 {
-            color: #0a3d62;
-            margin-bottom: 10px;
-        }
-
-        .contact-section .contact-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .contact-section .contact-buttons a {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .btn-email {
-            background: #0a3d62;
-            color: white;
-        }
-
-        .btn-email:hover {
-            background: #1e6f5c;
-        }
-
-        .btn-whatsapp {
-            background: #25D366;
-            color: white;
-        }
-
-        .btn-whatsapp:hover {
-            background: #1da851;
-        }
-
-        .btn-linkedin {
-            background: #0077B5;
-            color: white;
-        }
-
-        .btn-linkedin:hover {
-            background: #005e8a;
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            text-align: center;
-            padding: 30px 0;
-            color: #888;
-            font-size: 0.9rem;
-            border-top: 1px solid #e5e7eb;
-            margin-top: 30px;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .pricing-hero h1 { font-size: 2rem; }
-            .header-content { flex-direction: column; gap: 10px; }
-            nav { gap: 15px; justify-content: center; }
-            .pricing-grid { grid-template-columns: 1fr; }
-            .why-me-grid { grid-template-columns: 1fr; }
-            .contact-buttons { flex-direction: column; align-items: center; }
-            .contact-buttons a { width: 100%; justify-content: center; }
-        }
-
-        @media print {
-            header, .pricing-hero, .footer { background: #0a3d62 !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .pricing-card { break-inside: avoid; border: 1px solid #ddd; }
-            .btn-contact { background: #ff9900 !important; color: #1a1a2e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .btn-whatsapp { background: #25D366 !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            body { background: white; }
-            .container { padding: 20px; }
-        }
-    </style>
+    
+    <!-- ====== FAVICON ====== -->
+    <link rel="icon" href="/images/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#5A2A5F" />
 </head>
 <body>
 
-    <header>
-    <div class="header-content">
-        <a href="/" class="logo">
-            <img src="https://labelreach.com/wp-content/uploads/2026/06/eapeace_logo.png" alt="Logo">
-            <span>Emmanuel Peace</span>
-        </a>
-        
-        <!-- Mobile Menu Toggle Button -->
-        <button class="menu-toggle" aria-label="Toggle navigation">
-            ☰
-        </button>
-        
-        <nav>
-            <a href="/">Home</a>
-            <a href="portfolio.html" class="active">Portfolio</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </div>
-</header>
+    <!-- ===== SPARKLE CANVAS ===== -->
+    <canvas id="sparkle-canvas"></canvas>
 
-    <!-- ===== HERO ===== -->
-    <section class="pricing-hero">
-        <h1> Service Pricing</h1>
-        <p>Affordable, professional web development and digital solutions for schools, businesses, and individuals.</p>
+    <!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+    <a href="https://wa.me/2347032977572" target="_blank" class="whatsapp-float" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="https://labelreach.com/wp-content/uploads/2026/06/eapeace_logo.png" alt="Emmanuel Adekunle Peace Logo" />
+                <span>Emmanuel Peace</span>
+            </a>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="books.html">Books</a>
+                <a href="pricing.html" class="active">Pricing</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="animate-fade">Service Pricing</h1>
+            <p class="animate-fade animate-delay-1">Affordable, professional full-stack web development solutions</p>
+        </div>
     </section>
 
-    <!-- ===== PRICING ===== -->
-    <div class="container">
-        <div class="pricing-grid">
+    <!-- ===== PRICING GRID ===== -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-grid">
 
-            <!-- ===== BASIC WEBSITE ===== -->
-            <div class="pricing-card">
-                <div class="service-icon">🌐</div>
-                <h3>Basic Website</h3>
-                <div class="price">₦150,000 <span>one-time</span></div>
-                <ul>
-                    <li>5–10 pages (Home, About, Services, Contact)</li>
-                    <li>Mobile-responsive design</li>
-                    <li>Contact form</li>
-                    <li>Social media integration</li>
-                    <li>Google Analytics setup</li>
-                    <li>1 month free support</li>
-                </ul>
-                <a href="#contact" class="btn-contact">📩 Request Quote</a>
+                <!-- ===== BASIC WEBSITE ===== -->
+                <div class="pricing-card animate-fade animate-delay-1">
+                    <div class="service-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Basic Website</h3>
+                    <div class="price">₦150,000 <span>one-time</span></div>
+                    <ul>
+                        <li>5-10 pages (Home, About, Services, Contact)</li>
+                        <li>Mobile-responsive design</li>
+                        <li>Contact form</li>
+                        <li>Social media integration</li>
+                        <li>Google Analytics setup</li>
+                        <li>1 month free support</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Request Quote</a>
+                </div>
+
+                <!-- ===== BUSINESS WEBSITE ===== -->
+                <div class="pricing-card animate-fade animate-delay-2">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3>Business Website</h3>
+                    <div class="price">₦300,000 <span>one-time</span></div>
+                    <ul>
+                        <li>15-25 pages with custom design</li>
+                        <li>Mobile-responsive + tablet-optimized</li>
+                        <li>Blog/CMS integration</li>
+                        <li>Payment gateway integration</li>
+                        <li>SEO optimization</li>
+                        <li>3 months free support</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Request Quote</a>
+                </div>
+
+                <!-- ===== E-COMMERCE / LEARNING ===== -->
+                <div class="pricing-card animate-fade animate-delay-3">
+                    <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3>E-Commerce / Learning Platform</h3>
+                    <div class="price">₦500,000 <span>one-time</span></div>
+                    <ul>
+                        <li>Full online store or learning platform</li>
+                        <li>Product/course catalog</li>
+                        <li>Payment gateway</li>
+                        <li>User accounts &amp; profiles</li>
+                        <li>Admin dashboard</li>
+                        <li>6 months free support</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Request Quote</a>
+                </div>
+
+                <!-- ===== CUSTOM WEB APP ===== -->
+                <div class="pricing-card animate-fade animate-delay-4">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3>Custom Web Application</h3>
+                    <div class="price">₦800,000+ <span>one-time</span></div>
+                    <ul>
+                        <li>Full-stack custom development</li>
+                        <li>Database integration (PostgreSQL)</li>
+                        <li>User authentication &amp; roles</li>
+                        <li>API integrations</li>
+                        <li>Dashboard &amp; analytics</li>
+                        <li>Deployment &amp; hosting setup</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Request Quote</a>
+                </div>
+
             </div>
-
-            <!-- ===== BUSINESS WEBSITE ===== -->
-            <div class="pricing-card">
-                <div class="service-icon">🏢</div>
-                <h3>Business Website</h3>
-                <div class="price">₦300,000 <span>one-time</span></div>
-                <ul>
-                    <li>15–25 pages with custom design</li>
-                    <li>Mobile-responsive + tablet-optimized</li>
-                    <li>Blog/CMS integration</li>
-                    <li>Payment gateway integration</li>
-                    <li>SEO optimization</li>
-                    <li>3 months free support</li>
-                </ul>
-                <a href="#contact" class="btn-contact">📩 Request Quote</a>
-            </div>
-
-            <!-- ===== E-COMMERCE / LEARNING ===== -->
-            <div class="pricing-card">
-                <div class="service-icon">🛒</div>
-                <h3>E-Commerce / Learning Platform</h3>
-                <div class="price">₦500,000 <span>one-time</span></div>
-                <ul>
-                    <li>Full online store or learning platform</li>
-                    <li>Product/course catalog</li>
-                    <li>Payment gateway</li>
-                    <li>User accounts &amp; profiles</li>
-                    <li>Admin dashboard</li>
-                    <li>6 months free support</li>
-                </ul>
-                <a href="#contact" class="btn-contact">📩 Request Quote</a>
-            </div>
-
-            <!-- ===== CUSTOM WEB APP ===== -->
-            <div class="pricing-card">
-                <div class="service-icon">⚡</div>
-                <h3>Custom Web Application</h3>
-                <div class="price">₦800,000+ <span>one-time</span></div>
-                <ul>
-                    <li>Full-stack custom development</li>
-                    <li>Database integration (PostgreSQL)</li>
-                    <li>User authentication &amp; roles</li>
-                    <li>API integrations</li>
-                    <li>Dashboard &amp; analytics</li>
-                    <li>Deployment &amp; hosting setup</li>
-                </ul>
-                <a href="#contact" class="btn-contact">📩 Request Quote</a>
-            </div>
-
-            <!-- ===== DIGITAL MARKETING ===== -->
-            <div class="pricing-card">
-                <div class="service-icon">📱</div>
-                <h3>Digital Marketing</h3>
-                <div class="price">₦250,000 <span>setup + 1 month</span></div>
-                <ul>
-                    <li>Facebook/Instagram ad setup</li>
-                    <li>Ad account &amp; pixel configuration</li>
-                    <li>Audience research &amp; targeting</li>
-                    <li>Ad design &amp; copywriting</li>
-                    <li>Performance reporting</li>
-                    <li>* Ad budget not included</li>
-                </ul>
-                <a href="#contact" class="btn-contact">📩 Request Quote</a>
-            </div>
-
-            <!-- ===== SEO ===== -->
-            <div class="pricing-card">
-                <div class="service-icon">🔍</div>
-                <h3>SEO &amp; Content</h3>
-                <div class="price">₦150,000 <span>one-time</span></div>
-                <ul>
-                    <li>Technical SEO audit</li>
-                    <li>Keyword research &amp; strategy</li>
-                    <li>Content optimization</li>
-                    <li>Local SEO setup</li>
-                    <li>Google Search Console setup</li>
-                    <li>Monthly report</li>
-                </ul>
-                <a href="#contact" class="btn-contact">📩 Request Quote</a>
-            </div>
-
         </div>
+    </section>
 
-        <!-- ===== WHY ME ===== -->
-        <div class="why-me">
-            <h2>Why Work With Me?</h2>
+    <!-- ===== WHY ME ===== -->
+    <section class="why-me">
+        <div class="container">
+            <h2 class="animate-fade">Why Work With Me?</h2>
             <div class="why-me-grid">
-                <div class="why-me-item">
-                    <div class="icon">💻</div>
-                    <h4>5 Live Projects</h4>
-                    <p>Built &amp; deployed React, Node.js, PostgreSQL apps</p>
+                <div class="why-me-item animate-fade animate-delay-1">
+                    <div class="icon"><i class="fas fa-laptop-code"></i></div>
+                    <h4>Full Stack Developer</h4>
+                    <p>Built 6+ live web applications with React, Node.js, PostgreSQL</p>
                 </div>
-                <div class="why-me-item">
-                    <div class="icon">📚</div>
-                    <h4>19 Books Published</h4>
-                    <p>Author with proven communication skills</p>
+                <div class="why-me-item animate-fade animate-delay-2">
+                    <div class="icon"><i class="fas fa-book"></i></div>
+                    <h4>25+ Books Published</h4>
+                    <p>Author with proven communication and content skills</p>
                 </div>
-                <div class="why-me-item">
-                    <div class="icon">🎯</div>
+                <div class="why-me-item animate-fade animate-delay-3">
+                    <div class="icon"><i class="fas fa-bullseye"></i></div>
                     <h4>20 Years Experience</h4>
-                    <p>Education leadership &amp; business strategy</p>
+                    <p>Education leadership &amp; business strategy expertise</p>
                 </div>
-                <div class="why-me-item">
-                    <div class="icon">🤝</div>
+                <div class="why-me-item animate-fade animate-delay-4">
+                    <div class="icon"><i class="fas fa-handshake"></i></div>
                     <h4>Client-Focused</h4>
                     <p>Transparent pricing &amp; ongoing support</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- ===== PORTFOLIO LINKS ===== -->
-        <div class="portfolio-links">
-            <h3>📂 See My Work</h3>
-            <a href="https://label-reach-instructor-system.vercel.app" target="_blank">📋 Instructor System</a>
-            <a href="https://content-marketing-hub.vercel.app" target="_blank">📚 Content Hub</a>
-            <a href="https://school-branding-toolkit.vercel.app" target="_blank">🏫 Branding Toolkit</a>
-            <a href="https://data-analysis-dashboard-liart.vercel.app" target="_blank">📊 Data Dashboard</a>
-            <a href="https://edumate-learning-platform.vercel.app" target="_blank">🎓 Learning Platform</a>
-            <a href="portfolio.html" target="_blank" style="background: #ff9900; color: #1a1a2e; border-color: #ff9900;">📂 View Portfolio</a>
-        </div>
-
-        <!-- ===== CONTACT ===== -->
-        <div id="contact" class="contact-section">
-            <h2>📩 Let's Build Something Together</h2>
-            <p style="color: #666; margin-bottom: 20px;">Contact me for a free consultation or custom quote</p>
-            <div class="contact-buttons">
-                <a href="mailto:emmanueladekunlep@gmail.com" class="btn-email"><i class="fas fa-envelope"></i> Email Me</a>
-                <a href="https://wa.me/2347032977572" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Me</a>
-                <a href="https://www.linkedin.com/in/emmanueladekunlep" target="_blank" class="btn-linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <!-- ===== PORTFOLIO LINKS ===== -->
+    <section class="portfolio-links-section">
+        <div class="container">
+            <h2 class="animate-fade">View My Work</h2>
+            <div class="portfolio-links-grid animate-fade animate-delay-1">
+                <a href="https://label-reach-instructor-system.vercel.app" target="_blank" class="btn btn-small btn-outline-dark">Instructor System</a>
+                <a href="https://content-marketing-hub.vercel.app" target="_blank" class="btn btn-small btn-outline-dark">Content Hub</a>
+                <a href="https://school-branding-toolkit.vercel.app" target="_blank" class="btn btn-small btn-outline-dark">Branding Toolkit</a>
+                <a href="https://data-analysis-dashboard-liart.vercel.app" target="_blank" class="btn btn-small btn-outline-dark">Data Dashboard</a>
+                <a href="https://edumate-learning-platform.vercel.app" target="_blank" class="btn btn-small btn-outline-dark">Learning Platform</a>
+                <a href="https://asafeplacewithmma.com" target="_blank" class="btn btn-small btn-outline-dark">Safe Place with MMA</a>
+                <a href="portfolio.html" class="btn btn-small btn-primary">View Portfolio</a>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- ===== BACK LINK ===== -->
+    <section class="back-section">
+        <div class="container">
+            <a href="index.html" class="btn btn-outline-dark">Back to Home</a>
+        </div>
+    </section>
 
     <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <p>&copy; 2026 Emmanuel Adekunle Peace — Empowering minds through digital education.</p>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Emmanuel Adekunle Peace — Full Stack Developer, Author &amp; Branding Strategist.</p>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/emmanueladekunlep" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/emmanueladekunlep" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://instagram.com/emmanueladekunlep" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/emmanueladekunlep" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://tiktok.com/@e.a.peace" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://youtube.com/@emmanueladekunlepeace" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://open.spotify.com/show/emmanueladekunlepeace" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+            </div>
+        </div>
     </footer>
 
+    <script src="js/script.js"></script>
 </body>
 </html>

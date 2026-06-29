@@ -3,14 +3,62 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio - Emmanuel Adekunle Peace</title>
+    <title>Portfolio - Emmanuel Adekunle Peace | Full Stack Developer</title>
+    <meta name="description" content="View the portfolio of Emmanuel Adekunle Peace — Full Stack Developer featuring 6 live web applications built with React, Node.js, PostgreSQL, and Vercel." />
+    <meta name="keywords" content="Emmanuel Adekunle Peace, Full Stack Developer, Portfolio, React, Node.js, PostgreSQL, Web Development, LabelReach, Edumate" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://emmanueladekunlepeace.com/portfolio.html" />
     
-    <!-- ====== SEO META ====== -->
-    <meta name="description" content="View the portfolio of Emmanuel Adekunle Peace featuring 5 live web applications built with React, Node.js, and Vercel." />
-    <meta property="og:title" content="Portfolio - Emmanuel Adekunle Peace" />
-    <meta property="og:description" content="5 live web applications built with React, Node.js, and Vercel." />
+    <!-- ====== OPEN GRAPH ====== -->
+    <meta property="og:title" content="Portfolio - Emmanuel Adekunle Peace | Full Stack Developer" />
+    <meta property="og:description" content="6 live web applications built by Emmanuel Adekunle Peace — Full Stack Developer using React, Node.js, and Vercel." />
     <meta property="og:image" content="https://labelreach.com/wp-content/uploads/2026/06/dashboard-2.png" />
     <meta property="og:url" content="https://emmanueladekunlepeace.com/portfolio.html" />
+    <meta property="og:type" content="website" />
+    
+    <!-- ====== TWITTER CARDS ====== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Portfolio - Emmanuel Adekunle Peace | Full Stack Developer" />
+    <meta name="twitter:description" content="6 live web applications built by Emmanuel Adekunle Peace — Full Stack Developer." />
+    <meta name="twitter:image" content="https://labelreach.com/wp-content/uploads/2026/06/dashboard-2.png" />
+    
+    <!-- ====== JSON-LD SCHEMA (Portfolio) ====== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Portfolio of Emmanuel Adekunle Peace",
+      "description": "6 live web applications built by Emmanuel Adekunle Peace — Full Stack Developer.",
+      "url": "https://emmanueladekunlepeace.com/portfolio.html",
+      "author": {
+        "@type": "Person",
+        "name": "Emmanuel Adekunle Peace",
+        "jobTitle": "Full Stack Developer"
+      }
+    }
+    </script>
+    
+    <!-- ====== BREADCRUMB SCHEMA ====== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://emmanueladekunlepeace.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Portfolio",
+          "item": "https://emmanueladekunlepeace.com/portfolio.html"
+        }
+      ]
+    }
+    </script>
     
     <!-- ====== STYLES ====== -->
     <link rel="stylesheet" href="css/style.css" />
@@ -18,446 +66,153 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     
-    <style>
-        /* ===== RESET ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #f8fafc;
-            color: #1a1a2e;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* ===== HEADER ===== */
-        header {
-            background: #0a3d62;
-            color: white;
-            padding: 16px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .logo img {
-            height: 40px;
-            width: auto;
-        }
-
-        nav {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #ff9900;
-            transition: width 0.3s;
-        }
-
-        nav a:hover {
-            color: white;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        nav a.active {
-            color: #ff9900;
-        }
-
-        nav a.active::after {
-            width: 100%;
-        }
-
-        /* ===== HERO ===== */
-        .portfolio-hero {
-            background: linear-gradient(135deg, #0a3d62 0%, #1e6f5c 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .portfolio-hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .portfolio-hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* ===== PORTFOLIO GRID ===== */
-        .portfolio-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
-
-        .project-showcase {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 50px;
-        }
-
-        .project-item {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .project-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-        }
-
-        .project-item img {
-            width: 100%;
-            display: block;
-            border-bottom: 4px solid #ff9900;
-        }
-
-        .project-details {
-            padding: 30px 35px;
-        }
-
-        .project-details .badge {
-            display: inline-block;
-            background: #ff9900;
-            color: #1a1a2e;
-            font-weight: 700;
-            font-size: 0.7rem;
-            padding: 3px 14px;
-            border-radius: 20px;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }
-
-        .project-details h2 {
-            color: #0a3d62;
-            font-size: 1.6rem;
-            margin-bottom: 12px;
-        }
-
-        .project-details .problem {
-            color: #c62828;
-            font-weight: 600;
-            margin-top: 10px;
-        }
-
-        .project-details .solution {
-            color: #2e7d32;
-            font-weight: 600;
-            margin-top: 5px;
-        }
-
-        .project-details .tech {
-            color: #1e6f5c;
-            font-weight: 600;
-            margin-top: 5px;
-        }
-
-        .project-details p {
-            color: #444;
-            line-height: 1.7;
-            margin: 5px 0;
-        }
-
-        .project-links {
-            margin-top: 18px;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn-live {
-            background: #ff9900;
-            color: #1a1a2e;
-            padding: 10px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-
-        .btn-live:hover {
-            background: #e08800;
-            transform: translateY(-2px);
-        }
-
-        .btn-github {
-            background: #0a3d62;
-            color: white;
-            padding: 10px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-
-        .btn-github:hover {
-            background: #1e6f5c;
-            transform: translateY(-2px);
-        }
-
-        /* ===== BACK LINK ===== */
-        .back-link {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .back-link a {
-            color: #0a3d62;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .back-link a:hover {
-            color: #ff9900;
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            text-align: center;
-            padding: 30px 0;
-            color: #888;
-            font-size: 0.9rem;
-            border-top: 1px solid #e5e7eb;
-            margin-top: 40px;
-        }
-
-        .footer-social a {
-            color: #0a3d62;
-            margin: 0 12px;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
-
-        .footer-social a:hover {
-            color: #ff9900;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .portfolio-hero h1 { font-size: 2rem; }
-            .header-content { flex-direction: column; gap: 10px; }
-            nav { gap: 15px; justify-content: center; }
-            .project-details { padding: 20px; }
-            .project-links { flex-direction: column; }
-            .btn-live, .btn-github { text-align: center; }
-            .portfolio-hero { padding: 50px 20px; }
-        }
-
-        @media (max-width: 480px) {
-            .portfolio-hero h1 { font-size: 1.6rem; }
-            nav a { font-size: 0.8rem; }
-            .project-details h2 { font-size: 1.3rem; }
-        }
-    </style>
+    <!-- ====== FAVICON ====== -->
+    <link rel="icon" href="/images/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#5A2A5F" />
 </head>
 <body>
 
+    <!-- ===== SPARKLE CANVAS ===== -->
+    <canvas id="sparkle-canvas"></canvas>
+
+    <!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+    <a href="https://wa.me/2347032977572" target="_blank" class="whatsapp-float" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ===== HEADER ===== -->
     <header>
-    <div class="header-content">
-        <a href="/" class="logo">
-            <img src="https://labelreach.com/wp-content/uploads/2026/06/eapeace_logo.png" alt="Logo">
-            <span>Emmanuel Peace</span>
-        </a>
-        
-        <!-- Mobile Menu Toggle Button -->
-        <button class="menu-toggle" aria-label="Toggle navigation">
-            ☰
-        </button>
-        
-        <nav>
-            <a href="/">Home</a>
-            <a href="portfolio.html" class="active">Portfolio</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </div>
-</header>
-    <!-- ===== HERO ===== -->
-    <section class="portfolio-hero">
-        <h1>📂 My Portfolio</h1>
-        <p>5 live web applications built with React, Node.js, and Vercel</p>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="https://labelreach.com/wp-content/uploads/2026/06/eapeace_logo.png" alt="Emmanuel Adekunle Peace Logo" />
+                <span>Emmanuel Peace</span>
+            </a>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="portfolio.html" class="active">Portfolio</a>
+                <a href="books.html">Books</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== PORTFOLIO HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="animate-fade">My Portfolio</h1>
+            <p class="animate-fade animate-delay-1">6 live web applications built with modern full-stack technologies</p>
+        </div>
     </section>
 
     <!-- ===== PORTFOLIO PROJECTS ===== -->
-    <div class="portfolio-container">
-        <div class="project-showcase">
-
-            <!-- ===== PROJECT 1: Instructor System ===== -->
-            <div class="project-item">
-                <img src="https://labelreach.com/wp-content/uploads/2026/06/instructor-system.png" alt="LabelReach Instructor System Dashboard" loading="lazy" />
-                <div class="project-details">
-                    <span class="badge">Project 1</span>
-                    <h2>📋 LabelReach Instructor System</h2>
-                    <p><strong class="problem">Problem:</strong> Managing instructors, schools, and placements across different locations was chaotic and manual.</p>
-                    <p><strong class="solution">Solution:</strong> Built a full-stack web app with a dashboard to manage all operations in one place.</p>
-                    <p><strong class="tech">Tech Stack:</strong> React, Node.js, PostgreSQL, Vercel</p>
-                    <div class="project-links">
-                        <a href="https://label-reach-instructor-system.vercel.app" target="_blank" class="btn-live">🔗 Live Demo</a>
-                        <a href="https://github.com/emmanueladekunlep/LabelReach-Instructor-System" target="_blank" class="btn-github">📂 GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ===== PROJECT 2: Content Marketing Hub ===== -->
-            <div class="project-item">
-                <img src="https://labelreach.com/wp-content/uploads/2026/06/dashboard-2.png" alt="Content Marketing Hub Dashboard" loading="lazy" />
-                <div class="project-details">
-                    <span class="badge">Project 2</span>
-                    <h2>📚 Content Marketing Hub</h2>
-                    <p><strong class="problem">Problem:</strong> Repurposing content for different platforms was time-consuming and inefficient.</p>
-                    <p><strong class="solution">Solution:</strong> Built an AI-powered platform that turns one blog post into 5 social media posts.</p>
-                    <p><strong class="tech">Tech Stack:</strong> React, AI APIs, Vercel</p>
-                    <div class="project-links">
-                        <a href="https://content-marketing-hub.vercel.app" target="_blank" class="btn-live">🔗 Live Demo</a>
-                        <a href="https://github.com/emmanueladekunlep/Content-Marketing-Hub" target="_blank" class="btn-github">📂 GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ===== PROJECT 3: School Branding Toolkit ===== -->
-            <div class="project-item">
-                <img src="https://labelreach.com/wp-content/uploads/2026/06/branding-toolkit.png" alt="School Branding Toolkit" loading="lazy" />
-                <div class="project-details">
-                    <span class="badge">Project 3</span>
-                    <h2>🏫 School Branding Toolkit</h2>
-                    <p><strong class="problem">Problem:</strong> Schools struggle to understand their brand strength and create consistent marketing materials.</p>
-                    <p><strong class="solution">Solution:</strong> Built an AI tool that analyzes a school's online presence and generates ready-to-use marketing content.</p>
-                    <p><strong class="tech">Tech Stack:</strong> React, AI APIs, Vercel</p>
-                    <div class="project-links">
-                        <a href="https://school-branding-toolkit.vercel.app" target="_blank" class="btn-live">🔗 Live Demo</a>
-                        <a href="https://github.com/emmanueladekunlep/School-Branding-Toolkit" target="_blank" class="btn-github">📂 GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ===== PROJECT 4: Data Analysis Dashboard ===== -->
-            <div class="project-item">
-                <img src="https://labelreach.com/wp-content/uploads/2026/06/data-dashboard.png" alt="Data Analysis Dashboard" loading="lazy" />
-                <div class="project-details">
-                    <span class="badge">Project 4</span>
-                    <h2>📊 Data Analysis Dashboard</h2>
-                    <p><strong class="problem">Problem:</strong> Business owners need to track multiple metrics but lack a central dashboard.</p>
-                    <p><strong class="solution">Solution:</strong> Built an interactive dashboard with charts, metrics, and downloadable reports.</p>
-                    <p><strong class="tech">Tech Stack:</strong> React, Chart.js, Vercel</p>
-                    <div class="project-links">
-                        <a href="https://data-analysis-dashboard-liart.vercel.app" target="_blank" class="btn-live">🔗 Live Demo</a>
-                        <a href="https://github.com/emmanueladekunlep/Data-Analysis-Dashboard" target="_blank" class="btn-github">📂 GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ===== PROJECT 5: Edumate Learning Platform ===== -->
-            <div class="project-item">
-                <img src="https://labelreach.com/wp-content/uploads/2026/06/learning-platform.png" alt="Edumate Learning Platform" loading="lazy" />
-                <div class="project-details">
-                    <span class="badge">Project 5</span>
-                    <h2>🎓 Edumate Learning Platform</h2>
-                    <p><strong class="problem">Problem:</strong> Students need a structured, interactive way to learn coding and track their progress.</p>
-                    <p><strong class="solution">Solution:</strong> Built a complete learning platform with courses, progress tracking, and achievement badges.</p>
-                    <p><strong class="tech">Tech Stack:</strong> React, Node.js, PostgreSQL, Vercel</p>
-                    <div class="project-links">
-                        <a href="https://edumate-learning-platform.vercel.app" target="_blank" class="btn-live">🔗 Live Demo</a>
-                        <a href="https://github.com/emmanueladekunlep/Edumate-Learning-Platform" target="_blank" class="btn-github">📂 GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- ===== BACK LINK ===== -->
-        <div class="back-link">
-            <a href="/">← Back to Home</a>
-        </div>
-    </div>
-
-    <!-- ===== CONTACT ===== -->
-    <section id="contact" class="contact" style="padding: 50px 20px 30px;">
+    <section class="portfolio-projects">
         <div class="container">
-            <h2 style="text-align: center; color: #0a3d62; font-size: 2rem;">Let's Connect</h2>
-            <p style="text-align: center; color: #666; margin-bottom: 30px;">Have a project in mind? Let's work together!</p>
-            <div class="contact-grid" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 500px; margin: 0 auto;">
-                <div class="contact-card" style="background: white; padding: 16px 24px; border-radius: 12px; display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
-                    <i class="fas fa-envelope" style="color: #0a3d62; font-size: 1.2rem;"></i>
-                    <a href="mailto:emmanueladekunlep@gmail.com" style="color: #0a3d62; text-decoration: none; font-weight: 500;">emmanueladekunlep@gmail.com</a>
+            <div class="projects-grid">
+
+                <!-- ===== PROJECT 1: Instructor System ===== -->
+                <div class="project-card animate-fade animate-delay-1">
+                    <span class="badge">Project 1</span>
+                    <h3>Instructor Management System</h3>
+                    <p><strong>Problem:</strong> Managing instructors, schools, and placements across different locations was chaotic and manual.</p>
+                    <p><strong>Solution:</strong> Built a full-stack web app with a dashboard to manage all operations in one place.</p>
+                    <p><strong>Tech Stack:</strong> React, Node.js, PostgreSQL, Vercel</p>
+                    <p><strong>Role:</strong> Full Stack Developer</p>
+                    <a href="https://label-reach-instructor-system.vercel.app" target="_blank" class="btn btn-small" rel="noopener noreferrer">Live Demo →</a>
                 </div>
-                <div class="contact-card" style="background: white; padding: 16px 24px; border-radius: 12px; display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
-                    <i class="fab fa-linkedin" style="color: #0a3d62; font-size: 1.2rem;"></i>
-                    <a href="https://www.linkedin.com/in/emmanueladekunlep" target="_blank" style="color: #0a3d62; text-decoration: none; font-weight: 500;">LinkedIn</a>
+
+                <!-- ===== PROJECT 2: Content Marketing Hub ===== -->
+                <div class="project-card animate-fade animate-delay-2">
+                    <span class="badge">Project 2</span>
+                    <h3>Content Marketing Hub</h3>
+                    <p><strong>Problem:</strong> Repurposing content for different platforms was time-consuming and inefficient.</p>
+                    <p><strong>Solution:</strong> Built an AI-powered platform that turns one blog post into 5 social media posts.</p>
+                    <p><strong>Tech Stack:</strong> React, AI APIs, Vercel</p>
+                    <p><strong>Role:</strong> Full Stack Developer</p>
+                    <a href="https://content-marketing-hub.vercel.app" target="_blank" class="btn btn-small" rel="noopener noreferrer">Live Demo →</a>
                 </div>
+
+                <!-- ===== PROJECT 3: School Branding Toolkit ===== -->
+                <div class="project-card animate-fade animate-delay-3">
+                    <span class="badge">Project 3</span>
+                    <h3>School Branding Toolkit</h3>
+                    <p><strong>Problem:</strong> Schools struggle to understand their brand strength and create consistent marketing materials.</p>
+                    <p><strong>Solution:</strong> Built an AI tool that analyzes a school's online presence and generates ready-to-use marketing content.</p>
+                    <p><strong>Tech Stack:</strong> React, AI APIs, Vercel</p>
+                    <p><strong>Role:</strong> Full Stack Developer</p>
+                    <a href="https://school-branding-toolkit.vercel.app" target="_blank" class="btn btn-small" rel="noopener noreferrer">Live Demo →</a>
+                </div>
+
+                <!-- ===== PROJECT 4: Data Analysis Dashboard ===== -->
+                <div class="project-card animate-fade animate-delay-4">
+                    <span class="badge">Project 4</span>
+                    <h3>Data Analysis Dashboard</h3>
+                    <p><strong>Problem:</strong> Business owners need to track multiple metrics but lack a central dashboard.</p>
+                    <p><strong>Solution:</strong> Built an interactive dashboard with charts, metrics, and downloadable reports.</p>
+                    <p><strong>Tech Stack:</strong> React, Chart.js, Vercel</p>
+                    <p><strong>Role:</strong> Full Stack Developer</p>
+                    <a href="https://data-analysis-dashboard-liart.vercel.app" target="_blank" class="btn btn-small" rel="noopener noreferrer">Live Demo →</a>
+                </div>
+
+                <!-- ===== PROJECT 5: Edumate Learning Platform ===== -->
+                <div class="project-card animate-fade animate-delay-1">
+                    <span class="badge">Project 5</span>
+                    <h3>Edumate Learning Platform</h3>
+                    <p><strong>Problem:</strong> Students need a structured, interactive way to learn coding and track their progress.</p>
+                    <p><strong>Solution:</strong> Built a complete learning platform with courses, progress tracking, and achievement badges.</p>
+                    <p><strong>Tech Stack:</strong> React, Node.js, PostgreSQL, Vercel</p>
+                    <p><strong>Role:</strong> Full Stack Developer</p>
+                    <a href="https://edumate-learning-platform.vercel.app" target="_blank" class="btn btn-small" rel="noopener noreferrer">Live Demo →</a>
+                </div>
+
+                <!-- ===== PROJECT 6: A Safe Place with MMA ===== -->
+                <div class="project-card animate-fade animate-delay-2">
+                    <span class="badge">Project 6</span>
+                    <h3>A Safe Place with MMA Foundation</h3>
+                    <p><strong>Problem:</strong> People need a safe, Christ-centered space for hope, healing, and authentic community — but many feel alone and unable to be vulnerable.</p>
+                    <p><strong>Solution:</strong> Built a 365-day devotional website with calendar navigation, search, bookmarks, progress tracking, community integration, and podcast section.</p>
+                    <p><strong>Tech Stack:</strong> HTML5, CSS3, Vanilla JS, LocalStorage, Font Awesome</p>
+                    <p><strong>Role:</strong> Full Stack Developer</p>
+                    <a href="https://asafeplacewithmma.com" target="_blank" class="btn btn-small" rel="noopener noreferrer">Live Demo →</a>
+                </div>
+
             </div>
+        </div>
+    </section>
+
+    <!-- ===== BACK LINK ===== -->
+    <section class="back-section">
+        <div class="container">
+            <a href="index.html" class="btn btn-outline-dark">Back to Home</a>
         </div>
     </section>
 
     <!-- ===== FOOTER ===== -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <p>&copy; 2026 Emmanuel Adekunle Peace — Empowering minds through digital education.</p>
-            <div class="footer-social" style="margin-top: 10px;">
+            <p>&copy; 2026 Emmanuel Adekunle Peace — Full Stack Developer, Author &amp; Branding Strategist.</p>
+            <div class="footer-social">
                 <a href="https://www.linkedin.com/in/emmanueladekunlep" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="https://x.com/emmanueladekunlep" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter"></i></a>
                 <a href="https://instagram.com/emmanueladekunlep" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://facebook.com/emmanueladekunlep" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://tiktok.com/@e.a.peace" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://youtube.com/@emmanueladekunlepeace" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://open.spotify.com/show/emmanueladekunlepeace" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
             </div>
         </div>
     </footer>
 
+    <script src="js/script.js"></script>
 </body>
 </html>
