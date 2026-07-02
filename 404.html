@@ -12,11 +12,65 @@
     <link rel="icon" href="/images/favicon.ico" sizes="32x32" />
 </head>
 <body>
-    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:#F7F3EC;text-align:center;padding:20px;font-family:'Inter',sans-serif;">
+
+    <!-- ===== SPARKLE CANVAS ===== -->
+    <canvas id="sparkle-canvas"></canvas>
+
+    <!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+    <a href="https://wa.me/2347032977572" target="_blank" class="whatsapp-float" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="https://labelreach.com/wp-content/uploads/2026/06/eapeace_logo.png" alt="Emmanuel Adekunle Peace Logo" />
+                <span>Emmanuel Peace</span>
+            </a>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="books.html">Books</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== 404 CONTENT ===== -->
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;background:#F7F3EC;text-align:center;padding:40px 20px;font-family:'Inter',sans-serif;">
         <h1 style="font-size:6rem;color:#5A2A5F;margin:0;">404</h1>
         <h2 style="color:#5A2A5F;margin:0;">Page Not Found</h2>
         <p style="color:#4A5568;margin:16px 0;max-width:500px;">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
-        <a href="/" style="display:inline-block;padding:12px 30px;background:#C8A14B;color:#5A2A5F;border-radius:40px;text-decoration:none;font-weight:600;transition:all 0.3s;">Return to Home</a>
+        <a href="index.html" style="display:inline-block;padding:12px 30px;background:#C8A14B;color:#5A2A5F;border-radius:40px;text-decoration:none;font-weight:600;transition:all 0.3s;">Return to Home</a>
     </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Emmanuel Adekunle Peace — Full Stack Developer, Author &amp; Branding Strategist.</p>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/emmanueladekunlep" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/emmanueladekunlep" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://instagram.com/emmanueladekunlep" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/emmanueladekunlep" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://tiktok.com/@e.a.peace" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://youtube.com/@emmanueladekunlepeace" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://open.spotify.com/show/emmanueladekunlepeace" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

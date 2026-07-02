@@ -22,7 +22,7 @@
     <meta name="twitter:description" content="Full Stack Web Development pricing by Emmanuel Adekunle Peace." />
     <meta name="twitter:image" content="https://labelreach.com/wp-content/uploads/2025/09/Emmanuel-Adekunle-Peace-photo.webp" />
     
-    <!-- ====== JSON-LD SCHEMA (Product) ====== -->
+    <!-- ====== JSON-LD SCHEMA ====== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -36,31 +36,24 @@
       "offers": [
         {
           "@type": "Offer",
-          "name": "Basic Website",
-          "price": "150000",
+          "name": "Starter Package",
+          "price": "350000",
           "priceCurrency": "NGN",
-          "description": "5-10 page website with contact form and mobile responsiveness"
+          "description": "Basic responsive website for small schools, churches, and businesses"
         },
         {
           "@type": "Offer",
-          "name": "Business Website",
-          "price": "300000",
+          "name": "Professional Package",
+          "price": "750000",
           "priceCurrency": "NGN",
-          "description": "15-25 page website with CMS and payment gateway"
+          "description": "Full custom website with web app features, branding, and training"
         },
         {
           "@type": "Offer",
-          "name": "E-Commerce / Learning Platform",
-          "price": "500000",
+          "name": "Enterprise Package",
+          "price": "1500000",
           "priceCurrency": "NGN",
-          "description": "Full online store or learning platform with user accounts"
-        },
-        {
-          "@type": "Offer",
-          "name": "Custom Web Application",
-          "price": "800000",
-          "priceCurrency": "NGN",
-          "description": "Full-stack custom development with database integration"
+          "description": "Full-stack application with AI features, branding, and marketing strategy"
         }
       ]
     }
@@ -127,9 +120,13 @@
             <nav id="nav-menu">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
+                <a href="services.html">Services</a>
                 <a href="portfolio.html">Portfolio</a>
+                <a href="testimonials.html">Testimonials</a>
                 <a href="books.html">Books</a>
                 <a href="pricing.html" class="active">Pricing</a>
+                <a href="blog.html">Blog</a>
+                <a href="resources.html">Resources</a>
                 <a href="contact.html">Contact</a>
             </nav>
         </div>
@@ -138,131 +135,253 @@
     <!-- ===== PAGE HERO ===== -->
     <section class="page-hero">
         <div class="container">
-            <h1 class="animate-fade">Service Pricing</h1>
-            <p class="animate-fade animate-delay-1">Affordable, professional full-stack web development solutions</p>
+            <h1 class="animate-fade">Pricing Packages</h1>
+            <p class="animate-fade animate-delay-1">Affordable, professional full-stack web development solutions for every budget</p>
         </div>
     </section>
 
-    <!-- ===== PRICING GRID ===== -->
-    <section class="pricing-section">
+    <!-- ===== TIERED PRICING ===== -->
+    <section style="background:white;padding:70px 0;">
         <div class="container">
-            <div class="pricing-grid">
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px;align-items:stretch;">
 
-                <!-- ===== BASIC WEBSITE ===== -->
-                <div class="pricing-card animate-fade animate-delay-1">
-                    <div class="service-icon"><i class="fas fa-globe"></i></div>
-                    <h3>Basic Website</h3>
-                    <div class="price">₦150,000 <span>one-time</span></div>
-                    <ul>
-                        <li>5-10 pages (Home, About, Services, Contact)</li>
-                        <li>Mobile-responsive design</li>
-                        <li>Contact form</li>
-                        <li>Social media integration</li>
-                        <li>Google Analytics setup</li>
-                        <li>1 month free support</li>
+                <!-- ===== TIER 1: STARTER ===== -->
+                <div class="pricing-card animate-fade animate-delay-1" style="background:var(--cream);padding:35px 25px;border-radius:var(--border-radius);box-shadow:var(--shadow);transition:var(--transition);border-top:4px solid var(--antique-gold);display:flex;flex-direction:column;">
+                    <div style="text-align:center;margin-bottom:15px;">
+                        <span style="background:var(--antique-gold);color:var(--royal-plum);font-size:0.7rem;padding:2px 14px;border-radius:20px;font-weight:700;text-transform:uppercase;">Starter</span>
+                        <h3 style="color:var(--royal-plum);font-size:1.4rem;margin:10px 0 5px;">Starter Package</h3>
+                        <div style="font-size:2rem;font-weight:800;color:var(--royal-plum);">
+                            ₦350,000 <span style="font-size:1rem;font-weight:400;color:var(--slate-grey);">– ₦550,000</span>
+                        </div>
+                        <p style="color:var(--slate-grey);font-size:0.9rem;font-style:italic;">Ideal for small schools, churches &amp; businesses</p>
+                    </div>
+                    <ul style="list-style:none;padding:0;margin:15px 0;flex:1;">
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> Basic responsive website (5-8 pages)</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> Contact form integration</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> Basic SEO optimization</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> Mobile-responsive design</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> Social media integration</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> Google Analytics setup</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> 1 month free support</li>
                     </ul>
-                    <a href="contact.html" class="btn btn-primary">Request Quote</a>
+                    <div style="text-align:center;margin-top:15px;">
+                        <a href="contact.html" class="btn btn-primary" style="width:100%;">Get Started</a>
+                        <p style="color:var(--slate-grey);font-size:0.7rem;margin-top:8px;">One-time payment</p>
+                    </div>
                 </div>
 
-                <!-- ===== BUSINESS WEBSITE ===== -->
-                <div class="pricing-card animate-fade animate-delay-2">
-                    <div class="service-icon"><i class="fas fa-building"></i></div>
-                    <h3>Business Website</h3>
-                    <div class="price">₦300,000 <span>one-time</span></div>
-                    <ul>
-                        <li>15-25 pages with custom design</li>
-                        <li>Mobile-responsive + tablet-optimized</li>
-                        <li>Blog/CMS integration</li>
-                        <li>Payment gateway integration</li>
-                        <li>SEO optimization</li>
-                        <li>3 months free support</li>
+                <!-- ===== TIER 2: PROFESSIONAL (MOST POPULAR) ===== -->
+                <div class="pricing-card animate-fade animate-delay-2" style="background:var(--cream);padding:35px 25px;border-radius:var(--border-radius);box-shadow:var(--shadow-hover);transition:var(--transition);border-top:4px solid var(--royal-plum);display:flex;flex-direction:column;position:relative;transform:scale(1.02);">
+                    <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--royal-plum);color:white;padding:4px 20px;border-radius:20px;font-size:0.7rem;font-weight:700;text-transform:uppercase;">Most Popular</div>
+                    <div style="text-align:center;margin-bottom:15px;margin-top:8px;">
+                        <span style="background:var(--royal-plum);color:white;font-size:0.7rem;padding:2px 14px;border-radius:20px;font-weight:700;text-transform:uppercase;">Professional</span>
+                        <h3 style="color:var(--royal-plum);font-size:1.4rem;margin:10px 0 5px;">Professional Package</h3>
+                        <div style="font-size:2rem;font-weight:800;color:var(--royal-plum);">
+                            ₦750,000 <span style="font-size:1rem;font-weight:400;color:var(--slate-grey);">– ₦1,200,000</span>
+                        </div>
+                        <p style="color:var(--slate-grey);font-size:0.9rem;font-style:italic;">Perfect for growing businesses &amp; organizations</p>
+                    </div>
+                    <ul style="list-style:none;padding:0;margin:15px 0;flex:1;">
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> Full custom website + basic web app features</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> Payment gateway integration</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> Interactive dashboard</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> Branding package (logo refresh, content strategy)</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> Advanced SEO optimization</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> Training session included</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> 3 months free support</li>
                     </ul>
-                    <a href="contact.html" class="btn btn-primary">Request Quote</a>
+                    <div style="text-align:center;margin-top:15px;">
+                        <a href="contact.html" class="btn btn-primary" style="width:100%;background:var(--royal-plum);color:white;">Get Started</a>
+                        <p style="color:var(--slate-grey);font-size:0.7rem;margin-top:8px;">One-time payment</p>
+                    </div>
                 </div>
 
-                <!-- ===== E-COMMERCE / LEARNING ===== -->
-                <div class="pricing-card animate-fade animate-delay-3">
-                    <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
-                    <h3>E-Commerce / Learning Platform</h3>
-                    <div class="price">₦500,000 <span>one-time</span></div>
-                    <ul>
-                        <li>Full online store or learning platform</li>
-                        <li>Product/course catalog</li>
-                        <li>Payment gateway</li>
-                        <li>User accounts &amp; profiles</li>
-                        <li>Admin dashboard</li>
-                        <li>6 months free support</li>
+                <!-- ===== TIER 3: ENTERPRISE ===== -->
+                <div class="pricing-card animate-fade animate-delay-3" style="background:var(--cream);padding:35px 25px;border-radius:var(--border-radius);box-shadow:var(--shadow);transition:var(--transition);border-top:4px solid var(--antique-gold);display:flex;flex-direction:column;">
+                    <div style="text-align:center;margin-bottom:15px;">
+                        <span style="background:var(--antique-gold);color:var(--royal-plum);font-size:0.7rem;padding:2px 14px;border-radius:20px;font-weight:700;text-transform:uppercase;">Enterprise</span>
+                        <h3 style="color:var(--royal-plum);font-size:1.4rem;margin:10px 0 5px;">Enterprise Package</h3>
+                        <div style="font-size:2rem;font-weight:800;color:var(--royal-plum);">
+                            ₦1,500,000+ <span style="font-size:1rem;font-weight:400;color:var(--slate-grey);">(Quote-based)</span>
+                        </div>
+                        <p style="color:var(--slate-grey);font-size:0.9rem;font-style:italic;">For large organizations &amp; custom applications</p>
+                    </div>
+                    <ul style="list-style:none;padding:0;margin:15px 0;flex:1;">
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> Full-stack application development</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> Database integration (PostgreSQL)</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> AI features &amp; advanced functionality</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> Full branding + marketing strategy</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> User authentication &amp; roles</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);border-bottom:1px solid rgba(90,42,95,0.06);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> API development &amp; integration</li>
+                        <li style="padding:8px 0;color:var(--slate-grey);"><i class="fas fa-check" style="color:var(--antique-gold);margin-right:10px;"></i> 6 months support + maintenance retainer option</li>
                     </ul>
-                    <a href="contact.html" class="btn btn-primary">Request Quote</a>
-                </div>
-
-                <!-- ===== CUSTOM WEB APP ===== -->
-                <div class="pricing-card animate-fade animate-delay-4">
-                    <div class="service-icon"><i class="fas fa-code"></i></div>
-                    <h3>Custom Web Application</h3>
-                    <div class="price">₦800,000+ <span>one-time</span></div>
-                    <ul>
-                        <li>Full-stack custom development</li>
-                        <li>Database integration (PostgreSQL)</li>
-                        <li>User authentication &amp; roles</li>
-                        <li>API integrations</li>
-                        <li>Dashboard &amp; analytics</li>
-                        <li>Deployment &amp; hosting setup</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-primary">Request Quote</a>
+                    <div style="text-align:center;margin-top:15px;">
+                        <a href="contact.html" class="btn btn-primary" style="width:100%;">Request Quote</a>
+                        <p style="color:var(--slate-grey);font-size:0.7rem;margin-top:8px;">Custom pricing based on your needs</p>
+                    </div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- ===== WHY ME ===== -->
-    <section class="why-me">
+    <!-- ===== ADD-ONS & BUNDLES ===== -->
+    <section style="background:var(--cream);padding:60px 0;">
         <div class="container">
-            <h2 class="animate-fade">Why Work With Me?</h2>
-            <div class="why-me-grid">
-                <div class="why-me-item animate-fade animate-delay-1">
-                    <div class="icon"><i class="fas fa-laptop-code"></i></div>
-                    <h4>Full Stack Developer</h4>
-                    <p>Built 6+ live web applications with React, Node.js, PostgreSQL</p>
+            <h2 class="animate-fade" style="text-align:center;">Add-Ons &amp; Bundles</h2>
+            <p class="section-subtitle">Enhance your package with these additional services</p>
+            
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:25px;">
+
+                <!-- Add-on 1 -->
+                <div class="addon-card animate-fade animate-delay-1" style="background:white;padding:25px;border-radius:var(--border-radius);box-shadow:var(--shadow);transition:var(--transition);border-left:4px solid var(--royal-plum);">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+                        <div style="font-size:1.8rem;color:var(--royal-plum);"><i class="fas fa-gem"></i></div>
+                        <h3 style="color:var(--royal-plum);font-size:1.1rem;margin:0;">Branding + Web Dev Bundle</h3>
+                    </div>
+                    <p style="color:var(--slate-grey);font-size:0.9rem;">Save 15-20% when you bundle branding with web development.</p>
+                    <p style="color:var(--royal-plum);font-weight:700;">From ₦950,000</p>
+                    <a href="contact.html" class="btn btn-small btn-gold" style="margin-top:8px;">Enquire Now</a>
                 </div>
-                <div class="why-me-item animate-fade animate-delay-2">
-                    <div class="icon"><i class="fas fa-book"></i></div>
-                    <h4>25+ Books Published</h4>
-                    <p>Author with proven communication and content skills</p>
+
+                <!-- Add-on 2 -->
+                <div class="addon-card animate-fade animate-delay-2" style="background:white;padding:25px;border-radius:var(--border-radius);box-shadow:var(--shadow);transition:var(--transition);border-left:4px solid var(--royal-plum);">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+                        <div style="font-size:1.8rem;color:var(--royal-plum);"><i class="fas fa-shield-alt"></i></div>
+                        <h3 style="color:var(--royal-plum);font-size:1.1rem;margin:0;">Maintenance Retainer</h3>
+                    </div>
+                    <p style="color:var(--slate-grey);font-size:0.9rem;">Updates, security patches, backups, and ongoing support.</p>
+                    <p style="color:var(--royal-plum);font-weight:700;">₦80,000 – ₦200,000 / month</p>
+                    <a href="contact.html" class="btn btn-small btn-gold" style="margin-top:8px;">Enquire Now</a>
                 </div>
-                <div class="why-me-item animate-fade animate-delay-3">
-                    <div class="icon"><i class="fas fa-bullseye"></i></div>
-                    <h4>20 Years Experience</h4>
-                    <p>Education leadership &amp; business strategy expertise</p>
+
+                <!-- Add-on 3 -->
+                <div class="addon-card animate-fade animate-delay-3" style="background:white;padding:25px;border-radius:var(--border-radius);box-shadow:var(--shadow);transition:var(--transition);border-left:4px solid var(--royal-plum);">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+                        <div style="font-size:1.8rem;color:var(--royal-plum);"><i class="fas fa-users"></i></div>
+                        <h3 style="color:var(--royal-plum);font-size:1.1rem;margin:0;">Group Training / Workshop</h3>
+                    </div>
+                    <p style="color:var(--slate-grey);font-size:0.9rem;">"Build Your School Website" or "Digital Branding for SMEs"</p>
+                    <p style="color:var(--royal-plum);font-weight:700;">₦150,000 – ₦300,000 per group</p>
+                    <a href="contact.html" class="btn btn-small btn-gold" style="margin-top:8px;">Enquire Now</a>
                 </div>
-                <div class="why-me-item animate-fade animate-delay-4">
-                    <div class="icon"><i class="fas fa-handshake"></i></div>
-                    <h4>Client-Focused</h4>
-                    <p>Transparent pricing &amp; ongoing support</p>
+
+                <!-- Add-on 4 -->
+                <div class="addon-card animate-fade animate-delay-4" style="background:white;padding:25px;border-radius:var(--border-radius);box-shadow:var(--shadow);transition:var(--transition);border-left:4px solid var(--royal-plum);">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+                        <div style="font-size:1.8rem;color:var(--royal-plum);"><i class="fas fa-briefcase"></i></div>
+                        <h3 style="color:var(--royal-plum);font-size:1.1rem;margin:0;">Corporate Setup Package</h3>
+                    </div>
+                    <p style="color:var(--slate-grey);font-size:0.9rem;">CAC registration, ID cards, letterhead, business cards, email signatures, bank account guidance.</p>
+                    <p style="color:var(--royal-plum);font-weight:700;">₦250,000 – ₦450,000</p>
+                    <a href="contact.html" class="btn btn-small btn-gold" style="margin-top:8px;">Enquire Now</a>
                 </div>
+
+                <!-- Add-on 5 -->
+                <div class="addon-card animate-fade animate-delay-1" style="background:white;padding:25px;border-radius:var(--border-radius);box-shadow:var(--shadow);transition:var(--transition);border-left:4px solid var(--royal-plum);">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+                        <div style="font-size:1.8rem;color:var(--royal-plum);"><i class="fas fa-handshake"></i></div>
+                        <h3 style="color:var(--royal-plum);font-size:1.1rem;margin:0;">Consultation Bundle</h3>
+                    </div>
+                    <p style="color:var(--slate-grey);font-size:0.9rem;">1-hour strategy call + audit + roadmap. Bundle with project for discount.</p>
+                    <p style="color:var(--royal-plum);font-weight:700;">₦75,000</p>
+                    <a href="contact.html" class="btn btn-small btn-gold" style="margin-top:8px;">Book Now</a>
+                </div>
+
+                <!-- Add-on 6 -->
+                <div class="addon-card animate-fade animate-delay-2" style="background:white;padding:25px;border-radius:var(--border-radius);box-shadow:var(--shadow);transition:var(--transition);border-left:4px solid var(--royal-plum);">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+                        <div style="font-size:1.8rem;color:var(--royal-plum);"><i class="fas fa-user-graduate"></i></div>
+                        <h3 style="color:var(--royal-plum);font-size:1.1rem;margin:0;">Individual Training</h3>
+                    </div>
+                    <p style="color:var(--slate-grey);font-size:0.9rem;">Personalized coaching and training on web development, branding, or digital skills.</p>
+                    <p style="color:var(--royal-plum);font-weight:700;">₦50,000 – ₦100,000</p>
+                    <a href="contact.html" class="btn btn-small btn-gold" style="margin-top:8px;">Enquire Now</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHAT'S INCLUDED / WHY CHOOSE ME ===== -->
+    <section style="background:white;padding:60px 0;">
+        <div class="container">
+            <h2 class="animate-fade" style="text-align:center;">What's Included &amp; Why Choose Me</h2>
+            <p class="section-subtitle">Quality, experience, and commitment to your success</p>
+            
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:25px;">
+
+                <div class="why-item animate-fade animate-delay-1" style="background:var(--cream);padding:25px;border-radius:var(--border-radius);text-align:center;transition:var(--transition);">
+                    <div style="font-size:2.5rem;color:var(--royal-plum);margin-bottom:10px;"><i class="fas fa-laptop-code"></i></div>
+                    <h4 style="color:var(--royal-plum);margin-bottom:5px;">6+ Live Projects</h4>
+                    <p style="color:var(--slate-grey);font-size:0.9rem;">Proven track record of delivering successful web applications</p>
+                </div>
+
+                <div class="why-item animate-fade animate-delay-2" style="background:var(--cream);padding:25px;border-radius:var(--border-radius);text-align:center;transition:var(--transition);">
+                    <div style="font-size:2.5rem;color:var(--royal-plum);margin-bottom:10px;"><i class="fas fa-book"></i></div>
+                    <h4 style="color:var(--royal-plum);margin-bottom:5px;">25+ Books Published</h4>
+                    <p style="color:var(--slate-grey);font-size:0.9rem;">Author with proven communication and content creation skills</p>
+                </div>
+
+                <div class="why-item animate-fade animate-delay-3" style="background:var(--cream);padding:25px;border-radius:var(--border-radius);text-align:center;transition:var(--transition);">
+                    <div style="font-size:2.5rem;color:var(--royal-plum);margin-bottom:10px;"><i class="fas fa-clock"></i></div>
+                    <h4 style="color:var(--royal-plum);margin-bottom:5px;">20 Years Experience</h4>
+                    <p style="color:var(--slate-grey);font-size:0.9rem;">Education leadership &amp; business strategy expertise</p>
+                </div>
+
+                <div class="why-item animate-fade animate-delay-4" style="background:var(--cream);padding:25px;border-radius:var(--border-radius);text-align:center;transition:var(--transition);">
+                    <div style="font-size:2.5rem;color:var(--royal-plum);margin-bottom:10px;"><i class="fas fa-handshake"></i></div>
+                    <h4 style="color:var(--royal-plum);margin-bottom:5px;">Client-Focused</h4>
+                    <p style="color:var(--slate-grey);font-size:0.9rem;">Transparent pricing, clear communication, and ongoing support</p>
+                </div>
+
+                <div class="why-item animate-fade animate-delay-1" style="background:var(--cream);padding:25px;border-radius:var(--border-radius);text-align:center;transition:var(--transition);">
+                    <div style="font-size:2.5rem;color:var(--royal-plum);margin-bottom:10px;"><i class="fas fa-code"></i></div>
+                    <h4 style="color:var(--royal-plum);margin-bottom:5px;">Modern Tech Stack</h4>
+                    <p style="color:var(--slate-grey);font-size:0.9rem;">React, Node.js, PostgreSQL, Vercel — latest technologies</p>
+                </div>
+
+                <div class="why-item animate-fade animate-delay-2" style="background:var(--cream);padding:25px;border-radius:var(--border-radius);text-align:center;transition:var(--transition);">
+                    <div style="font-size:2.5rem;color:var(--royal-plum);margin-bottom:10px;"><i class="fas fa-nigeria-flag"></i></div>
+                    <h4 style="color:var(--royal-plum);margin-bottom:5px;">Nigerian Market Expert</h4>
+                    <p style="color:var(--slate-grey);font-size:0.9rem;">Understanding of local business needs, payment systems, and user behavior</p>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- ===== PORTFOLIO LINKS ===== -->
-    <section class="portfolio-links-section">
+    <section style="background:var(--cream);padding:50px 0;">
         <div class="container">
-            <h2 class="animate-fade">View My Work</h2>
-            <div class="portfolio-links-grid animate-fade animate-delay-1">
+            <h2 class="animate-fade" style="text-align:center;">View My Work</h2>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px;" class="animate-fade animate-delay-1">
                 <a href="https://label-reach-instructor-system.vercel.app" target="_blank" class="btn btn-small btn-outline-dark">Instructor System</a>
                 <a href="https://content-marketing-hub.vercel.app" target="_blank" class="btn btn-small btn-outline-dark">Content Hub</a>
                 <a href="https://school-branding-toolkit.vercel.app" target="_blank" class="btn btn-small btn-outline-dark">Branding Toolkit</a>
                 <a href="https://data-analysis-dashboard-liart.vercel.app" target="_blank" class="btn btn-small btn-outline-dark">Data Dashboard</a>
                 <a href="https://edumate-learning-platform.vercel.app" target="_blank" class="btn btn-small btn-outline-dark">Learning Platform</a>
                 <a href="https://asafeplacewithmma.com" target="_blank" class="btn btn-small btn-outline-dark">Safe Place with MMA</a>
+                <a href="https://pastorwilfred.com" target="_blank" class="btn btn-small btn-outline-dark">Pastor Wilfred</a>
                 <a href="portfolio.html" class="btn btn-small btn-primary">View Portfolio</a>
             </div>
         </div>
     </section>
 
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section" style="background:linear-gradient(135deg,var(--royal-plum) 0%,var(--plum-light) 100%);color:white;text-align:center;padding:50px 20px;">
+        <div class="container">
+            <h2 style="color:white;font-size:1.8rem;margin-bottom:10px;">Ready to Start Your Project?</h2>
+            <p style="font-size:1rem;opacity:0.9;margin-bottom:20px;">Get a free consultation and quote for your website, branding, or digital project.</p>
+            <div style="display:flex;justify-content:center;gap:15px;flex-wrap:wrap;">
+                <a href="contact.html" class="btn btn-primary" style="background:var(--antique-gold);color:var(--royal-plum);">Contact Me</a>
+                <a href="https://wa.me/2347032977572" target="_blank" class="btn btn-outline" style="border-color:white;color:white;">Chat on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== BACK LINK ===== -->
-    <section class="back-section">
+    <section style="padding:30px 0;text-align:center;background:var(--cream);">
         <div class="container">
             <a href="index.html" class="btn btn-outline-dark">Back to Home</a>
         </div>
@@ -272,6 +391,18 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 Emmanuel Adekunle Peace — Full Stack Developer, Author &amp; Branding Strategist.</p>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:10px 0;">
+                <a href="index.html" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.85rem;">Home</a>
+                <a href="about.html" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.85rem;">About</a>
+                <a href="services.html" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.85rem;">Services</a>
+                <a href="portfolio.html" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.85rem;">Portfolio</a>
+                <a href="testimonials.html" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.85rem;">Testimonials</a>
+                <a href="books.html" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.85rem;">Books</a>
+                <a href="pricing.html" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.85rem;">Pricing</a>
+                <a href="blog.html" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.85rem;">Blog</a>
+                <a href="resources.html" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.85rem;">Resources</a>
+                <a href="contact.html" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.85rem;">Contact</a>
+            </div>
             <div class="footer-social">
                 <a href="https://www.linkedin.com/in/emmanueladekunlep" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="https://x.com/emmanueladekunlep" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter"></i></a>
