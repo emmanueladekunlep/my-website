@@ -525,6 +525,51 @@
       color: #3d1f0e;
     }
 
+    /* ===== SHARE BUTTONS ===== */
+    .share-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 22px;
+      border-radius: 60px;
+      border: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: white;
+    }
+    .share-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+    }
+    .share-btn.copy-btn {
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+    }
+    .share-btn.copy-btn:hover {
+      background: linear-gradient(135deg, #34495e, #2c3e50);
+      box-shadow: 0 6px 20px rgba(44, 62, 80, 0.4);
+    }
+    .share-btn.whatsapp-btn {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+    }
+    .share-btn.whatsapp-btn:hover {
+      background: linear-gradient(135deg, #128C7E, #075E54);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    }
+    .share-btn.copy-btn.copied {
+      background: #27ae60;
+    }
+    .share-btn i {
+      font-size: 1.2rem;
+    }
+
     .footnote {
       margin-top: 24px;
       text-align: center;
@@ -565,6 +610,7 @@
       .section-rating { gap: 8px 14px; }
       .rating-item { font-size: 0.75rem; padding: 3px 12px 3px 8px; }
       .top-disagreements li { font-size: 0.82rem; }
+      .share-btn { font-size: 0.85rem; padding: 8px 16px; }
     }
 
     @media (max-width: 400px) {
@@ -580,7 +626,7 @@
 <div class="container" id="app">
   <!-- ===== HEADER ===== -->
   <div class="header">
-    <img src="my-website/images/pnp.jpeg" alt="Speacial & Flame" class="header-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22 viewBox=%220 0 80 80%22%3E%3Ccircle cx=%2240%22 cy=%2240%22 r=%2238%22 fill=%22%23d4a06a%22/%3E%3Ctext x=%2218%22 y=%2248%22 font-size=%2224%22 fill=%22%233d1f0e%22 font-family=%22sans-serif%22%3E🔥%3C/text%3E%3C/svg%3E'" />
+    <img src="https://emmanueladekunlepeace.com/my-website/images/pnp.jpeg" alt="Speacial & Flame" class="header-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22 viewBox=%220 0 80 80%22%3E%3Ccircle cx=%2240%22 cy=%2240%22 r=%2238%22 fill=%22%23d4a06a%22/%3E%3Ctext x=%2218%22 y=%2248%22 font-size=%2224%22 fill=%22%233d1f0e%22 font-family=%22sans-serif%22%3E🔥%3C/text%3E%3C/svg%3E'" />
     <div class="title-group">
       <h1>
         <i class="fas fa-heart heart-icon"></i>
@@ -600,7 +646,7 @@
   <!-- ===== INSTRUCTIONS ===== -->
   <div class="instructions">
     <i class="fas fa-pen-fancy"></i> <strong>Flame (Perpetual),</strong> this quiz is for YOU. <span class="flame-highlight">Speacial (Emmanuel)</span> has already answered all 30 questions. <br>
-    <i class="fas fa-child" style="margin-left:4px;"></i> blended family · Lagos traffic · in-laws · money — everything is here. <br>
+    <i class="fas fa-child" style="margin-left:4px;"></i> Girls aged 7 & 9 · blended family · Lagos traffic · in-laws · money — everything is here. <br>
     <span style="display:inline-block; margin-top:5px; background:#d4a06a33; padding:2px 14px; border-radius:30px; font-size:0.9rem;">
       <i class="fas fa-check-circle" style="color:#27ae60;"></i> One answer per question. Submit to see Speacial's answers & your compatibility.
     </span>
@@ -641,6 +687,16 @@
     <div class="lagos-reality" id="lagosReality">
       <strong><i class="fas fa-road"></i> Lagos Reality Check</strong>
       <p id="realityText"></p>
+    </div>
+
+    <!-- ===== SHARE BUTTONS (NEW) ===== -->
+    <div class="share-buttons">
+      <button class="share-btn copy-btn" id="copyResultsBtn">
+        <i class="fas fa-copy"></i> Copy Results to Clipboard
+      </button>
+      <a class="share-btn whatsapp-btn" id="whatsappShareBtn" target="_blank">
+        <i class="fab fa-whatsapp"></i> Send via WhatsApp
+      </a>
     </div>
 
     <div class="footnote">
@@ -766,6 +822,15 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    // ===== GLOBAL VARIABLES FOR SHARING =====
+    let lastResults = {
+      pct: 0,
+      verdict: '',
+      disagreements: [],
+      answers: {},
+      allDisagreements: []
+    };
+
     // ===== SUBMIT =====
     document.getElementById('submitBtn').addEventListener('click', function() {
       const allQs = QUESTIONS.map(q => q.id);
@@ -782,6 +847,9 @@
         return;
       }
 
+      // Store answers for sharing
+      lastResults.answers = answers;
+
       let matchCount = 0;
       const total = allQs.length;
       const disagreements = [];
@@ -793,12 +861,16 @@
         }
       });
 
+      lastResults.allDisagreements = disagreements;
+
       const pct = Math.round((matchCount / total) * 100);
+      lastResults.pct = pct;
       let verdict = '';
       let verdictColor = '';
       if (pct >= 75) { verdict = '💚 Strong Match'; verdictColor = '#27ae60'; }
       else if (pct >= 50) { verdict = '💛 Needs Work'; verdictColor = '#f39c12'; }
       else { verdict = '❤️‍🩹 Serious Discussion Needed'; verdictColor = '#e74c3c'; }
+      lastResults.verdict = verdict;
 
       const panel = document.getElementById('resultPanel');
       panel.style.display = 'block';
@@ -846,8 +918,86 @@
         reality.innerHTML = '🔴 <strong>Flame & Speacial</strong> — significant differences. Lagos will test you. Have honest conversations about EVERYTHING — money, children, and where to live. Consider pre-marital counseling. 💙';
       }
 
+      // Update share buttons with latest data
+      updateShareButtons();
+
       panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
+
+    // ===== GENERATE SHARE TEXT =====
+    function generateShareText() {
+      const { pct, verdict, allDisagreements, answers } = lastResults;
+      
+      let text = '🔥 *PnP Compatibility Results* 🔥\n\n';
+      text += `👫 *Flame (Perpetual)* vs *Speacial (E.A. Peace)*\n`;
+      text += `📊 *Compatibility Score:* ${pct}%\n`;
+      text += `⚖️ *Verdict:* ${verdict}\n\n`;
+      text += `━─━─━─━─━─━─━─━─━─━─━─━─━\n`;
+      text += `📋 *Flame's Answers:*\n\n`;
+      
+      QUESTIONS.forEach((q, idx) => {
+        const qId = q.id;
+        const flameAnswer = answers[qId] || 'Not answered';
+        const speacialAnswer = EMMANUEL_ANSWERS[qId];
+        const match = flameAnswer === speacialAnswer ? '✅' : '❌';
+        const shortQ = q.text.length > 50 ? q.text.substring(0, 50) + '...' : q.text;
+        text += `${idx+1}. ${shortQ}\n`;
+        text += `   🔥 Flame: ${flameAnswer}  |  💙 Speacial: ${speacialAnswer} ${match}\n\n`;
+      });
+
+      text += `━─━─━─━─━─━─━─━─━─━─━─━─━\n`;
+      text += `📌 *Top Disagreements:*\n\n`;
+      
+      const sorted = allDisagreements.slice(0, 5);
+      if (sorted.length === 0) {
+        text += `✅ No disagreements! You agree on everything! 🔥\n`;
+      } else {
+        sorted.forEach((d, i) => {
+          const qShort = d.qText.length > 60 ? d.qText.substring(0, 60) + '...' : d.qText;
+          text += `${i+1}. ${qShort}\n`;
+          text += `   🔥 Flame: ${d.her}  |  💙 Speacial: ${d.him}\n\n`;
+        });
+      }
+
+      text += `━─━─━─━─━─━─━─━─━─━─━─━─━\n`;
+      text += `💬 *Send this to Speacial on WhatsApp!*\n`;
+      text += `🔗 https://emmanueladekunlepeace.com/pnp.html`;
+
+      return text;
+    }
+
+    // ===== UPDATE SHARE BUTTONS =====
+    function updateShareButtons() {
+      const text = generateShareText();
+      
+      // Copy button
+      const copyBtn = document.getElementById('copyResultsBtn');
+      copyBtn.onclick = function() {
+        navigator.clipboard.writeText(text).then(() => {
+          const originalText = copyBtn.innerHTML;
+          copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+          copyBtn.classList.add('copied');
+          setTimeout(() => {
+            copyBtn.innerHTML = originalText;
+            copyBtn.classList.remove('copied');
+          }, 3000);
+        }).catch(() => {
+          // Fallback
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          alert('📋 Results copied to clipboard! Now paste and send to Speacial.');
+        });
+      };
+
+      // WhatsApp button
+      const whatsappBtn = document.getElementById('whatsappShareBtn');
+      const encodedText = encodeURIComponent(text);
+      whatsappBtn.href = `https://wa.me/?text=${encodedText}`;
+    }
 
   })();
 </script>
