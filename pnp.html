@@ -3,798 +3,465 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-  <title>💞 Second Chance Audit · Speacial & Flame</title>
+  <title>💞 Relationship Audit · Peace & Partner</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
-    }
-
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Roboto, system-ui, -apple-system, sans-serif; }
     body {
       background: linear-gradient(145deg, #1a0e0a 0%, #2d1a12 40%, #1e0f0a 100%);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: 20px 12px 50px;
+      min-height:100vh; display:flex; justify-content:center; padding:20px 12px 50px;
     }
-
     .container {
-      max-width: 920px;
-      width: 100%;
-      background: rgba(255, 245, 235, 0.92);
-      backdrop-filter: blur(8px);
-      border-radius: 48px 48px 32px 32px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(255, 180, 80, 0.15);
-      padding: 25px 22px 35px;
-      border: 1px solid rgba(255, 200, 120, 0.25);
-      animation: fadeSlide 0.9s ease-out;
+      max-width:920px; width:100%;
+      background:rgba(255, 245, 235, 0.92); backdrop-filter:blur(8px);
+      border-radius:48px 48px 32px 32px;
+      box-shadow:0 30px 60px rgba(0,0,0,0.6), 0 0 0 2px rgba(255,180,80,0.15);
+      padding:25px 22px 35px; border:1px solid rgba(255,200,120,0.25);
+      animation:fadeSlide 0.9s ease-out;
     }
+    @keyframes fadeSlide { 0%{opacity:0; transform:translateY(40px) scale(0.97);} 100%{opacity:1; transform:translateY(0) scale(1);} }
 
-    @keyframes fadeSlide {
-      0% { opacity: 0; transform: translateY(40px) scale(0.97); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    /* ===== HEADER ===== */
     .header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
-      padding-bottom: 18px;
-      border-bottom: 3px dashed #d4a06a;
-      position: relative;
+      display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+      margin-bottom:16px; padding-bottom:18px;
+      border-bottom:3px dashed #d4a06a;
     }
-
     .header-img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #d4a06a;
-      box-shadow: 0 0 0 3px #f5d6b3, 0 8px 20px rgba(0,0,0,0.3);
-      transition: all 0.4s ease;
-      background: #e3d3bd;
-      flex-shrink: 0;
+      width:80px; height:80px; border-radius:50%; object-fit:cover;
+      border:4px solid #d4a06a; box-shadow:0 0 0 3px #f5d6b3, 0 8px 20px rgba(0,0,0,0.3);
+      transition:all 0.4s ease; background:#e3d3bd; flex-shrink:0;
     }
-    .header-img:hover {
-      transform: scale(1.06) rotate(-3deg);
-      box-shadow: 0 0 0 5px #f5d6b3, 0 12px 30px rgba(0,0,0,0.4);
-    }
-
-    .title-group {
-      flex: 1;
-      min-width: 180px;
-    }
+    .header-img:hover { transform:scale(1.06) rotate(-3deg); box-shadow:0 0 0 5px #f5d6b3,0 12px 30px rgba(0,0,0,0.4); }
+    .title-group { flex:1; min-width:180px; }
     .title-group h1 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: #3d1f0e;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px;
-      letter-spacing: -0.5px;
+      font-size:1.8rem; font-weight:800; color:#3d1f0e;
+      display:flex; align-items:center; flex-wrap:wrap; gap:6px; letter-spacing:-0.5px;
     }
-    .title-group h1 .flame {
-      color: #c0392b;
-      text-shadow: 0 0 20px rgba(192, 57, 43, 0.3);
-    }
-    .title-group h1 .speacial {
-      color: #1a5276;
-      text-shadow: 0 0 20px rgba(26, 82, 118, 0.3);
-    }
-    .title-group h1 i {
-      font-size: 1.6rem;
-    }
-    .title-group h1 .heart-icon {
-      color: #e74c3c;
-      animation: pulseHeart 1.5s ease-in-out infinite;
-    }
-    @keyframes pulseHeart {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.25); }
-    }
+    .title-group h1 .peace { color:#1a5276; text-shadow:0 0 20px rgba(26,82,118,0.3); }
+    .title-group h1 .partner { color:#8a6e4b; font-weight:300; }
+    .title-group h1 i { font-size:1.6rem; }
+    .title-group h1 .heart-icon { color:#e74c3c; animation:pulseHeart 1.5s ease-in-out infinite; }
+    @keyframes pulseHeart { 0%,100%{transform:scale(1);} 50%{transform:scale(1.25);} }
 
     .subhead {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 20px;
-      color: #5a3d2b;
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-top: 4px;
+      display:flex; flex-wrap:wrap; gap:12px 20px; color:#5a3d2b;
+      font-weight:600; font-size:0.95rem; margin-top:4px;
     }
-    .subhead span i {
-      margin-right: 6px;
-    }
-    .subhead .flame-tag {
-      color: #c0392b;
-    }
-    .subhead .speacial-tag {
-      color: #1a5276;
+    .subhead span i { margin-right:6px; }
+    .subhead .peace-tag { color:#1a5276; }
+    .subhead .partner-tag { color:#c0392b; }
+    .badge-generic {
+      background:linear-gradient(135deg, #1a3a2a, #2d5a3d);
+      color:#f5e7d9; padding:4px 16px; border-radius:40px;
+      font-size:0.75rem; font-weight:700; letter-spacing:0.5px;
+      display:inline-block; border:1px solid #d4a06a55;
     }
 
-    .badge-lagos {
-      background: linear-gradient(135deg, #1a3a2a, #2d5a3d);
-      color: #f5e7d9;
-      padding: 4px 16px;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      display: inline-block;
-      border: 1px solid #d4a06a55;
-    }
-
-    /* ===== INSTRUCTIONS ===== */
     .instructions {
-      background: linear-gradient(135deg, #fcf3e8, #f5e6d3);
-      padding: 16px 20px;
-      border-radius: 28px;
-      margin: 14px 0 24px;
-      border-left: 8px solid #d4a06a;
-      box-shadow: inset 0 0 0 1px rgba(255,215,140,0.3);
-      font-size: 0.95rem;
+      background:linear-gradient(135deg, #fcf3e8, #f5e6d3);
+      padding:16px 20px; border-radius:28px; margin:14px 0 24px;
+      border-left:8px solid #d4a06a;
+      box-shadow:inset 0 0 0 1px rgba(255,215,140,0.3);
+      font-size:0.95rem;
     }
-    .instructions i {
-      color: #d4a06a;
-      margin-right: 10px;
-    }
-    .instructions strong {
-      color: #3d1f0e;
-    }
-    .instructions .flame-highlight {
-      color: #c0392b;
-      font-weight: 700;
-    }
+    .instructions i { color:#d4a06a; margin-right:10px; }
+    .instructions strong { color:#3d1f0e; }
+    .instructions .highlight { color:#1a5276; font-weight:700; }
 
-    /* ===== PROGRESS ===== */
     .progress-wrap {
-      background: #ddd0c0;
-      height: 14px;
-      border-radius: 40px;
-      margin: 18px 0 26px;
-      overflow: hidden;
-      box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
+      background:#ddd0c0; height:14px; border-radius:40px;
+      margin:18px 0 26px; overflow:hidden;
+      box-shadow:inset 0 2px 6px rgba(0,0,0,0.1);
     }
     .progress-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #d4a06a, #c0392b, #d4a06a);
-      background-size: 200% 100%;
-      border-radius: 40px;
-      transition: width 0.5s ease;
-      animation: shimmer 2s linear infinite;
+      height:100%; width:0%;
+      background:linear-gradient(90deg, #d4a06a, #c0392b, #d4a06a);
+      background-size:200% 100%; border-radius:40px;
+      transition:width 0.5s ease; animation:shimmer 2s linear infinite;
     }
-    @keyframes shimmer {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
+    @keyframes shimmer { 0%{background-position:200% 0;} 100%{background-position:-200% 0;} }
 
-    /* ===== QUESTION CARDS - COLORFUL ===== */
     .question-card {
-      border-radius: 28px;
-      padding: 20px 22px 16px;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      border: 2px solid transparent;
-      transition: all 0.3s ease;
-      animation: cardPop 0.6s ease forwards;
-      opacity: 0;
-      transform: scale(0.96);
+      border-radius:28px; padding:20px 22px 16px; margin-bottom:20px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.08);
+      border:2px solid transparent; transition:all 0.3s ease;
+      animation:cardPop 0.6s ease forwards; opacity:0; transform:scale(0.96);
     }
-    .question-card:nth-child(1) { animation-delay: 0.05s; }
-    .question-card:nth-child(2) { animation-delay: 0.10s; }
-    .question-card:nth-child(3) { animation-delay: 0.15s; }
-    .question-card:nth-child(4) { animation-delay: 0.20s; }
-    .question-card:nth-child(5) { animation-delay: 0.25s; }
-    .question-card:nth-child(6) { animation-delay: 0.30s; }
-    .question-card:nth-child(7) { animation-delay: 0.35s; }
-    .question-card:nth-child(8) { animation-delay: 0.40s; }
-    .question-card:nth-child(9) { animation-delay: 0.45s; }
-    .question-card:nth-child(10) { animation-delay: 0.50s; }
-    .question-card:nth-child(11) { animation-delay: 0.55s; }
-    .question-card:nth-child(12) { animation-delay: 0.60s; }
-    .question-card:nth-child(13) { animation-delay: 0.65s; }
-    .question-card:nth-child(14) { animation-delay: 0.70s; }
-    .question-card:nth-child(15) { animation-delay: 0.75s; }
-    .question-card:nth-child(16) { animation-delay: 0.80s; }
-    .question-card:nth-child(17) { animation-delay: 0.85s; }
-    .question-card:nth-child(18) { animation-delay: 0.90s; }
-    .question-card:nth-child(19) { animation-delay: 0.95s; }
-    .question-card:nth-child(20) { animation-delay: 1.00s; }
-    .question-card:nth-child(21) { animation-delay: 1.05s; }
-    .question-card:nth-child(22) { animation-delay: 1.10s; }
-    .question-card:nth-child(23) { animation-delay: 1.15s; }
-    .question-card:nth-child(24) { animation-delay: 1.20s; }
-    .question-card:nth-child(25) { animation-delay: 1.25s; }
-    .question-card:nth-child(26) { animation-delay: 1.30s; }
-    .question-card:nth-child(27) { animation-delay: 1.35s; }
-    .question-card:nth-child(28) { animation-delay: 1.40s; }
-    .question-card:nth-child(29) { animation-delay: 1.45s; }
-    .question-card:nth-child(30) { animation-delay: 1.50s; }
+    .question-card:nth-child(1){animation-delay:0.05s;}
+    .question-card:nth-child(2){animation-delay:0.10s;}
+    .question-card:nth-child(3){animation-delay:0.15s;}
+    .question-card:nth-child(4){animation-delay:0.20s;}
+    .question-card:nth-child(5){animation-delay:0.25s;}
+    .question-card:nth-child(6){animation-delay:0.30s;}
+    .question-card:nth-child(7){animation-delay:0.35s;}
+    .question-card:nth-child(8){animation-delay:0.40s;}
+    .question-card:nth-child(9){animation-delay:0.45s;}
+    .question-card:nth-child(10){animation-delay:0.50s;}
+    .question-card:nth-child(11){animation-delay:0.55s;}
+    .question-card:nth-child(12){animation-delay:0.60s;}
+    .question-card:nth-child(13){animation-delay:0.65s;}
+    .question-card:nth-child(14){animation-delay:0.70s;}
+    .question-card:nth-child(15){animation-delay:0.75s;}
+    .question-card:nth-child(16){animation-delay:0.80s;}
+    .question-card:nth-child(17){animation-delay:0.85s;}
+    .question-card:nth-child(18){animation-delay:0.90s;}
+    .question-card:nth-child(19){animation-delay:0.95s;}
+    .question-card:nth-child(20){animation-delay:1.00s;}
+    .question-card:nth-child(21){animation-delay:1.05s;}
+    .question-card:nth-child(22){animation-delay:1.10s;}
+    .question-card:nth-child(23){animation-delay:1.15s;}
+    .question-card:nth-child(24){animation-delay:1.20s;}
+    .question-card:nth-child(25){animation-delay:1.25s;}
+    .question-card:nth-child(26){animation-delay:1.30s;}
+    .question-card:nth-child(27){animation-delay:1.35s;}
+    .question-card:nth-child(28){animation-delay:1.40s;}
+    .question-card:nth-child(29){animation-delay:1.45s;}
+    .question-card:nth-child(30){animation-delay:1.50s;}
 
-    @keyframes cardPop {
-      0% { opacity: 0; transform: scale(0.96) translateY(15px); }
-      100% { opacity: 1; transform: scale(1) translateY(0); }
-    }
+    @keyframes cardPop { 0%{opacity:0; transform:scale(0.96) translateY(15px);} 100%{opacity:1; transform:scale(1) translateY(0);} }
+    .question-card:hover { transform:translateY(-3px) scale(1.01); box-shadow:0 12px 32px rgba(0,0,0,0.12); }
 
-    .question-card:hover {
-      transform: translateY(-3px) scale(1.01);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-    }
+    .card-color-1 { background:linear-gradient(135deg, #fff5f0, #ffe8dd); border-color:#e8b4a0; }
+    .card-color-2 { background:linear-gradient(135deg, #f0f7ff, #ddeeff); border-color:#a0c4e8; }
+    .card-color-3 { background:linear-gradient(135deg, #f5faf0, #e2f0d6); border-color:#a8c99b; }
+    .card-color-4 { background:linear-gradient(135deg, #fff8f0, #ffeddd); border-color:#e8c9a0; }
+    .card-color-5 { background:linear-gradient(135deg, #f5f0ff, #e8ddff); border-color:#c4a0e8; }
+    .card-color-6 { background:linear-gradient(135deg, #fff0f5, #ffdde8); border-color:#e8a0c4; }
+    .card-color-7 { background:linear-gradient(135deg, #f0faf5, #ddf0e2); border-color:#a0d4b4; }
+    .card-color-8 { background:linear-gradient(135deg, #faf5f0, #f0e8dd); border-color:#d4bca0; }
 
-    /* Card Colors - Rotating */
-    .card-color-1 { background: linear-gradient(135deg, #fff5f0, #ffe8dd); border-color: #e8b4a0; }
-    .card-color-2 { background: linear-gradient(135deg, #f0f7ff, #ddeeff); border-color: #a0c4e8; }
-    .card-color-3 { background: linear-gradient(135deg, #f5faf0, #e2f0d6); border-color: #a8c99b; }
-    .card-color-4 { background: linear-gradient(135deg, #fff8f0, #ffeddd); border-color: #e8c9a0; }
-    .card-color-5 { background: linear-gradient(135deg, #f5f0ff, #e8ddff); border-color: #c4a0e8; }
-    .card-color-6 { background: linear-gradient(135deg, #fff0f5, #ffdde8); border-color: #e8a0c4; }
-    .card-color-7 { background: linear-gradient(135deg, #f0faf5, #ddf0e2); border-color: #a0d4b4; }
-    .card-color-8 { background: linear-gradient(135deg, #faf5f0, #f0e8dd); border-color: #d4bca0; }
-
-    .q-head {
-      display: flex;
-      gap: 12px;
-      align-items: baseline;
-      margin-bottom: 10px;
-    }
+    .q-head { display:flex; gap:12px; align-items:baseline; margin-bottom:10px; }
     .q-num {
-      background: linear-gradient(135deg, #d4a06a, #b8834a);
-      color: white;
-      font-weight: 800;
-      width: 34px;
-      height: 34px;
-      border-radius: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      flex-shrink: 0;
-      box-shadow: 0 4px 10px rgba(184, 131, 74, 0.3);
+      background:linear-gradient(135deg, #d4a06a, #b8834a); color:white;
+      font-weight:800; width:34px; height:34px; border-radius:40px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:0.85rem; flex-shrink:0; box-shadow:0 4px 10px rgba(184,131,74,0.3);
     }
-    .q-text {
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: #2d1a0e;
-      line-height: 1.4;
-    }
-    .q-text i {
-      margin-right: 6px;
-      color: #d4a06a;
-    }
-    .q-text .flame-name {
-      color: #c0392b;
-      font-weight: 800;
-    }
-    .q-text .speacial-name {
-      color: #1a5276;
-      font-weight: 800;
-    }
+    .q-text { font-weight:700; font-size:1.05rem; color:#2d1a0e; line-height:1.4; }
+    .q-text i { margin-right:6px; color:#d4a06a; }
+    .q-text .peace-name { color:#1a5276; font-weight:800; }
+    .q-text .partner-name { color:#c0392b; font-weight:800; }
 
-    /* ===== OPTIONS ===== */
-    .options {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      padding-left: 8px;
-      margin-top: 4px;
-    }
+    .options { display:flex; flex-direction:column; gap:6px; padding-left:8px; margin-top:4px; }
     .options label {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 7px 16px 7px 12px;
-      border-radius: 40px;
-      background: rgba(255, 255, 255, 0.7);
-      border: 1.5px solid transparent;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      font-size: 0.95rem;
-      color: #2d1a0e;
-      backdrop-filter: blur(4px);
+      display:flex; align-items:center; gap:14px; padding:7px 16px 7px 12px;
+      border-radius:40px; background:rgba(255,255,255,0.7);
+      border:1.5px solid transparent; transition:all 0.2s ease;
+      cursor:pointer; font-size:0.95rem; color:#2d1a0e; backdrop-filter:blur(4px);
     }
-    .options label:hover {
-      background: rgba(255, 255, 255, 0.95);
-      border-color: #d4a06a;
-      transform: translateX(4px);
-    }
+    .options label:hover { background:rgba(255,255,255,0.95); border-color:#d4a06a; transform:translateX(4px); }
     .options input[type="radio"] {
-      appearance: none;
-      width: 20px;
-      height: 20px;
-      border: 2.5px solid #b8834a;
-      border-radius: 50%;
-      position: relative;
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: all 0.15s;
+      appearance:none; width:20px; height:20px; border:2.5px solid #b8834a;
+      border-radius:50%; position:relative; cursor:pointer; flex-shrink:0;
+      transition:all 0.15s;
     }
     .options input[type="radio"]:checked {
-      background: #b8834a;
-      border-color: #b8834a;
-      box-shadow: 0 0 0 4px rgba(184, 131, 74, 0.25);
-      animation: radioPop 0.25s ease;
+      background:#b8834a; border-color:#b8834a; box-shadow:0 0 0 4px rgba(184,131,74,0.25);
+      animation:radioPop 0.25s ease;
     }
-    @keyframes radioPop {
-      0% { transform: scale(0.7); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
+    @keyframes radioPop { 0%{transform:scale(0.7);} 50%{transform:scale(1.2);} 100%{transform:scale(1);} }
     .options input[type="radio"]:checked::after {
-      content: "✓";
-      position: absolute;
-      color: white;
-      font-weight: 800;
-      font-size: 13px;
-      left: 3px;
-      top: -1px;
+      content:"✓"; position:absolute; color:white; font-weight:800; font-size:13px; left:3px; top:-1px;
     }
-    .opt-letter {
-      font-weight: 700;
-      color: #8a6e4b;
-      min-width: 24px;
-    }
-    .opt-special {
-      background: rgba(192, 57, 43, 0.08) !important;
-      border-left: 4px solid #c0392b !important;
-      padding-left: 12px;
-      border-radius: 40px;
-    }
-    .opt-special:hover {
-      background: rgba(192, 57, 43, 0.15) !important;
-    }
+    .opt-letter { font-weight:700; color:#8a6e4b; min-width:24px; }
 
-    /* ===== SUBMIT ===== */
     .submit-area {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      margin: 28px 0 14px;
-      gap: 14px;
+      display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+      margin:28px 0 14px; gap:14px;
     }
     .btn-submit {
-      background: linear-gradient(135deg, #1a3a2a, #2d5a3d);
-      border: none;
-      color: white;
-      font-weight: 800;
-      font-size: 1.2rem;
-      padding: 14px 36px;
-      border-radius: 60px;
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      cursor: pointer;
-      box-shadow: 0 8px 24px rgba(26, 58, 42, 0.35);
-      transition: all 0.3s ease;
-      border: 1px solid #4a7a5d;
-      letter-spacing: 0.5px;
+      background:linear-gradient(135deg, #1a3a2a, #2d5a3d); border:none; color:white;
+      font-weight:800; font-size:1.2rem; padding:14px 36px; border-radius:60px;
+      display:inline-flex; align-items:center; gap:14px; cursor:pointer;
+      box-shadow:0 8px 24px rgba(26,58,42,0.35); transition:all 0.3s ease;
+      border:1px solid #4a7a5d; letter-spacing:0.5px;
     }
-    .btn-submit:hover {
-      transform: translateY(-3px) scale(1.02);
-      background: linear-gradient(135deg, #2d5a3d, #3d7a5d);
-      box-shadow: 0 12px 36px rgba(26, 58, 42, 0.45);
-    }
-    .btn-submit:active {
-      transform: scale(0.97);
-    }
-    .btn-submit:disabled {
-      opacity: 0.5;
-      pointer-events: none;
-      filter: grayscale(0.5);
-    }
-
+    .btn-submit:hover { transform:translateY(-3px) scale(1.02); background:linear-gradient(135deg, #2d5a3d, #3d7a5d); box-shadow:0 12px 36px rgba(26,58,42,0.45); }
+    .btn-submit:active { transform:scale(0.97); }
+    .btn-submit:disabled { opacity:0.5; pointer-events:none; filter:grayscale(0.5); }
     .reset-link {
-      color: #8a6e4b;
-      text-decoration: none;
-      font-weight: 600;
-      border-bottom: 2.5px dotted #d4a06a;
-      padding-bottom: 3px;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-size: 0.95rem;
+      color:#8a6e4b; text-decoration:none; font-weight:600;
+      border-bottom:2.5px dotted #d4a06a; padding-bottom:3px; cursor:pointer;
+      transition:all 0.2s; font-size:0.95rem;
     }
-    .reset-link:hover {
-      color: #3d1f0e;
-      border-bottom-color: #b8834a;
-      transform: scale(1.05);
-    }
+    .reset-link:hover { color:#3d1f0e; border-bottom-color:#b8834a; transform:scale(1.05); }
 
-    /* ===== RESULT PANEL ===== */
     .result-panel {
-      margin-top: 28px;
-      background: linear-gradient(135deg, #fcf3e8, #f5e6d3);
-      border-radius: 36px;
-      padding: 26px 24px;
-      border: 2px solid #d4a06a;
-      display: none;
-      animation: fadeSlide 0.7s ease;
+      margin-top:28px; background:linear-gradient(135deg, #fcf3e8, #f5e6d3);
+      border-radius:36px; padding:26px 24px; border:2px solid #d4a06a;
+      display:none; animation:fadeSlide 0.7s ease;
     }
-    .result-panel.visible {
-      display: block;
-    }
+    .result-panel.visible { display:block; }
 
     .result-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      border-bottom: 2px solid #d4a06a;
-      padding-bottom: 16px;
-      margin-bottom: 18px;
+      display:flex; align-items:center; justify-content:space-between;
+      flex-wrap:wrap; gap:12px; border-bottom:2px solid #d4a06a;
+      padding-bottom:16px; margin-bottom:18px;
     }
-    .result-header .label {
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: #3d1f0e;
-    }
-    .result-header .label small {
-      font-weight: 400;
-      font-size: 0.85rem;
-      color: #6b4a33;
-      display: block;
-    }
+    .result-header .label { font-weight:600; font-size:1.1rem; color:#3d1f0e; }
+    .result-header .label small { font-weight:400; font-size:0.85rem; color:#6b4a33; display:block; }
     .score-circle {
-      background: linear-gradient(135deg, #1a3a2a, #2d5a3d);
-      color: white;
-      font-size: 2rem;
-      font-weight: 800;
-      padding: 4px 24px;
-      border-radius: 80px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      background:linear-gradient(135deg, #1a3a2a, #2d5a3d); color:white;
+      font-size:2rem; font-weight:800; padding:4px 24px; border-radius:80px;
+      box-shadow:0 4px 16px rgba(0,0,0,0.15);
     }
-    .verdict-badge {
-      font-size: 1.2rem;
-      font-weight: 700;
-      padding: 4px 20px;
-      border-radius: 60px;
-      background: #e6d6c2;
-    }
+    .verdict-badge { font-size:1.2rem; font-weight:700; padding:4px 20px; border-radius:60px; background:#e6d6c2; }
 
     .section-rating {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 24px;
-      margin: 14px 0 20px;
+      display:flex; flex-wrap:wrap; gap:12px 24px; margin:14px 0 20px;
     }
     .rating-item {
-      background: white;
-      padding: 4px 16px 4px 12px;
-      border-radius: 40px;
-      font-weight: 600;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      border: 1px solid #e3d6c6;
-      font-size: 0.9rem;
+      background:white; padding:4px 16px 4px 12px; border-radius:40px;
+      font-weight:600; box-shadow:0 2px 8px rgba(0,0,0,0.04);
+      border:1px solid #e3d6c6; font-size:0.9rem;
     }
-    .rating-dot {
-      display: inline-block;
-      width: 14px;
-      height: 14px;
-      border-radius: 40px;
-      margin-right: 8px;
-    }
-    .dot-green { background: #27ae60; box-shadow: 0 0 10px #27ae6044; }
-    .dot-yellow { background: #f39c12; box-shadow: 0 0 10px #f39c1244; }
-    .dot-red { background: #e74c3c; box-shadow: 0 0 10px #e74c3c44; }
+    .rating-dot { display:inline-block; width:14px; height:14px; border-radius:40px; margin-right:8px; }
+    .dot-green { background:#27ae60; box-shadow:0 0 10px #27ae6044; }
+    .dot-yellow { background:#f39c12; box-shadow:0 0 10px #f39c1244; }
+    .dot-red { background:#e74c3c; box-shadow:0 0 10px #e74c3c44; }
 
     .top-disagreements {
-      background: #fcf7f0;
-      padding: 16px 20px;
-      border-radius: 24px;
-      margin: 14px 0 12px;
-      border-left: 6px solid #e74c3c;
+      background:#fcf7f0; padding:16px 20px; border-radius:24px;
+      margin:14px 0 12px; border-left:6px solid #e74c3c;
     }
-    .top-disagreements strong {
-      color: #3d1f0e;
-    }
-    .top-disagreements ul {
-      margin-top: 6px;
-    }
+    .top-disagreements strong { color:#3d1f0e; }
+    .top-disagreements ul { margin-top:6px; }
     .top-disagreements li {
-      list-style: none;
-      padding: 5px 0;
-      border-bottom: 1px solid #ede3d6;
-      font-size: 0.92rem;
+      list-style:none; padding:5px 0; border-bottom:1px solid #ede3d6;
+      font-size:0.92rem;
     }
-    .top-disagreements li:last-child { border: none; }
-    .top-disagreements li .highlight-flame {
-      color: #c0392b;
-      font-weight: 600;
-    }
-    .top-disagreements li .highlight-speacial {
-      color: #1a5276;
-      font-weight: 600;
-    }
+    .top-disagreements li:last-child { border:none; }
+    .top-disagreements li .highlight-partner { color:#c0392b; font-weight:600; }
+    .top-disagreements li .highlight-peace { color:#1a5276; font-weight:600; }
 
     .lagos-reality {
-      background: rgba(26, 58, 42, 0.07);
-      padding: 14px 18px;
-      border-radius: 24px;
-      margin-top: 14px;
-      border: 1.5px dashed #d4a06a;
+      background:rgba(26,58,42,0.07); padding:14px 18px; border-radius:24px;
+      margin-top:14px; border:1.5px dashed #d4a06a;
     }
-    .lagos-reality strong {
-      color: #3d1f0e;
-    }
+    .lagos-reality strong { color:#3d1f0e; }
 
-    /* ===== SHARE BUTTONS ===== */
     .share-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
+      display:flex; flex-wrap:wrap; gap:12px; margin-top:18px;
     }
     .share-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 22px;
-      border-radius: 60px;
-      border: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      color: white;
+      display:inline-flex; align-items:center; gap:10px; padding:10px 22px;
+      border-radius:60px; border:none; font-weight:700; font-size:0.95rem;
+      cursor:pointer; transition:all 0.3s ease; text-decoration:none; color:white;
     }
-    .share-btn:hover {
-      transform: translateY(-2px) scale(1.02);
-    }
-    .share-btn.copy-btn {
-      background: linear-gradient(135deg, #2c3e50, #34495e);
-    }
-    .share-btn.copy-btn:hover {
-      background: linear-gradient(135deg, #34495e, #2c3e50);
-      box-shadow: 0 6px 20px rgba(44, 62, 80, 0.4);
-    }
-    .share-btn.whatsapp-btn {
-      background: linear-gradient(135deg, #25D366, #128C7E);
-    }
-    .share-btn.whatsapp-btn:hover {
-      background: linear-gradient(135deg, #128C7E, #075E54);
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-    }
-    .share-btn.copy-btn.copied {
-      background: #27ae60;
-    }
-    .share-btn i {
-      font-size: 1.2rem;
-    }
+    .share-btn:hover { transform:translateY(-2px) scale(1.02); }
+    .share-btn.copy-btn { background:linear-gradient(135deg, #2c3e50, #34495e); }
+    .share-btn.copy-btn:hover { background:linear-gradient(135deg, #34495e, #2c3e50); box-shadow:0 6px 20px rgba(44,62,80,0.4); }
+    .share-btn.whatsapp-btn { background:linear-gradient(135deg, #25D366, #128C7E); }
+    .share-btn.whatsapp-btn:hover { background:linear-gradient(135deg, #128C7E, #075E54); box-shadow:0 6px 20px rgba(37,211,102,0.4); }
+    .share-btn.copy-btn.copied { background:#27ae60; }
+    .share-btn i { font-size:1.2rem; }
 
     .footnote {
-      margin-top: 24px;
-      text-align: center;
-      color: #6b5b4a;
-      font-size: 0.85rem;
-      border-top: 1px solid #ede3d6;
-      padding-top: 16px;
+      margin-top:24px; text-align:center; color:#6b5b4a;
+      font-size:0.85rem; border-top:1px solid #ede3d6; padding-top:16px;
     }
 
-    /* ===== MOBILE RESPONSIVE ===== */
-    @media (max-width: 640px) {
-      body { padding: 12px 8px 30px; }
-      .container { padding: 16px 14px 24px; border-radius: 32px; }
-      
-      .header { gap: 12px; }
-      .header-img { width: 60px; height: 60px; }
-      .title-group h1 { font-size: 1.3rem; }
-      .title-group h1 i { font-size: 1.2rem; }
-      .subhead { font-size: 0.8rem; gap: 6px 12px; }
-      .badge-lagos { font-size: 0.65rem; padding: 2px 12px; }
-
-      .instructions { font-size: 0.85rem; padding: 12px 16px; }
-
-      .question-card { padding: 14px 14px 12px; margin-bottom: 14px; border-radius: 20px; }
-      .q-num { width: 28px; height: 28px; font-size: 0.75rem; }
-      .q-text { font-size: 0.92rem; }
-      .options label { font-size: 0.85rem; padding: 6px 12px 6px 10px; gap: 10px; }
-      .options input[type="radio"] { width: 18px; height: 18px; }
-      .opt-letter { min-width: 18px; font-size: 0.85rem; }
-
-      .btn-submit { font-size: 1rem; padding: 12px 24px; width: 100%; justify-content: center; }
-      .reset-link { font-size: 0.85rem; }
-
-      .result-panel { padding: 18px 16px; }
-      .result-header .label { font-size: 0.95rem; }
-      .score-circle { font-size: 1.5rem; padding: 2px 16px; }
-      .verdict-badge { font-size: 0.95rem; padding: 2px 14px; }
-      .section-rating { gap: 8px 14px; }
-      .rating-item { font-size: 0.75rem; padding: 3px 12px 3px 8px; }
-      .top-disagreements li { font-size: 0.82rem; }
-      .share-btn { font-size: 0.85rem; padding: 8px 16px; }
+    @media (max-width:640px) {
+      body { padding:12px 8px 30px; }
+      .container { padding:16px 14px 24px; border-radius:32px; }
+      .header { gap:12px; }
+      .header-img { width:60px; height:60px; }
+      .title-group h1 { font-size:1.3rem; }
+      .title-group h1 i { font-size:1.2rem; }
+      .subhead { font-size:0.8rem; gap:6px 12px; }
+      .badge-generic { font-size:0.65rem; padding:2px 12px; }
+      .instructions { font-size:0.85rem; padding:12px 16px; }
+      .question-card { padding:14px 14px 12px; margin-bottom:14px; border-radius:20px; }
+      .q-num { width:28px; height:28px; font-size:0.75rem; }
+      .q-text { font-size:0.92rem; }
+      .options label { font-size:0.85rem; padding:6px 12px 6px 10px; gap:10px; }
+      .options input[type="radio"] { width:18px; height:18px; }
+      .opt-letter { min-width:18px; font-size:0.85rem; }
+      .btn-submit { font-size:1rem; padding:12px 24px; width:100%; justify-content:center; }
+      .reset-link { font-size:0.85rem; }
+      .result-panel { padding:18px 16px; }
+      .result-header .label { font-size:0.95rem; }
+      .score-circle { font-size:1.5rem; padding:2px 16px; }
+      .verdict-badge { font-size:0.95rem; padding:2px 14px; }
+      .section-rating { gap:8px 14px; }
+      .rating-item { font-size:0.75rem; padding:3px 12px 3px 8px; }
+      .top-disagreements li { font-size:0.82rem; }
+      .share-btn { font-size:0.85rem; padding:8px 16px; }
     }
-
-    @media (max-width: 400px) {
-      .title-group h1 { font-size: 1.1rem; }
-      .header-img { width: 50px; height: 50px; }
-      .q-text { font-size: 0.85rem; }
-      .options label { font-size: 0.78rem; padding: 5px 10px 5px 8px; }
+    @media (max-width:400px) {
+      .title-group h1 { font-size:1.1rem; }
+      .header-img { width:50px; height:50px; }
+      .q-text { font-size:0.85rem; }
+      .options label { font-size:0.78rem; padding:5px 10px 5px 8px; }
     }
   </style>
 </head>
 <body>
-
 <div class="container" id="app">
-  <!-- ===== HEADER ===== -->
+  <!-- HEADER -->
   <div class="header">
-    <img src="https://emmanueladekunlepeace.com/my-website/images/pnp.jpeg" alt="Speacial & Flame" class="header-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22 viewBox=%220 0 80 80%22%3E%3Ccircle cx=%2240%22 cy=%2240%22 r=%2238%22 fill=%22%23d4a06a%22/%3E%3Ctext x=%2218%22 y=%2248%22 font-size=%2224%22 fill=%22%233d1f0e%22 font-family=%22sans-serif%22%3E🔥%3C/text%3E%3C/svg%3E'" />
+    <img src="https://emmanueladekunlepeace.com/my-website/images/pnp.jpeg" alt="Peace & Partner" class="header-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22 viewBox=%220 0 80 80%22%3E%3Ccircle cx=%2240%22 cy=%2240%22 r=%2238%22 fill=%22%23d4a06a%22/%3E%3Ctext x=%2218%22 y=%2248%22 font-size=%2224%22 fill=%22%233d1f0e%22 font-family=%22sans-serif%22%3E💞%3C/text%3E%3C/svg%3E'" />
     <div class="title-group">
       <h1>
         <i class="fas fa-heart heart-icon"></i>
-        <span class="speacial">Speacial</span>
+        <span class="peace">Peace</span>
         <span style="color:#8a6e4b; font-weight:300;">&amp;</span>
-        <span class="flame">Flame</span>
-        <i class="fas fa-fire" style="color:#c0392b; font-size:1.2rem;"></i>
+        <span class="partner" style="color:#c0392b;">Partner</span>
+        <i class="fas fa-heart" style="color:#c0392b; font-size:1.2rem;"></i>
       </h1>
       <div class="subhead">
-        <span class="speacial-tag"><i class="fas fa-user"></i> Speacial (E.A. Peace) · Ikorodu</span>
-        <span class="flame-tag"><i class="fas fa-user"></i> Flame (Perpetual) · Alagbole</span>
-        <span class="badge-lagos"><i class="fas fa-city"></i> Lagos · Nigeria</span>
+        <span class="peace-tag"><i class="fas fa-user"></i> Peace (You)</span>
+        <span class="partner-tag"><i class="fas fa-user"></i> Partner (Them)</span>
+        <span class="badge-generic"><i class="fas fa-globe"></i> Relationship · Shared</span>
       </div>
     </div>
   </div>
 
-  <!-- ===== INSTRUCTIONS ===== -->
+  <!-- INSTRUCTIONS -->
   <div class="instructions">
-    <i class="fas fa-pen-fancy"></i> <strong>Flame (Perpetual),</strong> this quiz is for YOU. <span class="flame-highlight">Speacial (Emmanuel)</span> has already answered all 30 questions. <br>
-    <i class="fas fa-child" style="margin-left:4px;"></i> Girls aged 7 & 9 · blended family · Lagos traffic · in-laws · money — everything is here. <br>
+    <i class="fas fa-pen-fancy"></i> <strong>Partner,</strong> this quiz is for you. <span class="highlight">Peace</span> has already answered all 30 questions.<br>
     <span style="display:inline-block; margin-top:5px; background:#d4a06a33; padding:2px 14px; border-radius:30px; font-size:0.9rem;">
-      <i class="fas fa-check-circle" style="color:#27ae60;"></i> One answer per question. Submit to see Speacial's answers & your compatibility.
+      <i class="fas fa-check-circle" style="color:#27ae60;"></i> Answer each question. Submit to see Peace's answers & your compatibility.
     </span>
   </div>
 
-  <!-- ===== PROGRESS ===== -->
+  <!-- PROGRESS -->
   <div class="progress-wrap">
     <div class="progress-fill" id="progressFill"></div>
   </div>
 
-  <!-- ===== QUESTIONS ===== -->
+  <!-- QUESTIONS -->
   <div id="questionsContainer"></div>
 
-  <!-- ===== SUBMIT ===== -->
+  <!-- SUBMIT -->
   <div class="submit-area">
     <button class="btn-submit" id="submitBtn"><i class="fas fa-handshake"></i> See Compatibility</button>
     <span class="reset-link" id="resetBtn"><i class="fas fa-undo-alt"></i> Reset & retake</span>
   </div>
 
-  <!-- ===== RESULT PANEL ===== -->
+  <!-- RESULT PANEL -->
   <div class="result-panel" id="resultPanel">
     <div class="result-header">
       <div class="label">
         <i class="fas fa-chart-pie"></i> Compatibility
-        <small><span class="flame-name">Flame</span> vs <span class="speacial-name">Speacial</span></small>
+        <small><span style="color:#c0392b;">Partner</span> vs <span style="color:#1a5276;">Peace</span></small>
       </div>
       <div class="score-circle" id="scoreDisplay">0%</div>
       <div class="verdict-badge" id="verdictDisplay">⚖️</div>
     </div>
-
     <div class="section-rating" id="sectionRatings"></div>
-
     <div class="top-disagreements" id="topDisagreements">
       <strong><i class="fas fa-exclamation-triangle" style="color:#e74c3c;"></i> Top 5 areas to discuss</strong>
       <ul id="disagreementList"></ul>
     </div>
-
     <div class="lagos-reality" id="lagosReality">
-      <strong><i class="fas fa-road"></i> Lagos Reality Check</strong>
+      <strong><i class="fas fa-road"></i> Relationship Reality Check</strong>
       <p id="realityText"></p>
     </div>
 
-    <!-- ===== SHARE BUTTONS (NEW) ===== -->
+    <!-- SHARE -->
     <div class="share-buttons">
       <button class="share-btn copy-btn" id="copyResultsBtn">
-        <i class="fas fa-copy"></i> Copy Results to Clipboard
+        <i class="fas fa-copy"></i> Copy Results
       </button>
       <a class="share-btn whatsapp-btn" id="whatsappShareBtn" target="_blank">
         <i class="fab fa-whatsapp"></i> Send via WhatsApp
       </a>
     </div>
-
     <div class="footnote">
-      <i class="fas fa-leaf" style="color:#27ae60;"></i> Built for <strong>Speacial (E.A. Peace)</strong> & <strong>Flame (Perpetual)</strong> · no judgment, just clarity. 🔥
+      <i class="fas fa-leaf" style="color:#27ae60;"></i> Built for <strong>Peace</strong> & <strong>Partner</strong> · no judgment, just clarity. 💞
     </div>
   </div>
 </div>
 
 <script>
   (function() {
-    // ===== SPEACIAL'S ANSWERS (YOUR ANSWERS) =====
-    const EMMANUEL_ANSWERS = {
+    // PEACE'S ANSWERS (pre-filled)
+    const PEACE_ANSWERS = {
       q1: 'B', q2: 'C', q3: 'A', q4: 'A', q5: 'A', q6: 'B', q7: 'A', q8: 'B', q9: 'C', q10: 'E',
       q11: 'B', q12: 'C', q13: 'A', q14: 'B', q15: 'D', q16: 'B', q17: 'A', q18: 'B', q19: 'B', q20: 'B',
       q21: 'A', q22: 'B', q23: 'C', q24: 'B', q25: 'A', q26: 'B', q27: 'C', q28: 'D', q29: 'C', q30: 'B'
     };
 
-    // ===== QUESTION BANK (30) =====
+    // 30 QUESTIONS (neutral, no personal names / kids)
     const QUESTIONS = [
-      { id: 'q1', text: '💰 Financial structure: How should money work between you and Speacial?',
-        options: ['A) Joint account – everything in one pot', 'B) Partial joint – separate accounts + joint for bills', 'C) Fully separate – split shared costs', 'D) Provider model – Speacial pays all bills'] },
-      { id: 'q2', text: '📊 Budgeting style: How do YOU, Flame, prefer to handle monthly money?',
-        options: ['A) Strict budget – plan every expense', 'B) Flexible saving – save first, spend the rest', 'C) Spontaneous – pay as things come', 'D) Investment first – land/stocks over luxury'] },
-      { id: 'q3', text: '👧🏽 Flame\'s girls (7 & 9): How should Speacial contribute to YOUR daughters?',
-        options: ['A) Full father – pay everything (school, clothes, health)', 'B) Step-parent support – feeding/housing, but bio dad handles school fees', 'C) Moral only – no financial responsibility', 'D) Emergency backup – only when urgent'] },
-      { id: 'q4', text: '🏠 Rent/Accommodation: Who pays for the family house in Lagos?',
-        options: ['A) Speacial pays 100%', 'B) We both contribute 50/50', 'C) Flame pays rent, Speacial handles feeding', 'D) We live separately for now'] },
-      { id: 'q5', text: '👨‍👩‍👧‍👦 Extended family requests (school fees, hospital bills): How do YOU, Flame, think we should handle?',
-        options: ['A) We help whenever family asks', 'B) Only help our own biological family', 'C) Fixed monthly "family help" budget – no surprises', 'D) We don\'t give money to extended family'] },
-      { id: 'q6', text: '🏡 Relatives living with us: What is YOUR rule, Flame?',
-        options: ['A) Any relative can stay anytime', 'B) Short visits only – max 1 month', 'C) No live-in relatives except parents in old age', 'D) Only Flame\'s family can visit'] },
-      { id: 'q7', text: '🗺️ Where should we finally settle? (Ikorodu vs Alagbole vs neutral)',
-        options: ['A) Ikorodu – closer to Speacial\'s work', 'B) Alagbole/Ojodu – closer to the girls\' school', 'C) Neutral ground – Ikeja, Ogba, or Maryland', 'D) Keep two homes – one in each area'] },
-      { id: 'q8', text: '🏢 House type: What kind of home do YOU, Flame, want for us?',
-        options: ['A) Self-contained (mini flat)', 'B) 2-bedroom flat (start small)', 'C) 3-bedroom flat', 'D) Duplex or detached house'] },
-      { id: 'q9', text: '🏗️ Rent vs. Buy: What is YOUR preferred plan, Flame?',
-        options: ['A) Rent forever', 'B) Buy land immediately', 'C) Rent now, save to buy land together in 3 years', 'D) Build in the village first'] },
-      { id: 'q10', text: '👨‍👩‍👧‍👦 Blending children: How should YOUR children (7 & 9) and Speacial\'s children meet?',
-        options: ['A) Move in together immediately', 'B) Gradual – weekend hangouts for 6 months first', 'C) Keep children completely separate', 'D) Only meet during holidays', 'E) Flame lives with her children (they are small), Speacial\'s children visit only'] },
-      { id: 'q11', text: '✋ Discipline: Who corrects the children in YOUR opinion, Flame?',
-        options: ['A) Only the biological parent', 'B) Both can correct equally', 'C) Both can correct, but biological parent gives final punishment', 'D) Speacial handles all discipline'] },
-      { id: 'q12', text: '👨‍👧 Biological fathers: How involved should they be, Flame?',
-        options: ['A) No involvement – cut off completely', 'B) They can visit & help with major decisions, but we are primary', 'C) They pay child support but no visitation', 'D) Full co-parenting with them'] },
-      { id: 'q13', text: '💍 Engagement timeline: How long before we get engaged, Flame?',
-        options: ['A) 6 months', 'B) 1 year', 'C) 2 years', 'D) No rush – we will know when'] },
-      { id: 'q14', text: '💒 Marriage timeline: When do YOU, Flame, think we should marry?',
-        options: ['A) Within 6 months of engagement', 'B) Within 1 year', 'C) After 2 years – to be sure', 'D) We don\'t need to marry legally'] },
-      { id: 'q15', text: '🎉 Wedding size: What kind of celebration do YOU want, Flame?',
-        options: ['A) Small & intimate – under 50 guests', 'B) Medium – 100–200 guests', 'C) Big Lagos style – 500+ guests', 'D) Court wedding only, no party'] },
-      { id: 'q16', text: '📍 Wedding location: Where do YOU, Flame, want to hold it?',
-        options: ['A) Village (hometown)', 'B) Lagos – convenient for everyone', 'C) Both – traditional in village, white in Lagos', 'D) Destination outside Nigeria'] },
-      { id: 'q17', text: '⚖️ Type of marriage: What commitment do YOU expect, Flame?',
-        options: ['A) Strictly monogamous – no second wife', 'B) Open to polygamy later', 'C) Traditional only', 'D) Not decided yet'] },
-      { id: 'q18', text: '👪 In-laws interference: How do YOU, Flame, want to handle this?',
-        options: ['A) Let them say whatever – we respect elders', 'B) Set boundaries immediately but respectfully', 'C) Cut them off if they interfere', 'D) Only my family has the right to advise'] },
-      { id: 'q19', text: '🧓 Parents living with us: When do YOU, Flame, think they should move in?',
-        options: ['A) Immediately after marriage', 'B) Only when they are very old and cannot care for themselves', 'C) Never – they have their own homes', 'D) Only Flame\'s parents can live with us'] },
-      { id: 'q20', text: '💼 Career vs. Family: If a big opportunity comes up, what wins in YOUR view, Flame?',
-        options: ['A) Career first – the other adjusts', 'B) Family first – we support each other but family is priority', 'C) Long-distance for a year to try', 'D) Both decline opportunities to stay together'] },
-      { id: 'q21', text: '📉 Job loss: What happens if one loses their job, Flame?',
-        options: ['A) We support each other until they find footing', 'B) They must find a job within 2 months', 'C) The other person covers everything until they recover', 'D) We separate temporarily'] },
-      { id: 'q22', text: '🏢 Starting a business together: When do YOU, Flame, think we should?',
-        options: ['A) Immediately – we start something now', 'B) After we marry', 'C) Maybe after 3 years of marriage', 'D) Never – keep business and marriage separate'] },
-      { id: 'q23', text: '❤️ Love language: How do YOU, Flame, prefer to be loved?',
-        options: ['A) Words of Affirmation & Quality Time', 'B) Acts of Service & Gifts', 'C) Physical Touch & Quality Time', 'D) All equally'] },
-      { id: 'q24', text: '🗣️ Handling arguments: What is YOUR style, Flame?',
-        options: ['A) Shout it out and resolve fast', 'B) Walk away and cool down for days', 'C) Calm down and talk respectfully – no insults', 'D) Involve family/friends to mediate'] },
-      { id: 'q25', text: '🌴 Retirement & old age: Where do YOU, Flame, want to spend it?',
-        options: ['A) Lagos – we love the city', 'B) Retire in Lagos, but have a village house for holidays', 'C) Village completely – go back home', 'D) Move abroad with children'] },
-      { id: 'q26', text: '💪 Contributions: What do YOU (Flame) bring to the table in this relationship?',
-        options: ['A) Financial support – I contribute equally to all bills', 'B) Emotional support & home management – I keep the home running smoothly', 'C) Childcare & nurturing – I handle everything related to the children', 'D) All of the above – I bring financial, emotional, and domestic value'] },
-      { id: 'q27', text: '🏠 Domestic responsibilities: How should house chores be shared between YOU (Flame) and Speacial?',
-        options: ['A) Speacial does everything – I am the "woman" and should be served', 'B) 50/50 – we split everything equally', 'C) I handle cooking/cleaning, Speacial handles repairs/outdoor work', 'D) We hire a maid/nanny to handle most things'] },
-      { id: 'q28', text: '🤝 Support during hard times: What role do YOU (Flame) play when things are tough?',
-        options: ['A) I provide emotional encouragement and prayer', 'B) I step up financially to cover gaps', 'C) I take over more responsibilities at home so he can focus', 'D) I do all of the above depending on what\'s needed'] },
-      { id: 'q29', text: '📈 Personal ambition & growth: What are YOUR personal goals, Flame?',
-        options: ['A) I want to build my career/business and be financially independent', 'B) I want to be a full-time homemaker and support my family', 'C) I want to balance both – career and family equally', 'D) I want to focus on raising the children well'] },
-      { id: 'q30', text: '💎 What do YOU (Flame) value most in a partner?',
-        options: ['A) Financial provision and stability', 'B) Emotional support, love, and attention', 'C) Trust, honesty, and loyalty', 'D) Ambition, drive, and success'] }
+      { id:'q1', text:'How should money work between you and your partner?',
+        options:['A) Joint account – everything in one pot','B) Partial joint – separate + joint for bills','C) Fully separate – split shared costs','D) Provider model – one person pays all'] },
+      { id:'q2', text:'What is your preferred budgeting style?',
+        options:['A) Strict budget – plan every expense','B) Flexible saving – save first, spend rest','C) Spontaneous – pay as things come','D) Investment first – land/stocks over luxury'] },
+      { id:'q3', text:'How should children from previous relationships be supported?',
+        options:['A) Full parental responsibility – both partners contribute','B) Step-parent support – housing/feeding, bio parent handles school','C) Moral support only – no financial responsibility','D) Emergency backup – only when urgent'] },
+      { id:'q4', text:'Who pays for the family home?',
+        options:['A) One partner pays 100%','B) Both contribute 50/50','C) One pays rent, the other handles feeding/utilities','D) We live separately for now'] },
+      { id:'q5', text:'Extended family requests (school fees, hospital bills): how to handle?',
+        options:['A) Help whenever family asks','B) Only help our own biological family','C) Fixed monthly "family help" budget – no surprises','D) No money given to extended family'] },
+      { id:'q6', text:'Relatives living with you: what is your rule?',
+        options:['A) Any relative can stay anytime','B) Short visits only – max 1 month','C) No live-in relatives except parents in old age','D) Only one partner\'s family can visit'] },
+      { id:'q7', text:'Where should you settle? (city, suburbs, etc.)',
+        options:['A) Closer to my work','B) Closer to partner\'s work','C) Neutral ground – central location','D) Keep two homes'] },
+      { id:'q8', text:'What kind of home do you want?',
+        options:['A) Self-contained (mini flat)','B) 2-bedroom flat (start small)','C) 3-bedroom flat','D) Duplex or detached house'] },
+      { id:'q9', text:'Rent vs. Buy: what is your preferred plan?',
+        options:['A) Rent forever','B) Buy land immediately','C) Rent now, save to buy land together in 3 years','D) Build in the village first'] },
+      { id:'q10', text:'How should children from both sides blend?',
+        options:['A) Move in together immediately','B) Gradual – weekend hangouts for 6 months first','C) Keep children completely separate','D) Only meet during holidays','E) One partner lives with their children, other visits'] },
+      { id:'q11', text:'Who corrects the children in your opinion?',
+        options:['A) Only the biological parent','B) Both can correct equally','C) Both can correct, but biological gives final punishment','D) One partner handles all discipline'] },
+      { id:'q12', text:'How involved should biological parents be?',
+        options:['A) No involvement – cut off completely','B) They can visit & help with major decisions, but we are primary','C) They pay child support but no visitation','D) Full co-parenting with them'] },
+      { id:'q13', text:'Engagement timeline: how long before getting engaged?',
+        options:['A) 6 months','B) 1 year','C) 2 years','D) No rush – we will know when'] },
+      { id:'q14', text:'Marriage timeline: when should you marry?',
+        options:['A) Within 6 months of engagement','B) Within 1 year','C) After 2 years – to be sure','D) We don\'t need to marry legally'] },
+      { id:'q15', text:'What kind of wedding celebration do you want?',
+        options:['A) Small & intimate – under 50 guests','B) Medium – 100–200 guests','C) Big style – 500+ guests','D) Court wedding only, no party'] },
+      { id:'q16', text:'Wedding location: where do you want to hold it?',
+        options:['A) Hometown (village)','B) City – convenient for everyone','C) Both – traditional in village, white in city','D) Destination outside the country'] },
+      { id:'q17', text:'Type of marriage: what commitment do you expect?',
+        options:['A) Strictly monogamous – no second partner','B) Open to polygamy later','C) Traditional only','D) Not decided yet'] },
+      { id:'q18', text:'In-laws interference: how do you want to handle this?',
+        options:['A) Let them say whatever – we respect elders','B) Set boundaries immediately but respectfully','C) Cut them off if they interfere','D) Only my family has the right to advise'] },
+      { id:'q19', text:'Parents living with you: when should they move in?',
+        options:['A) Immediately after marriage','B) Only when they are very old and cannot care for themselves','C) Never – they have their own homes','D) Only one partner\'s parents can live with us'] },
+      { id:'q20', text:'Career vs. Family: if a big opportunity comes up, what wins?',
+        options:['A) Career first – the other adjusts','B) Family first – we support each other but family is priority','C) Long-distance for a year to try','D) Both decline opportunities to stay together'] },
+      { id:'q21', text:'Job loss: what happens if one loses their job?',
+        options:['A) We support each other until they find footing','B) They must find a job within 2 months','C) The other person covers everything until they recover','D) We separate temporarily'] },
+      { id:'q22', text:'Starting a business together: when should you start?',
+        options:['A) Immediately – we start something now','B) After we marry','C) Maybe after 3 years of marriage','D) Never – keep business and relationship separate'] },
+      { id:'q23', text:'Love language: how do you prefer to be loved?',
+        options:['A) Words of Affirmation & Quality Time','B) Acts of Service & Gifts','C) Physical Touch & Quality Time','D) All equally'] },
+      { id:'q24', text:'Handling arguments: what is your style?',
+        options:['A) Shout it out and resolve fast','B) Walk away and cool down for days','C) Calm down and talk respectfully – no insults','D) Involve family/friends to mediate'] },
+      { id:'q25', text:'Retirement & old age: where do you want to spend it?',
+        options:['A) City life – we love the urban vibe','B) Retire in city, have a country house for holidays','C) Village completely – go back home','D) Move abroad with children'] },
+      { id:'q26', text:'What do you bring to the table in this relationship?',
+        options:['A) Financial support – I contribute equally to all bills','B) Emotional support & home management – I keep the home running smoothly','C) Childcare & nurturing – I handle everything related to the children','D) All of the above – I bring financial, emotional, and domestic value'] },
+      { id:'q27', text:'How should domestic responsibilities be shared?',
+        options:['A) One partner does everything – the other is "served"','B) 50/50 – we split everything equally','C) One handles cooking/cleaning, the other repairs/outdoor work','D) We hire help to handle most things'] },
+      { id:'q28', text:'What role do you play when things are tough?',
+        options:['A) I provide emotional encouragement and prayer','B) I step up financially to cover gaps','C) I take over more responsibilities at home so partner can focus','D) I do all of the above depending on what\'s needed'] },
+      { id:'q29', text:'What are your personal goals?',
+        options:['A) I want to build my career/business and be financially independent','B) I want to be a full-time homemaker and support my family','C) I want to balance both – career and family equally','D) I want to focus on raising the children well'] },
+      { id:'q30', text:'What do you value most in a partner?',
+        options:['A) Financial provision and stability','B) Emotional support, love, and attention','C) Trust, honesty, and loyalty','D) Ambition, drive, and success'] }
     ];
 
-    // ===== RENDER QUESTIONS =====
+    // RENDER
     const container = document.getElementById('questionsContainer');
-    const colorClasses = ['card-color-1', 'card-color-2', 'card-color-3', 'card-color-4', 'card-color-5', 'card-color-6', 'card-color-7', 'card-color-8'];
+    const colorClasses = ['card-color-1','card-color-2','card-color-3','card-color-4','card-color-5','card-color-6','card-color-7','card-color-8'];
 
     function renderQuestions() {
       let html = '';
       QUESTIONS.forEach((q, idx) => {
-        const num = idx + 1;
-        const isSpecial = q.id === 'q10';
+        const num = idx+1;
         const colorClass = colorClasses[idx % colorClasses.length];
         html += `<div class="question-card ${colorClass}" id="card-${q.id}">`;
         html += `<div class="q-head"><span class="q-num">${num}</span><span class="q-text"><i class="fas fa-circle" style="font-size:0.5rem; vertical-align:middle; color:#b8834a;"></i> ${q.text}</span></div>`;
         html += `<div class="options">`;
         q.options.forEach((opt, oi) => {
           const letter = String.fromCharCode(65 + oi);
-          const specialClass = isSpecial && oi === 4 ? 'opt-special' : '';
-          html += `<label class="${specialClass}"><input type="radio" name="${q.id}" value="${letter}" /> <span class="opt-letter">${letter}</span> ${opt}</label>`;
+          html += `<label><input type="radio" name="${q.id}" value="${letter}" /> <span class="opt-letter">${letter}</span> ${opt}</label>`;
         });
         html += `</div></div>`;
       });
@@ -803,35 +470,24 @@
     }
     renderQuestions();
 
-    // ===== PROGRESS =====
     function updateProgress() {
-      const radios = document.querySelectorAll('input[type="radio"]');
       const total = QUESTIONS.length;
       const checked = document.querySelectorAll('input[type="radio"]:checked').length;
-      const pct = Math.round((checked / total) * 100);
-      document.getElementById('progressFill').style.width = pct + '%';
+      const pct = Math.round((checked/total)*100);
+      document.getElementById('progressFill').style.width = pct+'%';
     }
     document.addEventListener('change', updateProgress);
 
-    // ===== RESET =====
     document.getElementById('resetBtn').addEventListener('click', function() {
       document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
       document.getElementById('resultPanel').classList.remove('visible');
       document.getElementById('resultPanel').style.display = 'none';
       updateProgress();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top:0, behavior:'smooth' });
     });
 
-    // ===== GLOBAL VARIABLES FOR SHARING =====
-    let lastResults = {
-      pct: 0,
-      verdict: '',
-      disagreements: [],
-      answers: {},
-      allDisagreements: []
-    };
+    let lastResults = { pct:0, verdict:'', disagreements:[], answers:{}, allDisagreements:[] };
 
-    // ===== SUBMIT =====
     document.getElementById('submitBtn').addEventListener('click', function() {
       const allQs = QUESTIONS.map(q => q.id);
       const answers = {};
@@ -841,29 +497,24 @@
         if (el) answers[id] = el.value;
         else missing = true;
       });
-
       if (missing) {
-        alert('🔥 Flame, please answer all 30 questions before submitting. No rushing — this is your future together with Speacial.');
+        alert('Please answer all 30 questions before submitting.');
         return;
       }
-
-      // Store answers for sharing
       lastResults.answers = answers;
 
       let matchCount = 0;
       const total = allQs.length;
       const disagreements = [];
       allQs.forEach(id => {
-        if (answers[id] === EMMANUEL_ANSWERS[id]) matchCount++;
+        if (answers[id] === PEACE_ANSWERS[id]) matchCount++;
         else {
           const qText = QUESTIONS.find(q => q.id === id).text;
-          disagreements.push({ id, qText, her: answers[id], him: EMMANUEL_ANSWERS[id] });
+          disagreements.push({ id, qText, partner: answers[id], peace: PEACE_ANSWERS[id] });
         }
       });
-
       lastResults.allDisagreements = disagreements;
-
-      const pct = Math.round((matchCount / total) * 100);
+      const pct = Math.round((matchCount/total)*100);
       lastResults.pct = pct;
       let verdict = '';
       let verdictColor = '';
@@ -875,132 +526,109 @@
       const panel = document.getElementById('resultPanel');
       panel.style.display = 'block';
       panel.classList.add('visible');
-      document.getElementById('scoreDisplay').textContent = pct + '%';
+      document.getElementById('scoreDisplay').textContent = pct+'%';
       const vBadge = document.getElementById('verdictDisplay');
       vBadge.textContent = verdict;
-      vBadge.style.background = verdictColor + '22';
+      vBadge.style.background = verdictColor+'22';
       vBadge.style.color = verdictColor;
 
       const sections = [
-        { name: '💰 Finance', dot: pct>65 ? 'green' : (pct>40 ? 'yellow' : 'red') },
-        { name: '🏠 Living', dot: pct>65 ? 'green' : (pct>40 ? 'yellow' : 'red') },
-        { name: '👨‍👧 Children', dot: pct>65 ? 'green' : (pct>40 ? 'yellow' : 'red') },
-        { name: '💍 Marriage', dot: pct>65 ? 'green' : (pct>40 ? 'yellow' : 'red') },
-        { name: '👪 Family', dot: pct>65 ? 'green' : (pct>40 ? 'yellow' : 'red') },
-        { name: '💪 Contributions', dot: pct>65 ? 'green' : (pct>40 ? 'yellow' : 'red') },
+        { name:'💰 Finance', dot: pct>65?'green':(pct>40?'yellow':'red') },
+        { name:'🏠 Living', dot: pct>65?'green':(pct>40?'yellow':'red') },
+        { name:'👨‍👧 Children', dot: pct>65?'green':(pct>40?'yellow':'red') },
+        { name:'💍 Marriage', dot: pct>65?'green':(pct>40?'yellow':'red') },
+        { name:'👪 Family', dot: pct>65?'green':(pct>40?'yellow':'red') },
+        { name:'💪 Contributions', dot: pct>65?'green':(pct>40?'yellow':'red') },
       ];
-      const ratingContainer = document.getElementById('sectionRatings');
-      ratingContainer.innerHTML = sections.map(s => 
+      document.getElementById('sectionRatings').innerHTML = sections.map(s => 
         `<span class="rating-item"><span class="rating-dot dot-${s.dot}"></span> ${s.name}</span>`
       ).join('');
 
-      const sorted = disagreements.slice(0, 5);
+      const sorted = disagreements.slice(0,5);
       const list = document.getElementById('disagreementList');
       if (sorted.length === 0) {
-        list.innerHTML = '<li style="color:#27ae60;"><i class="fas fa-check-circle"></i> Amazing! Flame & Speacial agree on everything that matters. 🔥</li>';
+        list.innerHTML = '<li style="color:#27ae60;"><i class="fas fa-check-circle"></i> Amazing! You agree on everything that matters. 💞</li>';
       } else {
         list.innerHTML = sorted.map(d => {
-          const qShort = d.qText.length > 60 ? d.qText.substring(0, 60) + '...' : d.qText;
+          const qShort = d.qText.length > 60 ? d.qText.substring(0,60)+'...' : d.qText;
           return `<li><i class="fas fa-arrow-right" style="color:#d4a06a;"></i> <strong>${qShort}</strong><br>
           <span style="font-size:0.85rem; display:block; margin-top:3px;">
-            <span class="highlight-flame">🔥 Flame:</span> ${d.her} &nbsp;|&nbsp; 
-            <span class="highlight-speacial">💙 Speacial:</span> ${d.him}
+            <span class="highlight-partner">💕 Partner:</span> ${d.partner} &nbsp;|&nbsp; 
+            <span class="highlight-peace">💙 Peace:</span> ${d.peace}
           </span></li>`;
         }).join('');
       }
 
       const reality = document.getElementById('realityText');
       if (pct >= 70) {
-        reality.innerHTML = '✅ <strong>Flame & Speacial</strong> — you two are aligned on major Lagos realities: traffic, rent, and family. Keep communication open and you will thrive. 🔥';
+        reality.innerHTML = '✅ <strong>You & Peace</strong> — you are aligned on major life topics. Keep communication open and you will thrive. 💞';
       } else if (pct >= 45) {
-        reality.innerHTML = '🟡 <strong>Flame & Speacial</strong> — you have some gaps. Lagos life is expensive and stressful — talk about money, location, and in-laws. Compromise is key.';
+        reality.innerHTML = '🟡 <strong>You & Peace</strong> — you have some gaps. Talk about finances, living arrangements, and family expectations. Compromise is key.';
       } else {
-        reality.innerHTML = '🔴 <strong>Flame & Speacial</strong> — significant differences. Lagos will test you. Have honest conversations about EVERYTHING — money, children, and where to live. Consider pre-marital counseling. 💙';
+        reality.innerHTML = '🔴 <strong>You & Peace</strong> — significant differences. Have honest conversations about EVERYTHING. Consider pre-marital or relationship counseling. 💙';
       }
 
-      // Update share buttons with latest data
       updateShareButtons();
-
-      panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      panel.scrollIntoView({ behavior:'smooth', block:'center' });
     });
 
-    // ===== GENERATE SHARE TEXT =====
     function generateShareText() {
       const { pct, verdict, allDisagreements, answers } = lastResults;
-      
-      let text = '🔥 *PnP Compatibility Results* 🔥\n\n';
-      text += `👫 *Flame (Perpetual)* vs *Speacial (E.A. Peace)*\n`;
+      let text = '💞 *Relationship Compatibility Results* 💞\n\n';
+      text += `👫 *Partner* vs *Peace*\n`;
       text += `📊 *Compatibility Score:* ${pct}%\n`;
       text += `⚖️ *Verdict:* ${verdict}\n\n`;
       text += `━─━─━─━─━─━─━─━─━─━─━─━─━\n`;
-      text += `📋 *Flame's Answers:*\n\n`;
-      
+      text += `📋 *Your Answers vs Peace's Answers:*\n\n`;
       QUESTIONS.forEach((q, idx) => {
         const qId = q.id;
-        const flameAnswer = answers[qId] || 'Not answered';
-        const speacialAnswer = EMMANUEL_ANSWERS[qId];
-        const match = flameAnswer === speacialAnswer ? '✅' : '❌';
-        const shortQ = q.text.length > 50 ? q.text.substring(0, 50) + '...' : q.text;
+        const partnerAns = answers[qId] || 'Not answered';
+        const peaceAns = PEACE_ANSWERS[qId];
+        const match = partnerAns === peaceAns ? '✅' : '❌';
+        const shortQ = q.text.length > 50 ? q.text.substring(0,50)+'...' : q.text;
         text += `${idx+1}. ${shortQ}\n`;
-        text += `   🔥 Flame: ${flameAnswer}  |  💙 Speacial: ${speacialAnswer} ${match}\n\n`;
+        text += `   💕 Partner: ${partnerAns}  |  💙 Peace: ${peaceAns} ${match}\n\n`;
       });
-
       text += `━─━─━─━─━─━─━─━─━─━─━─━─━\n`;
       text += `📌 *Top Disagreements:*\n\n`;
-      
-      const sorted = allDisagreements.slice(0, 5);
+      const sorted = allDisagreements.slice(0,5);
       if (sorted.length === 0) {
-        text += `✅ No disagreements! You agree on everything! 🔥\n`;
+        text += `✅ No disagreements! You agree on everything! 💞\n`;
       } else {
-        sorted.forEach((d, i) => {
-          const qShort = d.qText.length > 60 ? d.qText.substring(0, 60) + '...' : d.qText;
+        sorted.forEach((d,i) => {
+          const qShort = d.qText.length > 60 ? d.qText.substring(0,60)+'...' : d.qText;
           text += `${i+1}. ${qShort}\n`;
-          text += `   🔥 Flame: ${d.her}  |  💙 Speacial: ${d.him}\n\n`;
+          text += `   💕 Partner: ${d.partner}  |  💙 Peace: ${d.peace}\n\n`;
         });
       }
-
       text += `━─━─━─━─━─━─━─━─━─━─━─━─━\n`;
-      text += `💬 *Send this to Speacial on WhatsApp!*\n`;
-      text += `🔗 https://emmanueladekunlepeace.com/pnp.html`;
-
+      text += `💬 *Share this with your partner!*`;
       return text;
     }
 
-    // ===== UPDATE SHARE BUTTONS =====
     function updateShareButtons() {
       const text = generateShareText();
-      
-      // Copy button
       const copyBtn = document.getElementById('copyResultsBtn');
       copyBtn.onclick = function() {
         navigator.clipboard.writeText(text).then(() => {
           const originalText = copyBtn.innerHTML;
           copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
           copyBtn.classList.add('copied');
-          setTimeout(() => {
-            copyBtn.innerHTML = originalText;
-            copyBtn.classList.remove('copied');
-          }, 3000);
+          setTimeout(() => { copyBtn.innerHTML = originalText; copyBtn.classList.remove('copied'); }, 3000);
         }).catch(() => {
-          // Fallback
           const textarea = document.createElement('textarea');
           textarea.value = text;
           document.body.appendChild(textarea);
           textarea.select();
           document.execCommand('copy');
           document.body.removeChild(textarea);
-          alert('📋 Results copied to clipboard! Now paste and send to Speacial.');
+          alert('📋 Results copied to clipboard!');
         });
       };
-
-      // WhatsApp button
-      const whatsappBtn = document.getElementById('whatsappShareBtn');
       const encodedText = encodeURIComponent(text);
-      whatsappBtn.href = `https://wa.me/?text=${encodedText}`;
+      document.getElementById('whatsappShareBtn').href = `https://wa.me/?text=${encodedText}`;
     }
-
   })();
 </script>
-
 </body>
 </html>
