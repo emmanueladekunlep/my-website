@@ -117,6 +117,8 @@
     .question-card:nth-child(28){animation-delay:1.40s;}
     .question-card:nth-child(29){animation-delay:1.45s;}
     .question-card:nth-child(30){animation-delay:1.50s;}
+    .question-card:nth-child(31){animation-delay:1.55s;}
+    .question-card:nth-child(32){animation-delay:1.60s;}
 
     @keyframes cardPop { 0%{opacity:0; transform:scale(0.96) translateY(15px);} 100%{opacity:1; transform:scale(1) translateY(0);} }
     .question-card:hover { transform:translateY(-3px) scale(1.01); box-shadow:0 12px 32px rgba(0,0,0,0.12); }
@@ -179,6 +181,7 @@
     .btn-submit:hover { transform:translateY(-3px) scale(1.02); background:linear-gradient(135deg, #2d5a3d, #3d7a5d); box-shadow:0 12px 36px rgba(26,58,42,0.45); }
     .btn-submit:active { transform:scale(0.97); }
     .btn-submit:disabled { opacity:0.5; pointer-events:none; filter:grayscale(0.5); }
+    .btn-submit.loading { opacity:0.7; pointer-events:none; }
     .reset-link {
       color:#8a6e4b; text-decoration:none; font-weight:600;
       border-bottom:2.5px dotted #d4a06a; padding-bottom:3px; cursor:pointer;
@@ -261,6 +264,16 @@
       font-size:0.85rem; border-top:1px solid #ede3d6; padding-top:16px;
     }
 
+    /* Toast notification */
+    .toast {
+      position:fixed; bottom:30px; left:50%; transform:translateX(-50%) translateY(100px);
+      background:#1a3a2a; color:white; padding:14px 28px; border-radius:60px;
+      font-weight:600; box-shadow:0 8px 30px rgba(0,0,0,0.3);
+      opacity:0; transition:all 0.5s ease; z-index:1000;
+    }
+    .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+    .toast.error { background:#c0392b; }
+
     @media (max-width:640px) {
       body { padding:12px 8px 30px; }
       .container { padding:16px 14px 24px; border-radius:32px; }
@@ -287,6 +300,7 @@
       .rating-item { font-size:0.75rem; padding:3px 12px 3px 8px; }
       .top-disagreements li { font-size:0.82rem; }
       .share-btn { font-size:0.85rem; padding:8px 16px; }
+      .toast { font-size:0.85rem; padding:12px 20px; width:90%; text-align:center; }
     }
     @media (max-width:400px) {
       .title-group h1 { font-size:1.1rem; }
@@ -319,7 +333,7 @@
 
   <!-- INSTRUCTIONS -->
   <div class="instructions">
-    <i class="fas fa-pen-fancy"></i> <strong>Partner,</strong> this quiz is for you. <span class="highlight">Peace</span> has already answered all 30 questions.<br>
+    <i class="fas fa-pen-fancy"></i> <strong>Partner,</strong> this quiz is for you. <span class="highlight">Peace</span> has already answered all 32 questions.<br>
     <span style="display:inline-block; margin-top:5px; background:#d4a06a33; padding:2px 14px; border-radius:30px; font-size:0.9rem;">
       <i class="fas fa-check-circle" style="color:#27ae60;"></i> Answer each question. Submit to see Peace's answers & your compatibility.
     </span>
@@ -374,80 +388,96 @@
   </div>
 </div>
 
+<!-- TOAST NOTIFICATION -->
+<div class="toast" id="toast"></div>
+
 <script>
   (function() {
-    // PEACE'S ANSWERS (pre-filled)
+    // ===== PEACE'S ANSWERS =====
     const PEACE_ANSWERS = {
-      q1: 'B', q2: 'C', q3: 'A', q4: 'A', q5: 'A', q6: 'B', q7: 'A', q8: 'B', q9: 'C', q10: 'E',
-      q11: 'B', q12: 'C', q13: 'A', q14: 'B', q15: 'D', q16: 'B', q17: 'A', q18: 'B', q19: 'B', q20: 'B',
-      q21: 'A', q22: 'B', q23: 'C', q24: 'B', q25: 'A', q26: 'B', q27: 'C', q28: 'D', q29: 'C', q30: 'B'
+      q1: 'B', q2: 'B', q3: 'B', q4: 'A', q5: 'A', q6: 'B', q7: 'B', q8: 'D',
+      q9: 'A', q10: 'C', q11: 'A', q12: 'C', q13: 'C', q14: 'B', q15: 'B', q16: 'D',
+      q17: 'A', q18: 'A', q19: 'A', q20: 'D', q21: 'B', q22: 'C', q23: 'C', q24: 'C',
+      q25: 'C', q26: 'A', q27: 'B', q28: 'A', q29: 'B', q30: 'C', q31: 'B', q32: 'D'
     };
 
-    // 30 QUESTIONS (neutral, no personal names / kids)
+    // ===== COMPLEMENTARY PAIRS (different answers that work together) =====
+    const COMPLEMENTARY = {
+      q3: { 'A': ['D'], 'B': ['C'], 'C': ['B'], 'D': ['A'] },
+      q8: { 'B': ['D'], 'D': ['B'] },
+      q10: { 'A': ['B', 'C'], 'C': ['A', 'B'] },
+      q22: { 'B': ['C'], 'C': ['B'] }
+    };
+
+    // ===== 32 QUESTIONS =====
     const QUESTIONS = [
       { id:'q1', text:'How should money work between you and your partner?',
         options:['A) Joint account – everything in one pot','B) Partial joint – separate + joint for bills','C) Fully separate – split shared costs','D) Provider model – one person pays all'] },
       { id:'q2', text:'What is your preferred budgeting style?',
         options:['A) Strict budget – plan every expense','B) Flexible saving – save first, spend rest','C) Spontaneous – pay as things come','D) Investment first – land/stocks over luxury'] },
-      { id:'q3', text:'How should children from previous relationships be supported?',
-        options:['A) Full parental responsibility – both partners contribute','B) Step-parent support – housing/feeding, bio parent handles school','C) Moral support only – no financial responsibility','D) Emergency backup – only when urgent'] },
-      { id:'q4', text:'Who pays for the family home?',
-        options:['A) One partner pays 100%','B) Both contribute 50/50','C) One pays rent, the other handles feeding/utilities','D) We live separately for now'] },
-      { id:'q5', text:'Extended family requests (school fees, hospital bills): how to handle?',
-        options:['A) Help whenever family asks','B) Only help our own biological family','C) Fixed monthly "family help" budget – no surprises','D) No money given to extended family'] },
-      { id:'q6', text:'Relatives living with you: what is your rule?',
-        options:['A) Any relative can stay anytime','B) Short visits only – max 1 month','C) No live-in relatives except parents in old age','D) Only one partner\'s family can visit'] },
-      { id:'q7', text:'Where should you settle? (city, suburbs, etc.)',
-        options:['A) Closer to my work','B) Closer to partner\'s work','C) Neutral ground – central location','D) Keep two homes'] },
-      { id:'q8', text:'What kind of home do you want?',
-        options:['A) Self-contained (mini flat)','B) 2-bedroom flat (start small)','C) 3-bedroom flat','D) Duplex or detached house'] },
-      { id:'q9', text:'Rent vs. Buy: what is your preferred plan?',
-        options:['A) Rent forever','B) Buy land immediately','C) Rent now, save to buy land together in 3 years','D) Build in the village first'] },
-      { id:'q10', text:'How should children from both sides blend?',
-        options:['A) Move in together immediately','B) Gradual – weekend hangouts for 6 months first','C) Keep children completely separate','D) Only meet during holidays','E) One partner lives with their children, other visits'] },
-      { id:'q11', text:'Who corrects the children in your opinion?',
-        options:['A) Only the biological parent','B) Both can correct equally','C) Both can correct, but biological gives final punishment','D) One partner handles all discipline'] },
-      { id:'q12', text:'How involved should biological parents be?',
+      { id:'q3', text:'How should financial support to children from previous marriages work?',
+        options:['A) Each parent handles their own children 100%','B) We pool money for all children equally','C) We share some costs (school fees) but keep separate for extras','D) Partner covers all children\'s needs'] },
+      { id:'q4', text:'What happens to savings and assets from your previous marriage?',
+        options:['A) Keep completely separate – prenup','B) Pool everything together','C) Keep some separate, some joint','D) We don\'t talk about it'] },
+      { id:'q5', text:'Extended family financial requests (school fees, hospital bills): how to handle?',
+        options:['A) We help whenever family asks','B) Only help our own biological family','C) Fixed monthly "family help" budget – no surprises','D) We don\'t give money to extended family'] },
+      { id:'q6', text:'How should children from both sides blend together?',
+        options:['A) Move in together immediately','B) Gradual – weekend hangouts for 6 months first','C) Keep children completely separate','D) Only meet during holidays'] },
+      { id:'q7', text:'Who disciplines the children?',
+        options:['A) Only the biological parent','B) Both can correct equally','C) Both can correct, but biological parent gives final punishment','D) One partner handles all discipline'] },
+      { id:'q8', text:'How involved should the other parent (ex) be?',
         options:['A) No involvement – cut off completely','B) They can visit & help with major decisions, but we are primary','C) They pay child support but no visitation','D) Full co-parenting with them'] },
-      { id:'q13', text:'Engagement timeline: how long before getting engaged?',
-        options:['A) 6 months','B) 1 year','C) 2 years','D) No rush – we will know when'] },
-      { id:'q14', text:'Marriage timeline: when should you marry?',
-        options:['A) Within 6 months of engagement','B) Within 1 year','C) After 2 years – to be sure','D) We don\'t need to marry legally'] },
-      { id:'q15', text:'What kind of wedding celebration do you want?',
-        options:['A) Small & intimate – under 50 guests','B) Medium – 100–200 guests','C) Big style – 500+ guests','D) Court wedding only, no party'] },
-      { id:'q16', text:'Wedding location: where do you want to hold it?',
-        options:['A) Hometown (village)','B) City – convenient for everyone','C) Both – traditional in village, white in city','D) Destination outside the country'] },
-      { id:'q17', text:'Type of marriage: what commitment do you expect?',
-        options:['A) Strictly monogamous – no second partner','B) Open to polygamy later','C) Traditional only','D) Not decided yet'] },
-      { id:'q18', text:'In-laws interference: how do you want to handle this?',
+      { id:'q9', text:'Should we have more children together?',
+        options:['A) Yes – definitely','B) No – we have enough','C) Maybe – we\'ll discuss later','D) Only if we can afford it'] },
+      { id:'q10', text:'Who pays for children\'s education?',
+        options:['A) Each parent pays for their own','B) We share equally for all children','C) We share costs depending on ability','D) Grandparents help'] },
+      { id:'q11', text:'Where should we live?',
+        options:['A) Closer to my work','B) Closer to partner\'s work','C) Neutral ground – central location','D) Closer to the children\'s school'] },
+      { id:'q12', text:'What type of home do you want?',
+        options:['A) Self-contained (mini flat)','B) 2-bedroom flat (start small)','C) 3-bedroom flat','D) Duplex or detached house'] },
+      { id:'q13', text:'Rent vs Buy – what\'s your plan?',
+        options:['A) Rent forever','B) Buy land immediately','C) Rent now, save to buy together in 3-5 years','D) Build in the village first'] },
+      { id:'q14', text:'How should we handle in-laws interference?',
         options:['A) Let them say whatever – we respect elders','B) Set boundaries immediately but respectfully','C) Cut them off if they interfere','D) Only my family has the right to advise'] },
-      { id:'q19', text:'Parents living with you: when should they move in?',
+      { id:'q15', text:'Should parents live with us?',
         options:['A) Immediately after marriage','B) Only when they are very old and cannot care for themselves','C) Never – they have their own homes','D) Only one partner\'s parents can live with us'] },
-      { id:'q20', text:'Career vs. Family: if a big opportunity comes up, what wins?',
+      { id:'q16', text:'How should we split holidays (Christmas, birthdays) between families?',
+        options:['A) Alternate every year','B) Spend with my family always','C) Spend with partner\'s family always','D) We create our own traditions'] },
+      { id:'q17', text:'How long should we date before engagement?',
+        options:['A) 6 months','B) 1 year','C) 2 years','D) No rush – we will know when'] },
+      { id:'q18', text:'When should we marry after engagement?',
+        options:['A) Within 6 months','B) Within 1 year','C) After 2 years – to be sure','D) We don\'t need to marry legally'] },
+      { id:'q19', text:'What type of marriage do you want?',
+        options:['A) Strictly monogamous – no second partner','B) Open to polygamy later','C) Traditional only','D) Not decided yet'] },
+      { id:'q20', text:'What size wedding do you want?',
+        options:['A) Small & intimate – under 50 guests','B) Medium – 100-200 guests','C) Big style – 500+ guests','D) Court wedding only, no party'] },
+      { id:'q21', text:'If a big career opportunity comes up, what wins?',
         options:['A) Career first – the other adjusts','B) Family first – we support each other but family is priority','C) Long-distance for a year to try','D) Both decline opportunities to stay together'] },
-      { id:'q21', text:'Job loss: what happens if one loses their job?',
-        options:['A) We support each other until they find footing','B) They must find a job within 2 months','C) The other person covers everything until they recover','D) We separate temporarily'] },
-      { id:'q22', text:'Starting a business together: when should you start?',
-        options:['A) Immediately – we start something now','B) After we marry','C) Maybe after 3 years of marriage','D) Never – keep business and relationship separate'] },
-      { id:'q23', text:'Love language: how do you prefer to be loved?',
-        options:['A) Words of Affirmation & Quality Time','B) Acts of Service & Gifts','C) Physical Touch & Quality Time','D) All equally'] },
-      { id:'q24', text:'Handling arguments: what is your style?',
-        options:['A) Shout it out and resolve fast','B) Walk away and cool down for days','C) Calm down and talk respectfully – no insults','D) Involve family/friends to mediate'] },
-      { id:'q25', text:'Retirement & old age: where do you want to spend it?',
-        options:['A) City life – we love the urban vibe','B) Retire in city, have a country house for holidays','C) Village completely – go back home','D) Move abroad with children'] },
-      { id:'q26', text:'What do you bring to the table in this relationship?',
-        options:['A) Financial support – I contribute equally to all bills','B) Emotional support & home management – I keep the home running smoothly','C) Childcare & nurturing – I handle everything related to the children','D) All of the above – I bring financial, emotional, and domestic value'] },
-      { id:'q27', text:'How should domestic responsibilities be shared?',
+      { id:'q22', text:'How should domestic responsibilities be shared?',
         options:['A) One partner does everything – the other is "served"','B) 50/50 – we split everything equally','C) One handles cooking/cleaning, the other repairs/outdoor work','D) We hire help to handle most things'] },
-      { id:'q28', text:'What role do you play when things are tough?',
-        options:['A) I provide emotional encouragement and prayer','B) I step up financially to cover gaps','C) I take over more responsibilities at home so partner can focus','D) I do all of the above depending on what\'s needed'] },
-      { id:'q29', text:'What are your personal goals?',
-        options:['A) I want to build my career/business and be financially independent','B) I want to be a full-time homemaker and support my family','C) I want to balance both – career and family equally','D) I want to focus on raising the children well'] },
-      { id:'q30', text:'What do you value most in a partner?',
-        options:['A) Financial provision and stability','B) Emotional support, love, and attention','C) Trust, honesty, and loyalty','D) Ambition, drive, and success'] }
+      { id:'q23', text:'What are your personal goals?',
+        options:['A) Build my career/business – be financially independent','B) Full-time homemaker – support my family','C) Balance both – career and family equally','D) Focus on raising children well'] },
+      { id:'q24', text:'What\'s your love language?',
+        options:['A) Words of Affirmation & Quality Time','B) Acts of Service & Gifts','C) Physical Touch & Quality Time','D) All equally'] },
+      { id:'q25', text:'How do you handle arguments?',
+        options:['A) Shout it out and resolve fast','B) Walk away and cool down for days','C) Calm down and talk respectfully – no insults','D) Involve family/friends to mediate'] },
+      { id:'q26', text:'How much physical intimacy do you need?',
+        options:['A) Very important – at least 3-4 times a week','B) Moderate – 1-2 times a week','C) Not a priority','D) Depends on how we feel'] },
+      { id:'q27', text:'What do you value most in a partner?',
+        options:['A) Financial provision and stability','B) Emotional support, love, and attention','C) Trust, honesty, and loyalty','D) Ambition, drive, and success'] },
+      { id:'q28', text:'Where do you want to retire?',
+        options:['A) Lagos – we love the city','B) Have a city home and village house for holidays','C) Village completely – go back home','D) Move abroad with children'] },
+      { id:'q29', text:'Should we start a business together?',
+        options:['A) Immediately – we start something now','B) After we marry','C) Maybe after 3 years of marriage','D) Never – keep business and marriage separate'] },
+      { id:'q30', text:'How should we handle our different church denominations (Cherubim & Seraphim vs Pentecostal)?',
+        options:['A) We each keep our own church – no pressure to change','B) We find a neutral church we both like','C) One partner converts to the other\'s church','D) We attend both churches alternately'] },
+      { id:'q31', text:'How should we handle our differences in general?',
+        options:['A) We respect each other\'s differences and don\'t force change','B) We work towards finding common ground','C) We agree to disagree and focus on what unites us','D) One person must eventually change'] },
+      { id:'q32', text:'Do you want pets in our home?',
+        options:['A) Yes – I love animals and want a pet','B) No – I don\'t like pets in the house','C) Maybe – I\'m open to it if my partner wants one','D) Only outdoor pets (not inside the house)'] }
     ];
 
-    // RENDER
+    // ===== RENDER QUESTIONS =====
     const container = document.getElementById('questionsContainer');
     const colorClasses = ['card-color-1','card-color-2','card-color-3','card-color-4','card-color-5','card-color-6','card-color-7','card-color-8'];
 
@@ -470,6 +500,7 @@
     }
     renderQuestions();
 
+    // ===== PROGRESS =====
     function updateProgress() {
       const total = QUESTIONS.length;
       const checked = document.querySelectorAll('input[type="radio"]:checked').length;
@@ -478,6 +509,16 @@
     }
     document.addEventListener('change', updateProgress);
 
+    // ===== TOAST =====
+    function showToast(message, isError = false) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.className = 'toast' + (isError ? ' error' : '');
+      setTimeout(() => toast.classList.add('show'), 10);
+      setTimeout(() => toast.classList.remove('show'), 4000);
+    }
+
+    // ===== RESET =====
     document.getElementById('resetBtn').addEventListener('click', function() {
       document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
       document.getElementById('resultPanel').classList.remove('visible');
@@ -486,9 +527,11 @@
       window.scrollTo({ top:0, behavior:'smooth' });
     });
 
+    // ===== GLOBAL VARIABLES =====
     let lastResults = { pct:0, verdict:'', disagreements:[], answers:{}, allDisagreements:[] };
 
-    document.getElementById('submitBtn').addEventListener('click', function() {
+    // ===== SUBMIT =====
+    document.getElementById('submitBtn').addEventListener('click', async function() {
       const allQs = QUESTIONS.map(q => q.id);
       const answers = {};
       let missing = false;
@@ -498,80 +541,138 @@
         else missing = true;
       });
       if (missing) {
-        alert('Please answer all 30 questions before submitting.');
+        showToast('Please answer all 32 questions before submitting.', true);
         return;
       }
-      lastResults.answers = answers;
 
-      let matchCount = 0;
-      const total = allQs.length;
-      const disagreements = [];
-      allQs.forEach(id => {
-        if (answers[id] === PEACE_ANSWERS[id]) matchCount++;
-        else {
-          const qText = QUESTIONS.find(q => q.id === id).text;
-          disagreements.push({ id, qText, partner: answers[id], peace: PEACE_ANSWERS[id] });
+      // Show loading
+      const btn = this;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+      btn.classList.add('loading');
+
+      try {
+        // Calculate score locally
+        let matchCount = 0;
+        let totalScore = 0;
+        const total = allQs.length;
+        const disagreements = [];
+        const allDetails = [];
+
+        allQs.forEach(id => {
+          const partnerAns = answers[id];
+          const peaceAns = PEACE_ANSWERS[id];
+          let score = 0;
+          let type = '';
+
+          if (partnerAns === peaceAns) {
+            score = 1;
+            matchCount++;
+            type = 'match';
+          } else if (COMPLEMENTARY[id] && COMPLEMENTARY[id][partnerAns] && COMPLEMENTARY[id][partnerAns].includes(peaceAns)) {
+            score = 0.5;
+            type = 'complementary';
+          } else {
+            score = 0;
+            type = 'conflict';
+            const qText = QUESTIONS.find(q => q.id === id).text;
+            disagreements.push({ id, qText, partner: partnerAns, peace: peaceAns });
+          }
+          totalScore += score;
+          allDetails.push({ id, partnerAns, peaceAns, score, type });
+        });
+
+        const pct = Math.round((totalScore / total) * 100);
+        lastResults.pct = pct;
+        lastResults.answers = answers;
+        lastResults.allDisagreements = disagreements;
+
+        let verdict = '';
+        let verdictColor = '';
+        if (pct >= 75) { verdict = '💚 Strong Match'; verdictColor = '#27ae60'; }
+        else if (pct >= 50) { verdict = '💛 Needs Work'; verdictColor = '#f39c12'; }
+        else { verdict = '❤️‍🩹 Serious Discussion Needed'; verdictColor = '#e74c3c'; }
+        lastResults.verdict = verdict;
+
+        // Send to API (async - don't wait)
+        try {
+          const response = await fetch('/api/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              answers: answers,
+              score: pct,
+              verdict: verdict,
+              timestamp: new Date().toISOString()
+            })
+          });
+          if (!response.ok) {
+            console.warn('API submission failed, but results shown locally.');
+          }
+        } catch (e) {
+          console.warn('API error, results shown locally:', e);
         }
-      });
-      lastResults.allDisagreements = disagreements;
-      const pct = Math.round((matchCount/total)*100);
-      lastResults.pct = pct;
-      let verdict = '';
-      let verdictColor = '';
-      if (pct >= 75) { verdict = '💚 Strong Match'; verdictColor = '#27ae60'; }
-      else if (pct >= 50) { verdict = '💛 Needs Work'; verdictColor = '#f39c12'; }
-      else { verdict = '❤️‍🩹 Serious Discussion Needed'; verdictColor = '#e74c3c'; }
-      lastResults.verdict = verdict;
 
-      const panel = document.getElementById('resultPanel');
-      panel.style.display = 'block';
-      panel.classList.add('visible');
-      document.getElementById('scoreDisplay').textContent = pct+'%';
-      const vBadge = document.getElementById('verdictDisplay');
-      vBadge.textContent = verdict;
-      vBadge.style.background = verdictColor+'22';
-      vBadge.style.color = verdictColor;
+        // Show results
+        const panel = document.getElementById('resultPanel');
+        panel.style.display = 'block';
+        panel.classList.add('visible');
+        document.getElementById('scoreDisplay').textContent = pct+'%';
+        const vBadge = document.getElementById('verdictDisplay');
+        vBadge.textContent = verdict;
+        vBadge.style.background = verdictColor+'22';
+        vBadge.style.color = verdictColor;
 
-      const sections = [
-        { name:'💰 Finance', dot: pct>65?'green':(pct>40?'yellow':'red') },
-        { name:'🏠 Living', dot: pct>65?'green':(pct>40?'yellow':'red') },
-        { name:'👨‍👧 Children', dot: pct>65?'green':(pct>40?'yellow':'red') },
-        { name:'💍 Marriage', dot: pct>65?'green':(pct>40?'yellow':'red') },
-        { name:'👪 Family', dot: pct>65?'green':(pct>40?'yellow':'red') },
-        { name:'💪 Contributions', dot: pct>65?'green':(pct>40?'yellow':'red') },
-      ];
-      document.getElementById('sectionRatings').innerHTML = sections.map(s => 
-        `<span class="rating-item"><span class="rating-dot dot-${s.dot}"></span> ${s.name}</span>`
-      ).join('');
+        const sections = [
+          { name:'💰 Finance', dot: pct>65?'green':(pct>40?'yellow':'red') },
+          { name:'🏠 Living', dot: pct>65?'green':(pct>40?'yellow':'red') },
+          { name:'👨‍👧 Children', dot: pct>65?'green':(pct>40?'yellow':'red') },
+          { name:'💍 Marriage', dot: pct>65?'green':(pct>40?'yellow':'red') },
+          { name:'👪 Family', dot: pct>65?'green':(pct>40?'yellow':'red') },
+          { name:'💪 Contributions', dot: pct>65?'green':(pct>40?'yellow':'red') },
+        ];
+        document.getElementById('sectionRatings').innerHTML = sections.map(s => 
+          `<span class="rating-item"><span class="rating-dot dot-${s.dot}"></span> ${s.name}</span>`
+        ).join('');
 
-      const sorted = disagreements.slice(0,5);
-      const list = document.getElementById('disagreementList');
-      if (sorted.length === 0) {
-        list.innerHTML = '<li style="color:#27ae60;"><i class="fas fa-check-circle"></i> Amazing! You agree on everything that matters. 💞</li>';
-      } else {
-        list.innerHTML = sorted.map(d => {
-          const qShort = d.qText.length > 60 ? d.qText.substring(0,60)+'...' : d.qText;
-          return `<li><i class="fas fa-arrow-right" style="color:#d4a06a;"></i> <strong>${qShort}</strong><br>
-          <span style="font-size:0.85rem; display:block; margin-top:3px;">
-            <span class="highlight-partner">💕 Partner:</span> ${d.partner} &nbsp;|&nbsp; 
-            <span class="highlight-peace">💙 Peace:</span> ${d.peace}
-          </span></li>`;
-        }).join('');
+        const sorted = disagreements.slice(0,5);
+        const list = document.getElementById('disagreementList');
+        if (sorted.length === 0) {
+          list.innerHTML = '<li style="color:#27ae60;"><i class="fas fa-check-circle"></i> Amazing! You agree on everything that matters. 💞</li>';
+        } else {
+          list.innerHTML = sorted.map(d => {
+            const qShort = d.qText.length > 60 ? d.qText.substring(0,60)+'...' : d.qText;
+            return `<li><i class="fas fa-arrow-right" style="color:#d4a06a;"></i> <strong>${qShort}</strong><br>
+            <span style="font-size:0.85rem; display:block; margin-top:3px;">
+              <span class="highlight-partner">💕 Partner:</span> ${d.partner} &nbsp;|&nbsp; 
+              <span class="highlight-peace">💙 Peace:</span> ${d.peace}
+            </span></li>`;
+          }).join('');
+        }
+
+        const reality = document.getElementById('realityText');
+        if (pct >= 70) {
+          reality.innerHTML = '✅ <strong>You & Peace</strong> — you are aligned on major life topics. Keep communication open and you will thrive. 💞';
+        } else if (pct >= 45) {
+          reality.innerHTML = '🟡 <strong>You & Peace</strong> — you have some gaps. Talk about finances, living arrangements, and family expectations. Compromise is key.';
+        } else {
+          reality.innerHTML = '🔴 <strong>You & Peace</strong> — significant differences. Have honest conversations about EVERYTHING. Consider pre-marital or relationship counseling. 💙';
+        }
+
+        updateShareButtons();
+        panel.scrollIntoView({ behavior:'smooth', block:'center' });
+
+        showToast('✅ Results ready! Scroll down to see your compatibility.');
+
+      } catch (error) {
+        showToast('Something went wrong. Please try again.', true);
+        console.error(error);
+      } finally {
+        btn.innerHTML = '<i class="fas fa-handshake"></i> See Compatibility';
+        btn.classList.remove('loading');
       }
-
-      const reality = document.getElementById('realityText');
-      if (pct >= 70) {
-        reality.innerHTML = '✅ <strong>You & Peace</strong> — you are aligned on major life topics. Keep communication open and you will thrive. 💞';
-      } else if (pct >= 45) {
-        reality.innerHTML = '🟡 <strong>You & Peace</strong> — you have some gaps. Talk about finances, living arrangements, and family expectations. Compromise is key.';
-      } else {
-        reality.innerHTML = '🔴 <strong>You & Peace</strong> — significant differences. Have honest conversations about EVERYTHING. Consider pre-marital or relationship counseling. 💙';
-      }
-
-      updateShareButtons();
-      panel.scrollIntoView({ behavior:'smooth', block:'center' });
     });
 
+    // ===== SHARE FUNCTIONS =====
     function generateShareText() {
       const { pct, verdict, allDisagreements, answers } = lastResults;
       let text = '💞 *Relationship Compatibility Results* 💞\n\n';
@@ -579,12 +680,12 @@
       text += `📊 *Compatibility Score:* ${pct}%\n`;
       text += `⚖️ *Verdict:* ${verdict}\n\n`;
       text += `━─━─━─━─━─━─━─━─━─━─━─━─━\n`;
-      text += `📋 *Your Answers vs Peace's Answers:*\n\n`;
+      text += `📋 *Your Answers vs Peace\'s Answers:*\n\n`;
       QUESTIONS.forEach((q, idx) => {
         const qId = q.id;
         const partnerAns = answers[qId] || 'Not answered';
         const peaceAns = PEACE_ANSWERS[qId];
-        const match = partnerAns === peaceAns ? '✅' : '❌';
+        const match = partnerAns === peaceAns ? '✅' : (COMPLEMENTARY[qId] && COMPLEMENTARY[qId][partnerAns]?.includes(peaceAns) ? '🔄' : '❌');
         const shortQ = q.text.length > 50 ? q.text.substring(0,50)+'...' : q.text;
         text += `${idx+1}. ${shortQ}\n`;
         text += `   💕 Partner: ${partnerAns}  |  💙 Peace: ${peaceAns} ${match}\n\n`;
@@ -622,7 +723,7 @@
           textarea.select();
           document.execCommand('copy');
           document.body.removeChild(textarea);
-          alert('📋 Results copied to clipboard!');
+          showToast('📋 Results copied to clipboard!');
         });
       };
       const encodedText = encodeURIComponent(text);
