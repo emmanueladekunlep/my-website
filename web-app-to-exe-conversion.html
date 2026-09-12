@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en-NG">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO META ===== -->
+<title>Web App to EXE Conversion | Turn Your Web App Into a Windows App — Emmanuel Adekunle Peace</title>
+<meta name="description" content="Convert your web app or vibe-coded project into a real Windows .exe or MSIX package. Handled end-to-end by a full stack developer. Ready for distribution or Microsoft Store. WhatsApp 0703 297 7572.">
+<meta name="keywords" content="web app to exe, convert web app to exe, website to exe, web app to desktop app, html to exe, web app windows app, web app to MSIX, electron alternative, Tauri, vibe coded app to desktop">
+<meta name="author" content="Emmanuel Adekunle Peace (Sam Transcend)">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://emmanueladekunlepeace.com/web-app-to-exe-conversion.html">
+
+<!-- ===== OPEN GRAPH ===== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Web App to EXE Conversion | Turn Your Web App Into a Windows App">
+<meta property="og:description" content="Convert your web app into a real Windows .exe or MSIX package. Ready for distribution or Microsoft Store.">
+<meta property="og:url" content="https://emmanueladekunlepeace.com/web-app-to-exe-conversion.html">
+<meta property="og:site_name" content="Emmanuel Adekunle Peace">
+<meta property="og:locale" content="en_NG">
+<meta property="og:image" content="https://emmanueladekunlepeace.com/assets/og-web-app-to-exe-conversion.jpg">
+
+<!-- ===== TWITTER ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Web App to EXE Conversion | Turn Your Web App Into a Windows App">
+<meta name="twitter:description" content="Convert your web app into a real Windows .exe or MSIX package. Handled end-to-end.">
+<meta name="twitter:image" content="https://emmanueladekunlepeace.com/assets/og-web-app-to-exe-conversion.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ===== JSON-LD: SERVICE ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Web App to Windows EXE Conversion",
+  "name": "Web App to EXE Conversion — Turn Web Apps Into Windows Desktop Apps",
+  "description": "Convert web applications, websites and vibe-coded projects into real Windows .exe, .msi or MSIX packages. End-to-end service including packaging, code signing, installer creation and Microsoft Store preparation.",
+  "url": "https://emmanueladekunlepeace.com/web-app-to-exe-conversion.html",
+  "areaServed": [
+    { "@type": "Country", "name": "Nigeria" },
+    { "@type": "Country", "name": "Worldwide" }
+  ],
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Developers, founders and businesses wanting to distribute web apps as Windows desktop applications"
+  },
+  "provider": {
+    "@type": "Person",
+    "name": "Emmanuel Adekunle Peace",
+    "alternateName": "Sam Transcend",
+    "jobTitle": "Full Stack Developer & Desktop App Packaging Specialist",
+    "url": "https://emmanueladekunlepeace.com",
+    "email": "info@emmanueladekunlepeace.com",
+    "telephone": "+2347032977572",
+    "sameAs": [
+      "https://www.linkedin.com/in/emmanueladekunlep",
+      "https://www.amazon.com/author/emmanueladekunlepeace"
+    ],
+    "knowsAbout": [
+      "Electron", "Tauri", "WebView2", "Nativefier", "MSIX Packaging",
+      "Code Signing", "Windows Installer Creation", "Microsoft Store Submission"
+    ]
+  }
+}
+</script>
+
+<!-- ===== JSON-LD: PERSON ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Emmanuel Adekunle Peace",
+  "alternateName": "Sam Transcend",
+  "url": "https://emmanueladekunlepeace.com",
+  "image": "https://emmanueladekunlepeace.com/assets/emmanuel-adekunle-peace.jpg",
+  "jobTitle": "Full Stack Developer & Desktop App Packaging Specialist",
+  "email": "info@emmanueladekunlepeace.com",
+  "telephone": "+2347032977572",
+  "address": { "@type": "PostalAddress", "addressCountry": "NG" },
+  "sameAs": [
+    "https://www.linkedin.com/in/emmanueladekunlep",
+    "https://www.amazon.com/author/emmanueladekunlepeace"
+  ]
+}
+</script>
+
+<!-- ===== JSON-LD: FAQ ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I convert any web app to a Windows EXE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most web apps can be converted, but not all. Static sites, single-page apps (React, Vue, Svelte) and simple web tools convert very easily. Apps that rely heavily on browser-specific features, server-side rendering, or complex authentication flows may need adjustments. I assess the app first and tell you honestly whether a clean conversion is realistic or whether adjustments are needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Electron, Tauri and WebView2?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Electron bundles its own copy of Chromium and Node.js inside every app, so the installer is large (~90MB+) but the app runs identically everywhere. Tauri uses the operating system's native webview (WebView2 on Windows, WebKit on macOS), so installers are much smaller (~5-10MB) but rely on the OS having a modern webview available. WebView2 is Microsoft's embeddable webview component that Tauri and other tools use on Windows. The right choice depends on your priorities: maximum compatibility and size versus small installer and modern Windows integration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my web app work offline as a desktop app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — if the app's core features don't require server-side processing. A tool that runs entirely in the browser (calculators, editors, note apps) will work offline once packaged. An app that needs a backend API will still need the internet for those features. The packaging itself doesn't change what the app can do; it changes how it's delivered."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is MSIX and why does it matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MSIX is Microsoft's modern app packaging format, combining the best of MSI, .appx, App-V and ClickOnce. MSIX packages are required for the Microsoft Store, but they're also useful for direct distribution because they support clean installs, automatic updates, and safe uninstallation. If you want your app in the Microsoft Store, MSIX is the format you need."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to sign my EXE with a code signing certificate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not strictly — but unsigned EXEs trigger Windows SmartScreen warnings and antivirus false positives. For any app distributed to real users, a code signing certificate (preferably EV — Extended Validation) is essential. It verifies your identity as the publisher and prevents the 'Windows protected your PC' warning that loses installers. I can walk you through the signing process or handle it directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you convert my web app into a Mac or Linux app too?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Tools like Electron and Tauri support Windows, macOS and Linux from the same codebase. The conversion approach is the same; only the build target changes. If you want multi-platform distribution, that's entirely possible from one project — though each platform has its own packaging and signing requirements (Microsoft Store, Apple App Store, Linux distribution formats)."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --primary:#5A2A5F;
+    --secondary:#10964D;
+    --accent:#D4AF37;
+    --bg:#ffffff;
+    --bg-soft:#f5f4f7;
+    --text:#1f1f24;
+    --muted:#5c5c66;
+    --line:#e6e3ea;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(90,42,95,.08);
+    --shadow-lg:0 20px 50px rgba(90,42,95,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1140px,92%);margin-inline:auto}
+
+  header{
+    position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.94);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:20px}
+  .logo{font-weight:800;font-size:1.05rem;color:var(--primary);letter-spacing:-.02em}
+  .logo span{color:var(--secondary)}
+  .nav-links{display:flex;gap:22px;list-style:none;flex-wrap:wrap}
+  .nav-links a{font-size:.9rem;font-weight:500;color:var(--muted);transition:.2s}
+  .nav-links a:hover,.nav-links a.active{color:var(--primary)}
+  .nav-cta{
+    background:var(--secondary);color:#fff;padding:10px 20px;border-radius:999px;
+    font-size:.88rem;font-weight:600;white-space:nowrap;transition:.25s;
+  }
+  .nav-cta:hover{background:#0d7a3e;transform:translateY(-1px)}
+  .burger{display:none;background:none;border:0;font-size:1.5rem;color:var(--primary);cursor:pointer}
+
+  .hero{
+    background:
+      radial-gradient(900px 420px at 88% -10%,rgba(16,150,77,.13),transparent 60%),
+      radial-gradient(700px 380px at 5% 0%,rgba(90,42,95,.11),transparent 60%),
+      var(--bg-soft);
+    padding:80px 0 72px;border-bottom:1px solid var(--line);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
+    color:var(--primary);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    padding:7px 15px;border-radius:999px;margin-bottom:20px;box-shadow:var(--shadow);
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--secondary)}
+  h1{font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.14;letter-spacing:-.03em;font-weight:800;color:var(--primary)}
+  h1 em{font-style:normal;color:var(--secondary)}
+  .hero p.lead{margin-top:20px;font-size:1.09rem;color:var(--muted);max-width:620px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;padding:14px 27px;border-radius:999px;
+    font-weight:700;font-size:.95rem;transition:.25s;border:2px solid transparent;
+  }
+  .btn-wa{background:var(--secondary);color:#fff;box-shadow:0 10px 24px rgba(16,150,77,.28)}
+  .btn-wa:hover{background:#0d7a3e;transform:translateY(-2px);box-shadow:0 14px 30px rgba(16,150,77,.34)}
+  .btn-ghost{background:#fff;color:var(--primary);border-color:var(--line);box-shadow:var(--shadow)}
+  .btn-ghost:hover{border-color:var(--primary);transform:translateY(-2px)}
+  .hero-stats{display:flex;gap:34px;margin-top:40px;flex-wrap:wrap}
+  .stat b{display:block;font-size:1.75rem;font-weight:800;color:var(--primary);line-height:1.1}
+  .stat span{font-size:.82rem;color:var(--muted);font-weight:500}
+
+  .hero-card{
+    background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;
+    box-shadow:var(--shadow-lg);
+  }
+  .hero-card h3{font-size:1rem;color:var(--primary);margin-bottom:18px;font-weight:700}
+  .hero-card hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+  .hero-card ul{list-style:none;display:grid;gap:12px}
+  .hero-card li{display:flex;gap:10px;font-size:.9rem;color:var(--muted)}
+  .tick{color:var(--secondary);font-weight:800;flex-shrink:0}
+  .cross{color:#c0392b;font-weight:800;flex-shrink:0}
+
+  section{padding:76px 0}
+  .soft{background:var(--bg-soft)}
+  .sec-head{max-width:720px;margin-bottom:44px}
+  .kicker{
+    color:var(--secondary);font-size:.78rem;font-weight:800;letter-spacing:.13em;
+    text-transform:uppercase;margin-bottom:12px;display:block;
+  }
+  h2{font-size:clamp(1.5rem,3vw,2.15rem);line-height:1.22;letter-spacing:-.025em;font-weight:800;color:var(--primary)}
+  h3{font-size:1.12rem;font-weight:700;color:var(--primary);margin-bottom:10px}
+  .sec-head p{margin-top:16px;color:var(--muted);font-size:1.02rem}
+
+  .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:24px}
+  .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:26px}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;box-shadow:var(--shadow);transition:.28s;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(90,42,95,.22)}
+  .card p{color:var(--muted);font-size:.94rem}
+  .icon{
+    width:46px;height:46px;border-radius:12px;display:grid;place-items:center;
+    background:rgba(90,42,95,.09);color:var(--primary);font-size:1.25rem;margin-bottom:16px;font-weight:800;
+  }
+  .icon.g{background:rgba(16,150,77,.11);color:var(--secondary)}
+  .icon.a{background:rgba(212,175,55,.16);color:#a5822a}
+  .icon.r{background:rgba(192,57,43,.1);color:#c0392b}
+
+  .pain li{
+    list-style:none;display:flex;gap:12px;padding:13px 0;border-bottom:1px dashed var(--line);
+    color:var(--muted);font-size:.95rem;
+  }
+  .pain li:last-child{border-bottom:0}
+
+  /* APPROACH CARDS */
+  .approaches{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+  .approach{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px;box-shadow:var(--shadow);transition:.28s;position:relative;overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .approach::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:4px;
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
+  }
+  .approach:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+  .approach h3{margin-bottom:8px}
+  .approach p{color:var(--muted);font-size:.9rem;flex-grow:1}
+  .approach .meta{
+    display:flex;gap:12px;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);
+    flex-wrap:wrap;
+  }
+  .approach .meta span{
+    font-size:.75rem;font-weight:700;color:var(--primary);
+    background:var(--bg-soft);padding:4px 10px;border-radius:6px;
+  }
+
+  /* PROCESS */
+  .steps{counter-reset:s;display:grid;gap:20px}
+  .step{
+    position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 26px 26px 82px;box-shadow:var(--shadow);
+  }
+  .step::before{
+    counter-increment:s;content:counter(s);
+    position:absolute;left:24px;top:24px;width:40px;height:40px;border-radius:11px;
+    background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:800;font-size:.95rem;
+  }
+  .step h3{margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.94rem}
+
+  .quote{
+    background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);
+    border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);
+  }
+  .quote p{font-style:italic;color:var(--text);font-size:.96rem}
+  .quote footer{margin-top:14px;font-size:.85rem;font-weight:700;color:var(--primary)}
+  .quote footer span{display:block;font-weight:500;color:var(--muted);font-size:.8rem}
+
+  .faq{display:grid;gap:14px}
+  details{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:0 22px;box-shadow:var(--shadow);overflow:hidden;
+  }
+  details[open]{border-color:rgba(90,42,95,.3)}
+  summary{
+    cursor:pointer;font-weight:700;color:var(--primary);padding:20px 0;
+    display:flex;justify-content:space-between;gap:16px;align-items:center;font-size:1rem;list-style:none;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:1.35rem;color:var(--secondary);font-weight:700;transition:.25s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{padding:0 0 22px;color:var(--muted);font-size:.94rem;max-width:70ch}
+
+  .cta{
+    background:linear-gradient(135deg,var(--primary),#3d1c41 65%);
+    border-radius:22px;padding:60px 40px;text-align:center;color:#fff;
+    box-shadow:var(--shadow-lg);position:relative;overflow:hidden;
+  }
+  .cta::after{
+    content:"";position:absolute;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,rgba(16,150,77,.4),transparent 68%);top:-160px;right:-120px;
+  }
+  .cta h2{color:#fff;position:relative;z-index:1}
+  .cta p{color:rgba(255,255,255,.82);max-width:640px;margin:18px auto 0;position:relative;z-index:1}
+  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px;position:relative;z-index:1}
+  .btn-gold{background:var(--accent);color:#3a2c05;box-shadow:0 10px 26px rgba(212,175,55,.34)}
+  .btn-gold:hover{background:#c8a331;transform:translateY(-2px)}
+  .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+  .btn-outline:hover{background:rgba(255,255,255,.12);border-color:#fff;transform:translateY(-2px)}
+  .cta small{display:block;margin-top:22px;color:rgba(255,255,255,.6);font-size:.83rem;position:relative;z-index:1}
+
+  .related a{
+    display:flex;justify-content:space-between;align-items:center;gap:14px;
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 22px;box-shadow:var(--shadow);transition:.25s;font-weight:600;color:var(--primary);font-size:.94rem;
+  }
+  .related a:hover{transform:translateX(5px);border-color:var(--secondary);color:var(--secondary)}
+  .related span{color:var(--secondary);font-weight:800}
+
+  footer.site{background:#1c1220;color:rgba(255,255,255,.72);padding:58px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:34px}
+  footer.site h4{color:#fff;font-size:.95rem;margin-bottom:16px;font-weight:700}
+  footer.site a{font-size:.89rem;color:rgba(255,255,255,.68);display:block;padding:5px 0;transition:.2s}
+  footer.site a:hover{color:var(--accent)}
+  .foot-brand{font-weight:800;color:#fff;font-size:1.1rem;margin-bottom:12px}
+  .foot-brand span{color:var(--secondary)}
+  footer.site p{font-size:.89rem;max-width:34ch}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:22px;
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.83rem;
+  }
+
+  .wa-float{
+    position:fixed;right:20px;bottom:22px;z-index:1200;width:58px;height:58px;border-radius:50%;
+    background:var(--secondary);display:grid;place-items:center;
+    box-shadow:0 12px 30px rgba(16,150,77,.42);transition:.28s;
+  }
+  .wa-float:hover{transform:scale(1.09)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:38px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:760px){
+    .nav-links{
+      display:none;position:absolute;top:100%;left:0;right:0;background:#fff;
+      flex-direction:column;gap:0;padding:10px 0;border-bottom:1px solid var(--line);
+      box-shadow:var(--shadow-lg);
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{padding:13px 6%;width:100%;font-size:.95rem}
+    .burger{display:block}
+    .nav-cta{display:none}
+    section{padding:58px 0}
+    .cta{padding:44px 24px}
+    .step{padding:24px 22px}
+    .step::before{position:static;margin-bottom:14px}
+    .foot-grid{grid-template-columns:1fr;gap:26px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo">Emmanuel Adekunle <span>Peace</span></a>
+    <button class="burger" aria-label="Toggle menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html" class="active">Services</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/testimonials.html">Testimonials</a></li>
+      <li><a href="/books.html">Books</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/resources.html">Resources</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/2347032977572?text=Hi%20Emmanuel%2C%20I%20want%20to%20convert%20my%20web%20app%20to%20an%20EXE" class="nav-cta">Convert My App</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> Web App to EXE · Windows Desktop</span>
+      <h1>Your users want a real desktop app. <em>You have a web app.</em></h1>
+      <p class="lead">
+        Maybe you built it with AI. Maybe it's an internal tool. Maybe it's a
+        business idea that deserves to ship as a proper Windows program. I
+        convert web apps into real .exe or MSIX packages — installable,
+        distributable, and ready for the Microsoft Store if you want it there.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/2347032977572?text=Hi%20Emmanuel%2C%20I%20want%20to%20convert%20my%20web%20app%20to%20an%20EXE" class="btn btn-wa">💬 Discuss Your App</a>
+        <a href="#approaches" class="btn btn-ghost">See Approaches ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>8+</b><span>Apps deployed</span></div>
+        <div class="stat"><b>Win</b><span>EXE, MSI, MSIX</span></div>
+        <div class="stat"><b>Multi</b><span>Mac &amp; Linux available</span></div>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <h3>What I convert for you</h3>
+      <ul>
+        <li><span class="tick">✓</span> Static websites and landing pages</li>
+        <li><span class="tick">✓</span> React, Vue, Svelte single-page apps</li>
+        <li><span class="tick">✓</span> Vibe-coded tools and prototypes</li>
+        <li><span class="tick">✓</span> Internal business tools and dashboards</li>
+        <li><span class="tick">✓</span> Web apps packaged for Microsoft Store</li>
+        <li><span class="tick">✓</span> Multi-platform builds (Windows, Mac, Linux)</li>
+      </ul>
+      <hr>
+      <p style="font-size:.88rem;color:var(--muted)">
+        If it runs in a browser, it can usually become a desktop app. I'll tell
+        you honestly whether a clean conversion makes sense before we start.
+      </p>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= 1. PROBLEM ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">The Problem</span>
+      <h2>Why "just wrap it in Electron" doesn't work like the tutorials suggest</h2>
+      <p>
+        The internet makes desktop conversion sound like a single command. It isn't.
+        The tutorials skip the parts that actually matter — and that's where most
+        conversions fail.
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>Installers are bloated</h3>
+        <p>Electron apps bundle their own Chromium, so a "small" web tool ends up as a 90MB+ installer [citation:1]. Users notice. Conversion should match the app, not force a heavy default.</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>SmartScreen warnings kill installs</h3>
+        <p>Unsigned EXEs trigger Windows "protected your PC" warnings. Users abandon installs at the sight of them. Code signing isn't optional for real distribution [citation:7].</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>Offline behaviour breaks</h3>
+        <p>Many web apps assume the internet. Wrapped as desktop apps, they crash when offline instead of failing gracefully — a hard fail in Microsoft Store certification [citation:4].</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>Updates are unmanaged</h3>
+        <p>Web apps update automatically. Desktop apps don't. Without an update mechanism, users are stuck on old versions indefinitely — unless you build one in.</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>Store requirements are specific</h3>
+        <p>Microsoft Store requires MSIX packaging, a privacy policy, proper metadata, and passing certification checks [citation:4][citation:12]. A raw Electron .exe won't get you there.</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>Wrong approach for the app</h3>
+        <p>Some apps need Electron's bundled runtime. Some need Tauri's light footprint. Some just need a WebView2 wrapper. Choosing wrong affects size, speed and future maintenance [citation:1][citation:13].</p>
+      </div>
+    </div>
+
+    <ul class="pain" style="margin-top:34px">
+      <li><span class="cross">✕</span> "I tried Nativefier but the EXE is huge and feels broken."</li>
+      <li><span class="cross">✕</span> "Windows shows 'Unknown Publisher' every time someone installs."</li>
+      <li><span class="cross">✕</span> "I don't know whether to use Electron, Tauri or WebView2."</li>
+      <li><span class="cross">✕</span> "Microsoft Store rejected my app and I don't know why."</li>
+      <li><span class="cross">✕</span> "The app works online but crashes the moment there's no internet."</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 2. APPROACHES ================= -->
+<section class="soft" id="approaches">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Approaches</span>
+      <h2>Three ways to package a web app — and when to use each</h2>
+      <p>
+        There's no single right answer. The right approach depends on the app,
+        the audience and where you plan to distribute it.
+      </p>
+    </div>
+
+    <div class="approaches">
+      <div class="approach">
+        <h3>Electron</h3>
+        <p>Bundles Chromium and Node.js inside the app. Largest installer (~90MB+), but the app runs identically on every Windows machine regardless of what's installed [citation:1].</p>
+        <div class="meta">
+          <span>Largest size</span>
+          <span>Max compatibility</span>
+        </div>
+      </div>
+      <div class="approach">
+        <h3>Tauri</h3>
+        <p>Uses the system's native webview (WebView2 on Windows). Tiny installers (~5-10MB) with fast startup and modern OS integration [citation:1]. Requires the target machine to have WebView2 — which modern Windows 10/11 does.</p>
+        <div class="meta">
+          <span>Smallest size</span>
+          <span>Modern Windows</span>
+        </div>
+      </div>
+      <div class="approach">
+        <h3>WebView2 / Native Wrapper</h3>
+        <p>Direct wrapping of the web app using Microsoft's WebView2 engine, either through Nativefier or lighter CLI tools like Brix [citation:5][citation:13]. Fastest conversion for simple apps that just need a window and an icon.</p>
+        <div class="meta">
+          <span>Fastest build</span>
+          <span>Simple apps</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:34px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)">
+      <p style="font-size:.95rem;color:var(--muted)">
+        <strong style="color:var(--primary)">Which approach for you?</strong> I assess the app first, then recommend. A static site or simple tool doesn't need a 90MB Electron bundle. A complex app with native file access might. The decision is driven by what your app actually does — not by what's easiest to Google.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. WHAT I DELIVER ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">What I Deliver</span>
+      <h2>Beyond the bare EXE</h2>
+      <p>
+        A working executable is the starting point, not the deliverable. These
+        are the pieces that make the app usable and distributable.
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="icon g">📦</div>
+        <h3>Installer Packages</h3>
+        <p>MSI, EXE installer or MSIX — depending on your distribution target. Includes proper uninstall entries, file associations and shortcuts where relevant.</p>
+      </div>
+      <div class="card">
+        <div class="icon g">🔏</div>
+        <h3>Code Signing</h3>
+        <p>Guidance and setup for signing with a standard or EV certificate. Unsigned apps trigger Windows SmartScreen — signed ones install cleanly [citation:3][citation:7].</p>
+      </div>
+      <div class="card">
+        <div class="icon g">🔄</div>
+        <h3>Update Mechanism</h3>
+        <p>Options for auto-updates so your users don't get stuck on old versions. Includes MSIX automatic updates where applicable [citation:2][citation:10].</p>
+      </div>
+      <div class="card">
+        <div class="icon a">🏪</div>
+        <h3>Microsoft Store Readiness</h3>
+        <p>MSIX packaging, metadata, privacy policy setup and certification preparation — so you can submit with confidence [citation:4].</p>
+      </div>
+      <div class="card">
+        <div class="icon a">🌐</div>
+        <h3>Multi-Platform Builds</h3>
+        <p>Windows, macOS and Linux from the same codebase where the tools support it. One project, multiple targets.</p>
+      </div>
+      <div class="card">
+        <div class="icon a">📖</div>
+        <h3>Documentation &amp; Handover</h3>
+        <p>Clear notes on how the app is built, how to rebuild it, where the signing key is stored, and how to update it later. No black boxes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. PROCESS ================= -->
+<section class="soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">The Process</span>
+      <h2>How the conversion works</h2>
+      <p>Structured, honest and paced. If the app isn't a good fit, I'll say so before you spend money.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <h3>App review &amp; feasibility check</h3>
+        <p>You share access to the web app or its source. I assess what it actually does — offline behaviour, server dependencies, browser-specific APIs — and recommend whether a clean conversion is realistic or whether adjustments are needed.</p>
+      </div>
+      <div class="step">
+        <h3>Approach selection &amp; quote</h3>
+        <p>Based on the review, I recommend Electron, Tauri or a lighter wrapper, plus the packaging format (EXE, MSI, MSIX). You receive a written proposal with the approach, scope, timeline and fixed price.</p>
+      </div>
+      <div class="step">
+        <h3>Conversion &amp; packaging</h3>
+        <p>Wrapping the web app in the chosen runtime, generating the desktop executable, and packaging it into an installer. Offline handling, error states and window configuration are set up correctly from the start.</p>
+      </div>
+      <div class="step">
+        <h3>Signing &amp; hardening</h3>
+        <p>Code signing setup, SmartScreen readiness, and testing on clean Windows machines — the ones that don't have your development tools installed. Most problems only show up there.</p>
+      </div>
+      <div class="step">
+        <h3>Test on real environments</h3>
+        <p>Installation, first-run experience, offline behaviour and uninstall tested across Windows versions. If you're targeting the Microsoft Store, we run through the pre-certification checklist.</p>
+      </div>
+      <div class="step">
+        <h3>Deliver, document, hand over</h3>
+        <p>You receive the installer, the source, the signing key (securely handed to you), and documentation on how to rebuild and update. Everything belongs to you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. FAQ ================= -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">FAQ</span>
+      <h2>What founders ask about web-to-desktop conversion</h2>
+    </div>
+
+    <div class="faq">
+      <details open>
+        <summary>Can I convert any web app to a Windows EXE?</summary>
+        <p>Most web apps can be converted, but not all. Static sites, single-page apps (React, Vue, Svelte) and simple web tools convert very easily. Apps that rely heavily on browser-specific features, server-side rendering, or complex authentication flows may need adjustments. I assess the app first and tell you honestly whether a clean conversion is realistic or whether adjustments are needed.</p>
+      </details>
+
+      <details>
+        <summary>What is the difference between Electron, Tauri and WebView2?</summary>
+        <p>Electron bundles its own copy of Chromium and Node.js inside every app, so the installer is large (~90MB+) but the app runs identically everywhere [citation:1]. Tauri uses the operating system's native webview (WebView2 on Windows, WebKit on macOS), so installers are much smaller (~5-10MB) but rely on the OS having a modern webview available. WebView2 is Microsoft's embeddable webview component that Tauri and other tools use on Windows. The right choice depends on your priorities: maximum compatibility and size versus small installer and modern Windows integration.</p>
+      </details>
+
+      <details>
+        <summary>Will my web app work offline as a desktop app?</summary>
+        <p>Yes — if the app's core features don't require server-side processing. A tool that runs entirely in the browser (calculators, editors, note apps) will work offline once packaged. An app that needs a backend API will still need the internet for those features. The packaging itself doesn't change what the app can do; it changes how it's delivered.</p>
+      </details>
+
+      <details>
+        <summary>What is MSIX and why does it matter?</summary>
+        <p>MSIX is Microsoft's modern app packaging format, combining the best of MSI, .appx, App-V and ClickOnce [citation:10]. MSIX packages are required for the Microsoft Store, but they're also useful for direct distribution because they support clean installs, automatic updates, and safe uninstallation. If you want your app in the Microsoft Store, MSIX is the format you need.</p>
+      </details>
+
+      <details>
+        <summary>Do I need to sign my EXE with a code signing certificate?</summary>
+        <p>Not strictly — but unsigned EXEs trigger Windows SmartScreen warnings and antivirus false positives [citation:7]. For any app distributed to real users, a code signing certificate (preferably EV — Extended Validation) is essential. It verifies your identity as the publisher and prevents the "Windows protected your PC" warning that loses installers. I can walk you through the signing process or handle it directly.</p>
+      </details>
+
+      <details>
+        <summary>Can you convert my web app into a Mac or Linux app too?</summary>
+        <p>Yes. Tools like Electron and Tauri support Windows, macOS and Linux from the same codebase [citation:1]. The conversion approach is the same; only the build target changes. If you want multi-platform distribution, that's entirely possible from one project — though each platform has its own packaging and signing requirements (Microsoft Store, Apple App Store, Linux distribution formats).</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RELATED ================= -->
+<section class="soft" style="padding-top:0">
+  <div class="wrap" style="padding-top:76px">
+    <div class="sec-head">
+      <span class="kicker">Explore More</span>
+      <h2>Related services</h2>
+    </div>
+    <div class="grid-3 related">
+      <a href="/vibe-coded-app-rescue.html">Vibe-Coded App Rescue <span>→</span></a>
+      <a href="/publish-app-play-store-nigeria.html">Publish to Play Store <span>→</span></a>
+      <a href="/full-stack-developer-nigeria.html">Full Stack Developer <span>→</span></a>
+      <a href="/react-developer-lagos.html">React Developer Lagos <span>→</span></a>
+      <a href="/hire-web-developer-nigeria.html">Hire a Web Developer <span>→</span></a>
+      <a href="/contact.html">Contact <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 6. FINAL CTA ================= -->
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <h2>Let's turn your web app into something users can install</h2>
+      <p>
+        Tell me what you built, what it runs on, and where you want to distribute
+        it — direct download, Microsoft Store, or both. I'll tell you honestly
+        what approach makes sense and what it costs.
+      </p>
+      <div class="cta-actions">
+        <a href="https://wa.me/2347032977572?text=Hi%20Emmanuel%2C%20I%20want%20to%20convert%20my%20web%20app%20to%20an%20EXE" class="btn btn-gold">💬 WhatsApp 0703 297 7572</a>
+        <a href="mailto:info@emmanueladekunlepeace.com?subject=Web%20App%20to%20EXE%20Conversion%20Enquiry" class="btn btn-outline">✉ Email Me</a>
+        <a href="/contact.html" class="btn btn-outline">Contact Page</a>
+      </div>
+      <small>Feasibility check first · Fixed-price conversion · Windows, Mac &amp; Linux</small>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Emmanuel Adekunle <span>Peace</span></div>
+        <p>Full Stack Developer, author of 25+ books and CEO of LabelReach Advertising Ltd. Helping founders convert and ship desktop apps worldwide.</p>
+      </div>
+      <div>
+        <h4>Vibe Coding</h4>
+        <a href="/vibe-coded-app-rescue.html">App Rescue</a>
+        <a href="/publish-app-play-store-nigeria.html">Publish to Play Store</a>
+        <a href="/web-app-to-exe-conversion.html">Web App to EXE</a>
+        <a href="/full-stack-developer-nigeria.html">Full Stack Developer</a>
+        <a href="/hire-web-developer-nigeria.html">Hire a Web Developer</a>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="/about.html">About</a>
+        <a href="/portfolio.html">Portfolio</a>
+        <a href="/testimonials.html">Testimonials</a>
+        <a href="/books.html">Books</a>
+        <a href="/blog.html">Blog</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="https://wa.me/2347032977572">WhatsApp: 0703 297 7572</a>
+        <a href="mailto:info@emmanueladekunlepeace.com">info@emmanueladekunlepeace.com</a>
+        <a href="https://www.linkedin.com/in/emmanueladekunlep" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.amazon.com/author/emmanueladekunlepeace" target="_blank" rel="noopener">Amazon Author Page</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Emmanuel Adekunle Peace. All rights reserved.</span>
+      <span>Web App to EXE Conversion · Worldwide</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/2347032977572?text=Hi%20Emmanuel%2C%20I%20found%20your%20web%20app%20to%20EXE%20page" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <path d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.56 4.19 1.62 6.01L4 29l8.13-1.6a12 12 0 0 0 3.9.65h.01C22.68 28.05 28.08 22.65 28.08 16S22.68 3 16.04 3zm0 21.86h-.01c-1.17 0-2.32-.31-3.32-.9l-.24-.14-4.82.95.96-4.7-.16-.25a9.9 9.9 0 0 1-1.52-5.28c0-5.5 4.48-9.97 9.99-9.97 2.67 0 5.17 1.04 7.06 2.93a9.9 9.9 0 0 1 2.92 7.05c0 5.5-4.47 9.98-9.96 9.98zm5.47-7.47c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/>
+  </svg>
+</a>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.querySelectorAll('#navlinks a').forEach(a=>{
+    a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open'));
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+# Operating System Files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor Files
+.vscode/
+.idea/
+*.swp
+
+# Environment and Secrets
+.env
+.env.local
+*.key
+*.pem
+
+# Node (if you ever add tooling)
+node_modules/
+npm-debug.log*
+
+# Logs and Temp
+*.log
+*.tmp

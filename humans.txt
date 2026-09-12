@@ -1,0 +1,36 @@
+# ============================================
+# HUMANS.TXT - Emmanuel Adekunle Peace
+# ============================================
+
+/* TEAM */
+    Founder & Developer: Emmanuel Adekunle Peace
+    Website: https://emmanueladekunlepeace.com
+    Email: info@emmanueladekunlepeace.com
+    LinkedIn: https://www.linkedin.com/in/emmanueladekunlep
+    X (Twitter): https://x.com/emmanueladekunlep
+    Instagram: https://instagram.com/emmanueladekunlep
+    TikTok: https://tiktok.com/@e.a.peace
+    YouTube: https://youtube.com/@emmanueladekunlepeace
+    Spotify: https://open.spotify.com/show/emmanueladekunlepeace
+
+/* THANKS */
+    God, Family, Mentors, Clients, and everyone who believed.
+
+/* SITE */
+    Last update: 2026-06-29
+    Standards: HTML5, CSS3, JavaScript (ES6+)
+    Components: Vanilla JS, Font Awesome, Google Fonts
+
+/* COLORS - PLUM & GOLD */
+    Royal Plum: #5A2A5F
+    Antique Gold: #C8A14B
+    Cream: #F7F3EC
+    Slate Grey: #4A5568
+
+/* PAGES */
+    Home: https://emmanueladekunlepeace.com/
+    About: https://emmanueladekunlepeace.com/about.html
+    Portfolio: https://emmanueladekunlepeace.com/portfolio.html
+    Books: https://emmanueladekunlepeace.com/books.html
+    Pricing: https://emmanueladekunlepeace.com/pricing.html
+    Contact: https://emmanueladekunlepeace.com/contact.html

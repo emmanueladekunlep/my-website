@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en-NG">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO META ===== -->
+<title>Secure My Web App | Security Audit &amp; Hardening for Nigerian Apps</title>
+<meta name="description" content="Web app security audit and hardening. Find exposed secrets, fix insecure auth, close injection holes and harden your AI-built or vibe-coded app before something goes wrong. WhatsApp 0703 297 7572.">
+<meta name="keywords" content="secure my web app, web app security audit Nigeria, security audit developer, fix insecure app, app security hardening, exposed API key fix, vibe coded app security, OWASP audit Nigeria">
+<meta name="author" content="Emmanuel Adekunle Peace (Sam Transcend)">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://emmanueladekunlepeace.com/secure-my-web-app.html">
+
+<!-- ===== OPEN GRAPH ===== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Secure My Web App | Security Audit &amp; Hardening">
+<meta property="og:description" content="Find exposed secrets, fix insecure auth and close injection holes in your web app. Security audit and hardening by a full stack developer.">
+<meta property="og:url" content="https://emmanueladekunlepeace.com/secure-my-web-app.html">
+<meta property="og:site_name" content="Emmanuel Adekunle Peace">
+<meta property="og:locale" content="en_NG">
+<meta property="og:image" content="https://emmanueladekunlepeace.com/assets/og-secure-my-web-app.jpg">
+
+<!-- ===== TWITTER ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Secure My Web App | Security Audit &amp; Hardening">
+<meta name="twitter:description" content="Find exposed secrets, fix insecure auth and close injection holes. Security audit by a full stack developer.">
+<meta name="twitter:image" content="https://emmanueladekunlepeace.com/assets/og-secure-my-web-app.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ===== JSON-LD: SERVICE ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Web Application Security Audit and Hardening",
+  "name": "Secure My Web App — Security Audit &amp; Hardening",
+  "description": "Security audit and hardening for web applications. Exposed secret detection, authentication review, authorization checks, input validation, dependency auditing, security header configuration and OWASP-aligned fixes for AI-built and hand-built apps.",
+  "url": "https://emmanueladekunlepeace.com/secure-my-web-app.html",
+  "areaServed": [
+    { "@type": "Country", "name": "Nigeria" },
+    { "@type": "Country", "name": "Worldwide" }
+  ],
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Founders and developers with a live web app handling real users and payments"
+  },
+  "provider": {
+    "@type": "Person",
+    "name": "Emmanuel Adekunle Peace",
+    "alternateName": "Sam Transcend",
+    "jobTitle": "Full Stack Developer & Application Security Specialist",
+    "url": "https://emmanueladekunlepeace.com",
+    "email": "info@emmanueladekunlepeace.com",
+    "telephone": "+2347032977572",
+    "sameAs": [
+      "https://www.linkedin.com/in/emmanueladekunlep",
+      "https://www.amazon.com/author/emmanueladekunlepeace"
+    ],
+    "knowsAbout": [
+      "Web Application Security", "OWASP Top 10", "Authentication", "Authorization",
+      "Input Validation", "Dependency Auditing", "Security Headers", "Node.js", "PostgreSQL"
+    ]
+  }
+}
+</script>
+
+<!-- ===== JSON-LD: PERSON ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Emmanuel Adekunle Peace",
+  "alternateName": "Sam Transcend",
+  "url": "https://emmanueladekunlepeace.com",
+  "image": "https://emmanueladekunlepeace.com/assets/emmanuel-adekunle-peace.jpg",
+  "jobTitle": "Full Stack Developer & Application Security Specialist",
+  "email": "info@emmanueladekunlepeace.com",
+  "telephone": "+2347032977572",
+  "address": { "@type": "PostalAddress", "addressCountry": "NG" },
+  "sameAs": [
+    "https://www.linkedin.com/in/emmanueladekunlep",
+    "https://www.amazon.com/author/emmanueladekunlepeace"
+  ]
+}
+</script>
+
+<!-- ===== JSON-LD: FAQ ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I know if my web app is secure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can't know from the outside. Most serious web app vulnerabilities don't cause visible symptoms — the app keeps working normally until someone exploits it. The only reliable way is a code-level security audit that reviews authentication, authorization, input handling, secret storage, dependency versions and server configuration. Anything less is guessing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the most common security problems in AI-built and vibe-coded apps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most common issues include: API keys and database credentials hardcoded in source files and committed to Git, no rate limiting on login or password reset endpoints, missing server-side authorization checks (the frontend hides buttons but the backend still responds to direct requests), SQL queries built with string concatenation instead of parameterised queries, missing or weak input validation, outdated dependencies with known vulnerabilities, and no security headers configured on the server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an exposed API key and why is it serious?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An exposed API key is a secret credential that has leaked from its intended location. This happens when keys are committed to Git, bundled into frontend JavaScript, included in error messages, or left in public repositories. The impact depends on the key: payment keys can allow fraudulent charges or refunds, database credentials allow data theft, and email service keys allow spam sent from your domain. Leaked keys must be rotated immediately — deleting the code is not enough, because the key may already be copied elsewhere."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a security audit take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A focused audit of a small to medium web app typically takes 3–7 days. Larger applications with multiple integrations, complex authentication and multiple user roles take longer. The audit produces a written report — issues found, severity, and recommended fixes — which you can then approve as a separate fix-and-harden project."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will fixing security issues break my app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not if done properly. Security fixes are applied incrementally, tested against the running application, and validated with the same user flows your app already supports. Where a fix requires user-visible changes — such as stronger password rules — these are communicated and phased in so existing users aren't locked out. No security fix should be rushed into production without testing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a security audit if I'm not a bank or fintech?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — if your app handles any of the following: user accounts and passwords, customer data, payments or payment details, private messages or documents, or admin access to business systems. Every app that stores or transmits this kind of data is a target. Small apps are often easier targets because attackers assume they have weaker security."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --primary:#5A2A5F;
+    --secondary:#10964D;
+    --accent:#D4AF37;
+    --bg:#ffffff;
+    --bg-soft:#f5f4f7;
+    --text:#1f1f24;
+    --muted:#5c5c66;
+    --line:#e6e3ea;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(90,42,95,.08);
+    --shadow-lg:0 20px 50px rgba(90,42,95,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1140px,92%);margin-inline:auto}
+
+  header{
+    position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.94);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:20px}
+  .logo{font-weight:800;font-size:1.05rem;color:var(--primary);letter-spacing:-.02em}
+  .logo span{color:var(--secondary)}
+  .nav-links{display:flex;gap:22px;list-style:none;flex-wrap:wrap}
+  .nav-links a{font-size:.9rem;font-weight:500;color:var(--muted);transition:.2s}
+  .nav-links a:hover,.nav-links a.active{color:var(--primary)}
+  .nav-cta{
+    background:var(--secondary);color:#fff;padding:10px 20px;border-radius:999px;
+    font-size:.88rem;font-weight:600;white-space:nowrap;transition:.25s;
+  }
+  .nav-cta:hover{background:#0d7a3e;transform:translateY(-1px)}
+  .burger{display:none;background:none;border:0;font-size:1.5rem;color:var(--primary);cursor:pointer}
+
+  .hero{
+    background:
+      radial-gradient(900px 420px at 88% -10%,rgba(192,57,43,.1),transparent 60%),
+      radial-gradient(700px 380px at 5% 0%,rgba(90,42,95,.11),transparent 60%),
+      var(--bg-soft);
+    padding:80px 0 72px;border-bottom:1px solid var(--line);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
+    color:var(--primary);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    padding:7px 15px;border-radius:999px;margin-bottom:20px;box-shadow:var(--shadow);
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:#c0392b}
+  h1{font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.14;letter-spacing:-.03em;font-weight:800;color:var(--primary)}
+  h1 em{font-style:normal;color:#c0392b}
+  .hero p.lead{margin-top:20px;font-size:1.09rem;color:var(--muted);max-width:620px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;padding:14px 27px;border-radius:999px;
+    font-weight:700;font-size:.95rem;transition:.25s;border:2px solid transparent;
+  }
+  .btn-wa{background:var(--secondary);color:#fff;box-shadow:0 10px 24px rgba(16,150,77,.28)}
+  .btn-wa:hover{background:#0d7a3e;transform:translateY(-2px);box-shadow:0 14px 30px rgba(16,150,77,.34)}
+  .btn-ghost{background:#fff;color:var(--primary);border-color:var(--line);box-shadow:var(--shadow)}
+  .btn-ghost:hover{border-color:var(--primary);transform:translateY(-2px)}
+  .hero-stats{display:flex;gap:34px;margin-top:40px;flex-wrap:wrap}
+  .stat b{display:block;font-size:1.75rem;font-weight:800;color:var(--primary);line-height:1.1}
+  .stat span{font-size:.82rem;color:var(--muted);font-weight:500}
+
+  .hero-card{
+    background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;
+    box-shadow:var(--shadow-lg);
+  }
+  .hero-card h3{font-size:1rem;color:var(--primary);margin-bottom:18px;font-weight:700}
+  .hero-card hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+  .hero-card ul{list-style:none;display:grid;gap:12px}
+  .hero-card li{display:flex;gap:10px;font-size:.9rem;color:var(--muted)}
+  .tick{color:var(--secondary);font-weight:800;flex-shrink:0}
+  .cross{color:#c0392b;font-weight:800;flex-shrink:0}
+  .warn{color:#c0392b;font-weight:800;flex-shrink:0}
+
+  section{padding:76px 0}
+  .soft{background:var(--bg-soft)}
+  .sec-head{max-width:720px;margin-bottom:44px}
+  .kicker{
+    color:#c0392b;font-size:.78rem;font-weight:800;letter-spacing:.13em;
+    text-transform:uppercase;margin-bottom:12px;display:block;
+  }
+  h2{font-size:clamp(1.5rem,3vw,2.15rem);line-height:1.22;letter-spacing:-.025em;font-weight:800;color:var(--primary)}
+  h3{font-size:1.12rem;font-weight:700;color:var(--primary);margin-bottom:10px}
+  .sec-head p{margin-top:16px;color:var(--muted);font-size:1.02rem}
+
+  .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:24px}
+  .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:26px}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;box-shadow:var(--shadow);transition:.28s;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(90,42,95,.22)}
+  .card p{color:var(--muted);font-size:.94rem}
+  .icon{
+    width:46px;height:46px;border-radius:12px;display:grid;place-items:center;
+    background:rgba(90,42,95,.09);color:var(--primary);font-size:1.25rem;margin-bottom:16px;font-weight:800;
+  }
+  .icon.g{background:rgba(16,150,77,.11);color:var(--secondary)}
+  .icon.a{background:rgba(212,175,55,.16);color:#a5822a}
+  .icon.r{background:rgba(192,57,43,.1);color:#c0392b}
+
+  .pain li{
+    list-style:none;display:flex;gap:12px;padding:13px 0;border-bottom:1px dashed var(--line);
+    color:var(--muted);font-size:.95rem;
+  }
+  .pain li:last-child{border-bottom:0}
+
+  /* THREAT GRID */
+  .threat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .threat{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;box-shadow:var(--shadow);transition:.25s;
+    display:flex;gap:12px;align-items:flex-start;
+  }
+  .threat:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:rgba(192,57,43,.3)}
+  .threat .mark{
+    width:32px;height:32px;border-radius:8px;background:rgba(192,57,43,.1);
+    color:#c0392b;display:grid;place-items:center;font-weight:800;font-size:.9rem;flex-shrink:0;
+  }
+  .threat h3{font-size:.98rem;margin-bottom:6px}
+  .threat p{color:var(--muted);font-size:.85rem}
+
+  /* CHECKLIST */
+  .checklist{display:grid;gap:14px}
+  .check-item{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 26px;box-shadow:var(--shadow);transition:.25s;
+    display:flex;gap:16px;align-items:flex-start;
+  }
+  .check-item:hover{transform:translateX(4px);border-color:var(--secondary)}
+  .check-item .mark{
+    width:38px;height:38px;border-radius:10px;background:rgba(16,150,77,.11);
+    color:var(--secondary);display:grid;place-items:center;font-weight:800;font-size:.95rem;flex-shrink:0;
+  }
+  .check-item h3{margin-bottom:6px;font-size:1.02rem}
+  .check-item p{color:var(--muted);font-size:.92rem}
+
+  /* PROCESS */
+  .steps{counter-reset:s;display:grid;gap:20px}
+  .step{
+    position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 26px 26px 82px;box-shadow:var(--shadow);
+  }
+  .step::before{
+    counter-increment:s;content:counter(s);
+    position:absolute;left:24px;top:24px;width:40px;height:40px;border-radius:11px;
+    background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:800;font-size:.95rem;
+  }
+  .step h3{margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.94rem}
+
+  .quote{
+    background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);
+    border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);
+  }
+  .quote p{font-style:italic;color:var(--text);font-size:.96rem}
+  .quote footer{margin-top:14px;font-size:.85rem;font-weight:700;color:var(--primary)}
+  .quote footer span{display:block;font-weight:500;color:var(--muted);font-size:.8rem}
+
+  .faq{display:grid;gap:14px}
+  details{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:0 22px;box-shadow:var(--shadow);overflow:hidden;
+  }
+  details[open]{border-color:rgba(192,57,43,.3)}
+  summary{
+    cursor:pointer;font-weight:700;color:var(--primary);padding:20px 0;
+    display:flex;justify-content:space-between;gap:16px;align-items:center;font-size:1rem;list-style:none;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:1.35rem;color:#c0392b;font-weight:700;transition:.25s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{padding:0 0 22px;color:var(--muted);font-size:.94rem;max-width:70ch}
+
+  .cta{
+    background:linear-gradient(135deg,var(--primary),#3d1c41 65%);
+    border-radius:22px;padding:60px 40px;text-align:center;color:#fff;
+    box-shadow:var(--shadow-lg);position:relative;overflow:hidden;
+  }
+  .cta::after{
+    content:"";position:absolute;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,rgba(192,57,43,.28),transparent 68%);top:-160px;right:-120px;
+  }
+  .cta h2{color:#fff;position:relative;z-index:1}
+  .cta p{color:rgba(255,255,255,.82);max-width:640px;margin:18px auto 0;position:relative;z-index:1}
+  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px;position:relative;z-index:1}
+  .btn-gold{background:var(--accent);color:#3a2c05;box-shadow:0 10px 26px rgba(212,175,55,.34)}
+  .btn-gold:hover{background:#c8a331;transform:translateY(-2px)}
+  .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+  .btn-outline:hover{background:rgba(255,255,255,.12);border-color:#fff;transform:translateY(-2px)}
+  .cta small{display:block;margin-top:22px;color:rgba(255,255,255,.6);font-size:.83rem;position:relative;z-index:1}
+
+  .related a{
+    display:flex;justify-content:space-between;align-items:center;gap:14px;
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 22px;box-shadow:var(--shadow);transition:.25s;font-weight:600;color:var(--primary);font-size:.94rem;
+  }
+  .related a:hover{transform:translateX(5px);border-color:var(--secondary);color:var(--secondary)}
+  .related span{color:var(--secondary);font-weight:800}
+
+  footer.site{background:#1c1220;color:rgba(255,255,255,.72);padding:58px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:34px}
+  footer.site h4{color:#fff;font-size:.95rem;margin-bottom:16px;font-weight:700}
+  footer.site a{font-size:.89rem;color:rgba(255,255,255,.68);display:block;padding:5px 0;transition:.2s}
+  footer.site a:hover{color:var(--accent)}
+  .foot-brand{font-weight:800;color:#fff;font-size:1.1rem;margin-bottom:12px}
+  .foot-brand span{color:var(--secondary)}
+  footer.site p{font-size:.89rem;max-width:34ch}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:22px;
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.83rem;
+  }
+
+  .wa-float{
+    position:fixed;right:20px;bottom:22px;z-index:1200;width:58px;height:58px;border-radius:50%;
+    background:var(--secondary);display:grid;place-items:center;
+    box-shadow:0 12px 30px rgba(16,150,77,.42);transition:.28s;
+  }
+  .wa-float:hover{transform:scale(1.09)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:38px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:760px){
+    .nav-links{
+      display:none;position:absolute;top:100%;left:0;right:0;background:#fff;
+      flex-direction:column;gap:0;padding:10px 0;border-bottom:1px solid var(--line);
+      box-shadow:var(--shadow-lg);
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{padding:13px 6%;width:100%;font-size:.95rem}
+    .burger{display:block}
+    .nav-cta{display:none}
+    section{padding:58px 0}
+    .cta{padding:44px 24px}
+    .step{padding:24px 22px}
+    .step::before{position:static;margin-bottom:14px}
+    .foot-grid{grid-template-columns:1fr;gap:26px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo">Emmanuel Adekunle <span>Peace</span></a>
+    <button class="burger" aria-label="Toggle menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html" class="active">Services</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/testimonials.html">Testimonials</a></li>
+      <li><a href="/books.html">Books</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/resources.html">Resources</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/2347032977572?text=Hi%20Emmanuel%2C%20I%20want%20a%20security%20audit%20of%20my%20web%20app" class="nav-cta">Audit My App</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> Web App Security · Nigeria &amp; Worldwide</span>
+      <h1>Nothing looks wrong. <em>That's what makes it dangerous.</em></h1>
+      <p class="lead">
+        Your app is live. Users are signing up. Payments are coming in. And you
+        have no idea whether it's secure — because most serious web app
+        vulnerabilities don't show symptoms. The app works normally right up
+        until someone exploits it. I find what's exposed before someone else does.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/2347032977572?text=Hi%20Emmanuel%2C%20I%20want%20a%20security%20audit%20of%20my%20web%20app" class="btn btn-wa">💬 Book an Audit</a>
+        <a href="#threats" class="btn btn-ghost">See What I Check ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>8+</b><span>Live apps reviewed</span></div>
+        <div class="stat"><b>OWASP</b><span>Aligned methodology</span></div>
+        <div class="stat"><b>3–7d</b><span>Typical audit</span></div>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <h3>Signs your app may be exposed</h3>
+      <ul>
+        <li><span class="warn">⚠</span> Your API keys live in a file, not in environment variables</li>
+        <li><span class="warn">⚠</span> Your app was built with an AI tool and never security-reviewed</li>
+        <li><span class="warn">⚠</span> You've never looked at your Git history for leaked secrets</li>
+        <li><span class="warn">⚠</span> Your login endpoint has no rate limit or lockout</li>
+        <li><span class="warn">⚠</span> Frontend hides admin features — but you've never tested the API directly</li>
+        <li><span class="warn">⚠</span> Dependencies haven't been updated since the app was launched</li>
+        <li><span class="warn">⚠</span> You've never had anyone test your app as an attacker would</li>
+      </ul>
+      <hr>
+      <p style="font-size:.88rem;color:var(--muted)">
+        If two or more of these are true, a security audit is overdue — not
+        optional.
+      </p>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= 1. PROBLEM ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">The Problem</span>
+      <h2>Why live apps quietly stay vulnerable</h2>
+      <p>
+        Security isn't a feature you add. It's a set of properties your app either
+        has or doesn't. Here's why most web apps — especially AI-built ones — are
+        missing them.
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>AI tools optimise for "it works"</h3>
+        <p>Vibe coding tools are excellent at producing code that runs. They're not optimised for security. They frequently generate code with weak patterns — string-concatenated queries, secret keys in client code, incomplete permission checks — because those patterns still "work."</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>Security has no visible symptoms</h3>
+        <p>Buggy code announces itself — the screen goes white, the button doesn't work, the app crashes. Insecure code does not. It sits there silently, behaving correctly for honest users, until someone malicious arrives.</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>Founders can't assess what they can't see</h3>
+        <p>Even technically-minded founders struggle to spot security issues in code. The consequences of a leaked key or missing auth check aren't obvious until they're exploited — usually by someone else, usually at the worst possible time.</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>Shortcuts taken at 2am</h3>
+        <p>Every founder who has rushed to launch has committed a secret, skipped a permission check, or turned off rate limiting "just to test." Those decisions rarely get revisited — and often stay in production for years.</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>Dependencies age silently</h3>
+        <p>Every library your app depends on gets updated, and every update occasionally fixes a vulnerability. An app whose dependencies haven't been touched in a year is carrying every vulnerability published since.</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>Real consequences, invisible until too late</h3>
+        <p>Leaked keys trigger charges you didn't make. Exposed data leads to customer trust damage. Missing authorization lets users reach systems they shouldn't. All of it happens before the founder knows there's a problem.</p>
+      </div>
+    </div>
+
+    <ul class="pain" style="margin-top:34px">
+      <li><span class="cross">✕</span> "I don't actually know if my app is secure and I'm afraid to find out."</li>
+      <li><span class="cross">✕</span> "We were told our API key was exposed — I don't know how bad that is."</li>
+      <li><span class="cross">✕</span> "I've never had anyone test the API directly. What happens if they do?"</li>
+      <li><span class="cross">✕</span> "Investors want to know our security posture and I have no answer."</li>
+      <li><span class="cross">✕</span> "The app was built with AI and never security-reviewed by a human."</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 2. THREATS ================= -->
+<section class="soft" id="threats">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">What I Check</span>
+      <h2>The vulnerabilities that matter most</h2>
+      <p>
+        These are the categories I review in every audit. They're the ones that
+        appear most frequently in AI-built and rapidly-shipped apps — and the ones
+        that cause the most serious damage.
+      </p>
+    </div>
+
+    <div class="threat-grid">
+      <div class="threat">
+        <div class="mark">⚠</div>
+        <div>
+          <h3>Exposed Secrets</h3>
+          <p>API keys, database credentials, tokens and passwords checked in source code, frontend bundles, error messages or Git history.</p>
+        </div>
+      </div>
+      <div class="threat">
+        <div class="mark">⚠</div>
+        <div>
+          <h3>Broken Authentication</h3>
+          <p>Weak password handling, missing rate limiting, insecure session management, password reset flows that can be hijacked.</p>
+        </div>
+      </div>
+      <div class="threat">
+        <div class="mark">⚠</div>
+        <div>
+          <h3>Missing Authorization</h3>
+          <p>Endpoints that accept requests without verifying the user has permission. Frontend hides buttons; the API still responds.</p>
+        </div>
+      </div>
+      <div class="threat">
+        <div class="mark">⚠</div>
+        <div>
+          <h3>Injection Attacks</h3>
+          <p>SQL, NoSQL and command injection via string-concatenated queries and unvalidated input reaching system calls.</p>
+        </div>
+      </div>
+      <div class="threat">
+        <div class="mark">⚠</div>
+        <div>
+          <h3>Weak Input Validation</h3>
+          <p>Missing or shallow validation letting malformed data reach your database, file system or downstream services.</p>
+        </div>
+      </div>
+      <div class="threat">
+        <div class="mark">⚠</div>
+        <div>
+          <h3>Vulnerable Dependencies</h3>
+          <p>Outdated libraries with known CVEs — some of which allow remote code execution on your server.</p>
+        </div>
+      </div>
+      <div class="threat">
+        <div class="mark">⚠</div>
+        <div>
+          <h3>Misconfigured Server &amp; Headers</h3>
+          <p>Missing security headers, exposed admin panels, permissive CORS, verbose error messages leaking internal structure.</p>
+        </div>
+      </div>
+      <div class="threat">
+        <div class="mark">⚠</div>
+        <div>
+          <h3>Insecure Data Storage</h3>
+          <p>Passwords stored without proper hashing, sensitive data in plaintext, backups and logs containing more than they should.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:34px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)">
+      <p style="font-size:.95rem;color:var(--muted)">
+        <strong style="color:var(--primary)">Why these eight?</strong> They map directly to the OWASP Top 10 — the industry-standard list of the most critical web application security risks. The audit uses that framework as its foundation, adapted to how Nigerian and African startups actually build and ship apps.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. WHAT YOU GET ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">What You Get</span>
+      <h2>What a proper audit produces</h2>
+      <p>
+        An audit isn't a vague "it looks fine." It's a written report you can act
+        on, share with your team, and use to plan fixes.
+      </p>
+    </div>
+
+    <div class="checklist">
+      <div class="check-item">
+        <div class="mark">1</div>
+        <div>
+          <h3>Written audit report</h3>
+          <p>Every issue found, categorised by severity (critical, high, medium, low), with a clear explanation of what the issue is and what could happen if it isn't fixed.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="mark">2</div>
+        <div>
+          <h3>Exact location of each issue</h3>
+          <p>File paths, endpoint URLs, and code snippets so you know where to look. No vague "somewhere in the auth flow" — specific, actionable evidence.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="mark">3</div>
+        <div>
+          <h3>Recommended fix for each finding</h3>
+          <p>A concrete suggestion for how to fix the issue, including the pattern or approach to use. You or your developer can act on it immediately.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="mark">4</div>
+        <div>
+          <h3>Prioritised fix roadmap</h3>
+          <p>Issues ordered by urgency. Critical findings — exposed keys, broken auth — first. Cosmetic improvements last. You know exactly what to fix this week versus this quarter.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="mark">5</div>
+        <div>
+          <h3>Verification after fixes</h3>
+          <p>Once you've applied fixes — either yourself or with me — each finding is retested to confirm it's genuinely resolved. Not assumed resolved; verified resolved.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="mark">6</div>
+        <div>
+          <h3>Optional: hands-on remediation</h3>
+          <p>If you'd prefer I fix the issues rather than just report them, remediation is available as a separate project. Same rigour, tested against your live application.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. HOW IT WORKS ================= -->
+<section class="soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">The Process</span>
+      <h2>How an audit works — step by step</h2>
+      <p>Structured, non-disruptive, and confidential. Your app is never taken offline during an audit.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <h3>Scoping call</h3>
+        <p>A short conversation about your app — what it does, what data it handles, whether it takes payments, and who has access. You receive a clear scope and fixed fee before anything begins.</p>
+      </div>
+      <div class="step">
+        <h3>Read-only access &amp; NDA</h3>
+        <p>You give me read-only access to the codebase. An NDA is signed if you'd like. I never take write access unless you explicitly approve remediation later.</p>
+      </div>
+      <div class="step">
+        <h3>Code-level review</h3>
+        <p>Full review of your source code against the eight categories — authentication, authorization, input handling, secrets, dependencies, server configuration and more. This is where the deepest findings come from.</p>
+      </div>
+      <div class="step">
+        <h3>Live testing (non-destructive)</h3>
+        <p>Testing your running application from the outside — the way an attacker would. Includes checking for exposed endpoints, misconfigured headers, missing rate limits, and whether frontend-only restrictions can be bypassed by calling the API directly. No destructive tests, no load testing, no data modification.</p>
+      </div>
+      <div class="step">
+        <h3>Written report delivered</h3>
+        <p>A comprehensive written report with every finding, its severity, its location, and how to fix it. Delivered as a document you can share with your team, an investor, or your developer.</p>
+      </div>
+      <div class="step">
+        <h3>Walkthrough and verification</h3>
+        <p>A call to walk through the findings and answer questions. After fixes are applied — by you or by me — each finding is retested to confirm it's genuinely resolved.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. CREDENTIALS ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Credentials &amp; Proof</span>
+      <h2>Why founders trust me with this work</h2>
+      <p>
+        Security review requires someone who actually builds software — not
+        someone who runs a scanner and calls it an audit.
+      </p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:38px">
+      <div class="card">
+        <h3>Full Stack Developer</h3>
+        <p>React.js, Node.js, PostgreSQL, REST APIs. I audit codebases by understanding how they were built — not just running automated tools that miss context.</p>
+      </div>
+      <div class="card">
+        <h3>8+ Live Applications Deployed</h3>
+        <p>I build, ship and maintain real applications. I know what's under the hood of a working app — including the shortcuts that get taken when deadlines approach.</p>
+      </div>
+      <div class="card">
+        <h3>Frequent Vibe-Coded App Reviewer</h3>
+        <p>A large portion of my audit work is on AI-built and vibe-coded apps. I know exactly which patterns AI tools generate that create security problems — and where to look for them.</p>
+      </div>
+      <div class="card">
+        <h3>Founder &amp; CEO — LabelReach Advertising Ltd</h3>
+        <p>Since 2015. Running a business means I treat your data and your customer's data with the seriousness you'd expect — including strict confidentiality during the audit.</p>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="quote">
+        <p>"He found an exposed secret key that had been sitting in our codebase for months. That finding alone was worth the audit."</p>
+        <footer>Founder <span>Lagos, Nigeria</span></footer>
+      </div>
+      <div class="quote">
+        <p>"Our investors asked about security during due diligence. The audit report answered every question professionally. It made the whole conversation easier."</p>
+        <footer>Startup CEO <span>Abuja</span></footer>
+      </div>
+      <div class="quote">
+        <p>"I expected a generic scan with a hundred false positives. Instead I got a clear, prioritised list of real problems with exact fixes. Handed it to my developer and it was done in a week."</p>
+        <footer>Business Owner <span>Port Harcourt</span></footer>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 6. FAQ ================= -->
+<section id="faq" class="soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">FAQ</span>
+      <h2>What founders ask about security audits</h2>
+    </div>
+
+    <div class="faq">
+      <details open>
+        <summary>How do I know if my web app is secure?</summary>
+        <p>You can't know from the outside. Most serious web app vulnerabilities don't cause visible symptoms — the app keeps working normally until someone exploits it. The only reliable way is a code-level security audit that reviews authentication, authorization, input handling, secret storage, dependency versions and server configuration. Anything less is guessing.</p>
+      </details>
+
+      <details>
+        <summary>What are the most common security problems in AI-built and vibe-coded apps?</summary>
+        <p>The most common issues include: API keys and database credentials hardcoded in source files and committed to Git, no rate limiting on login or password reset endpoints, missing server-side authorization checks (the frontend hides buttons but the backend still responds to direct requests), SQL queries built with string concatenation instead of parameterised queries, missing or weak input validation, outdated dependencies with known vulnerabilities, and no security headers configured on the server.</p>
+      </details>
+
+      <details>
+        <summary>What is an exposed API key and why is it serious?</summary>
+        <p>An exposed API key is a secret credential that has leaked from its intended location. This happens when keys are committed to Git, bundled into frontend JavaScript, included in error messages, or left in public repositories. The impact depends on the key: payment keys can allow fraudulent charges or refunds, database credentials allow data theft, and email service keys allow spam sent from your domain. Leaked keys must be rotated immediately — deleting the code is not enough, because the key may already be copied elsewhere.</p>
+      </details>
+
+      <details>
+        <summary>How long does a security audit take?</summary>
+        <p>A focused audit of a small to medium web app typically takes 3–7 days. Larger applications with multiple integrations, complex authentication and multiple user roles take longer. The audit produces a written report — issues found, severity, and recommended fixes — which you can then approve as a separate fix-and-harden project.</p>
+      </details>
+
+      <details>
+        <summary>Will fixing security issues break my app?</summary>
+        <p>Not if done properly. Security fixes are applied incrementally, tested against the running application, and validated with the same user flows your app already supports. Where a fix requires user-visible changes — such as stronger password rules — these are communicated and phased in so existing users aren't locked out. No security fix should be rushed into production without testing.</p>
+      </details>
+
+      <details>
+        <summary>Do I need a security audit if I'm not a bank or fintech?</summary>
+        <p>Yes — if your app handles any of the following: user accounts and passwords, customer data, payments or payment details, private messages or documents, or admin access to business systems. Every app that stores or transmits this kind of data is a target. Small apps are often easier targets because attackers assume they have weaker security.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RELATED ================= -->
+<section style="padding-top:0">
+  <div class="wrap" style="padding-top:76px">
+    <div class="sec-head">
+      <span class="kicker">Explore More</span>
+      <h2>Related services</h2>
+    </div>
+    <div class="grid-3 related">
+      <a href="/vibe-coded-app-rescue.html">Vibe-Coded App Rescue <span>→</span></a>
+      <a href="/integrate-payment-gateway-nigeria.html">Payment Gateway Integration <span>→</span></a>
+      <a href="/nodejs-developer-nigeria.html">Node.js Developer <span>→</span></a>
+      <a href="/full-stack-developer-nigeria.html">Full Stack Developer <span>→</span></a>
+      <a href="/publish-app-play-store-nigeria.html">Publish to Play Store <span>→</span></a>
+      <a href="/contact.html">Contact <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 7. FINAL CTA ================= -->
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <h2>Find out what's exposed — before someone else does</h2>
+      <p>
+        Tell me about your app — what it does, who uses it, what data it handles.
+        I'll scope a security audit and tell you honestly what I'd check and
+        what it costs. Fixed fee, written report, no surprises.
+      </p>
+      <div class="cta-actions">
+        <a href="https://wa.me/2347032977572?text=Hi%20Emmanuel%2C%20I%20want%20a%20security%20audit%20of%20my%20web%20app" class="btn btn-gold">💬 WhatsApp 0703 297 7572</a>
+        <a href="mailto:info@emmanueladekunlepeace.com?subject=Web%20App%20Security%20Audit%20Enquiry" class="btn btn-outline">✉ Email Me</a>
+        <a href="/contact.html" class="btn btn-outline">Contact Page</a>
+      </div>
+      <small>Confidential · NDA available · Read-only access · Nigeria-based, worldwide service</small>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Emmanuel Adekunle <span>Peace</span></div>
+        <p>Full Stack Developer, author of 25+ books and CEO of LabelReach Advertising Ltd. Helping founders audit, harden and ship apps safely.</p>
+      </div>
+      <div>
+        <h4>Payments &amp; Security</h4>
+        <a href="/secure-my-web-app.html">Security Audit</a>
+        <a href="/integrate-payment-gateway-nigeria.html">Payment Integration</a>
+        <a href="/vibe-coded-app-rescue.html">App Rescue</a>
+        <a href="/publish-app-play-store-nigeria.html">Publish to Play Store</a>
+        <a href="/full-stack-developer-nigeria.html">Full Stack Developer</a>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="/about.html">About</a>
+        <a href="/portfolio.html">Portfolio</a>
+        <a href="/testimonials.html">Testimonials</a>
+        <a href="/books.html">Books</a>
+        <a href="/blog.html">Blog</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="https://wa.me/2347032977572">WhatsApp: 0703 297 7572</a>
+        <a href="mailto:info@emmanueladekunlepeace.com">info@emmanueladekunlepeace.com</a>
+        <a href="https://www.linkedin.com/in/emmanueladekunlep" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.amazon.com/author/emmanueladekunlepeace" target="_blank" rel="noopener">Amazon Author Page</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Emmanuel Adekunle Peace. All rights reserved.</span>
+      <span>Web App Security Audit · Nigeria &amp; Worldwide</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/2347032977572?text=Hi%20Emmanuel%2C%20I%20found%20your%20security%20audit%20page" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <path d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.56 4.19 1.62 6.01L4 29l8.13-1.6a12 12 0 0 0 3.9.65h.01C22.68 28.05 28.08 22.65 28.08 16S22.68 3 16.04 3zm0 21.86h-.01c-1.17 0-2.32-.31-3.32-.9l-.24-.14-4.82.95.96-4.7-.16-.25a9.9 9.9 0 0 1-1.52-5.28c0-5.5 4.48-9.97 9.99-9.97 2.67 0 5.17 1.04 7.06 2.93a9.9 9.9 0 0 1 2.92 7.05c0 5.5-4.47 9.98-9.96 9.98zm5.47-7.47c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/>
+  </svg>
+</a>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.querySelectorAll('#navlinks a').forEach(a=>{
+    a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open'));
+  });
+</script>
+</body>
+</html>

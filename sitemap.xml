@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Homepage -->
+    <url>
+        <loc>https://emmanueladekunlepeace.com/</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Main Pages -->
+    <url>
+        <loc>https://emmanueladekunlepeace.com/about.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/services.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/portfolio.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/testimonials.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/books.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/pricing.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/contact.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Blog and Resources -->
+    <url>
+        <loc>https://emmanueladekunlepeace.com/blog.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/resources.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- ============================================
+         DEVELOPMENT & ENGINEERING SERVICES
+         ============================================ -->
+    <url>
+        <loc>https://emmanueladekunlepeace.com/full-stack-developer-nigeria.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/react-developer-lagos.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/nodejs-developer-nigeria.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/hire-web-developer-nigeria.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- ============================================
+         SHIP & RUN — Vibe Coding & Production Services
+         ============================================ -->
+    <url>
+        <loc>https://emmanueladekunlepeace.com/vibe-coded-app-rescue.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/integrate-payment-gateway-nigeria.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/secure-my-web-app.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/deploy-web-app-nigeria.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/database-scaling-help.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/mobile-app-from-web-app.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/publish-app-play-store-nigeria.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/web-app-to-exe-conversion.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- ============================================
+         EDUCATION & SCHOOL SERVICES
+         ============================================ -->
+    <url>
+        <loc>https://emmanueladekunlepeace.com/edumate-coding-academy.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/school-branding-nigeria.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/school-enrollment-growth.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/school-marketing-expert.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/school-management-consultant.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/digital-transformation-schools.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- ============================================
+         LABELREACH ADVERTISING & BRANDING
+         ============================================ -->
+    <url>
+        <loc>https://emmanueladekunlepeace.com/labelreach-advertising.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/branding-strategist-nigeria.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/qr-code-advertising.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/nfc-smart-label-marketing.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/marketing-mentor.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- ============================================
+         AUTHOR & SPEAKING
+         ============================================ -->
+    <url>
+        <loc>https://emmanueladekunlepeace.com/author-sam-transcend.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/relationship-advice-author.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/attraction-psychology-books.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/personal-development-mentor.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emmanueladekunlepeace.com/speaker-branding-education.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+</urlset>

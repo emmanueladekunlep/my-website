@@ -1,0 +1,34 @@
+{
+  "name": "Emmanuel Adekunle Peace - Full Stack Developer, Author & Branding Strategist",
+  "short_name": "E.A.Peace",
+  "description": "Full Stack Developer, Author of 25+ books, and Branding Strategist. Founder of LabelReach Advertising Ltd and Edumate Coding Academy.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F3EC",
+  "theme_color": "#5A2A5F",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshot-1.png",
+      "sizes": "1080x1920",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["education", "business", "books", "technology"],
+  "lang": "en",
+  "dir": "ltr"
+}

@@ -1,0 +1,15 @@
+# ============================================
+# SECURITY.TXT - Emmanuel Adekunle Peace
+# ============================================
+
+Contact: mailto:info@emmanueladekunlepeace.com
+Contact: https://www.linkedin.com/in/emmanueladekunlep
+Preferred-Languages: en
+Canonical: https://emmanueladekunlepeace.com/.well-known/security.txt
+
+# ============================================
+# DISCLOSURE POLICY
+# ============================================
+
+We take security seriously. If you discover a vulnerability,
+please contact us immediately. We will respond within 48 hours.

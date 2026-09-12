@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en-NG">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO META ===== -->
+<title>Integrate Payment Gateway in Nigeria | Paystack &amp; Flutterwave Setup — Emmanuel Adekunle Peace</title>
+<meta name="description" content="Payment gateway integration in Nigeria done properly. Paystack, Flutterwave, webhooks, transaction records, refunds and reconciliation — built by a full stack developer. WhatsApp 0703 297 7572.">
+<meta name="keywords" content="integrate payment gateway Nigeria, Paystack integration, Flutterwave integration, payment gateway developer Nigeria, accept payments app Nigeria, webhook integration, payment reconciliation, vibe coded app payment">
+<meta name="author" content="Emmanuel Adekunle Peace (Sam Transcend)">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://emmanueladekunlepeace.com/integrate-payment-gateway-nigeria.html">
+
+<!-- ===== OPEN GRAPH ===== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Integrate Payment Gateway in Nigeria | Paystack &amp; Flutterwave Setup">
+<meta property="og:description" content="Payment integration done properly — Paystack, Flutterwave, webhooks, refunds, reconciliation. Built by a full stack developer.">
+<meta property="og:url" content="https://emmanueladekunlepeace.com/integrate-payment-gateway-nigeria.html">
+<meta property="og:site_name" content="Emmanuel Adekunle Peace">
+<meta property="og:locale" content="en_NG">
+<meta property="og:image" content="https://emmanueladekunlepeace.com/assets/og-integrate-payment-gateway-nigeria.jpg">
+
+<!-- ===== TWITTER ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Integrate Payment Gateway in Nigeria | Paystack &amp; Flutterwave Setup">
+<meta name="twitter:description" content="Payment integration done properly. Paystack, Flutterwave, webhooks, refunds and reconciliation.">
+<meta name="twitter:image" content="https://emmanueladekunlepeace.com/assets/og-integrate-payment-gateway-nigeria.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ===== JSON-LD: SERVICE ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Payment Gateway Integration",
+  "name": "Integrate Payment Gateway in Nigeria — Paystack &amp; Flutterwave Setup",
+  "description": "Payment gateway integration for web and mobile apps in Nigeria. Paystack, Flutterwave and other providers — including proper webhook handling, transaction records, refunds, reconciliation, subscriptions and secure checkout flows.",
+  "url": "https://emmanueladekunlepeace.com/integrate-payment-gateway-nigeria.html",
+  "areaServed": [
+    { "@type": "Country", "name": "Nigeria" },
+    { "@type": "Country", "name": "Worldwide" }
+  ],
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Founders and developers who need to accept payments securely in their apps"
+  },
+  "provider": {
+    "@type": "Person",
+    "name": "Emmanuel Adekunle Peace",
+    "alternateName": "Sam Transcend",
+    "jobTitle": "Full Stack Developer & Payment Integration Specialist",
+    "url": "https://emmanueladekunlepeace.com",
+    "email": "info@emmanueladekunlepeace.com",
+    "telephone": "+2347032977572",
+    "sameAs": [
+      "https://www.linkedin.com/in/emmanueladekunlep",
+      "https://www.amazon.com/author/emmanueladekunlepeace"
+    ],
+    "knowsAbout": [
+      "Paystack", "Flutterwave", "Stripe", "Webhook Handling",
+      "Payment Reconciliation", "Subscription Billing", "Node.js", "PostgreSQL"
+    ]
+  }
+}
+</script>
+
+<!-- ===== JSON-LD: PERSON ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Emmanuel Adekunle Peace",
+  "alternateName": "Sam Transcend",
+  "url": "https://emmanueladekunlepeace.com",
+  "image": "https://emmanueladekunlepeace.com/assets/emmanuel-adekunle-peace.jpg",
+  "jobTitle": "Full Stack Developer & Payment Integration Specialist",
+  "email": "info@emmanueladekunlepeace.com",
+  "telephone": "+2347032977572",
+  "address": { "@type": "PostalAddress", "addressCountry": "NG" },
+  "sameAs": [
+    "https://www.linkedin.com/in/emmanueladekunlep",
+    "https://www.amazon.com/author/emmanueladekunlepeace"
+  ]
+}
+</script>
+
+<!-- ===== JSON-LD: FAQ ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I integrate Paystack or Flutterwave into my app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Proper integration has four parts: (1) a checkout flow on the frontend that starts a transaction, (2) a backend endpoint that verifies the transaction against the provider's API before marking an order as paid, (3) a webhook handler that listens for the provider's server-to-server events so payments that complete after the customer leaves the tab still get recorded, and (4) a transaction record in your database that logs every payment attempt with its status, reference and amount. Missing any one of these causes payment problems — most commonly, orders marked as unpaid when the customer actually paid."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my payment verification failing or double-charging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most common causes are: not verifying transactions server-side (relying only on the frontend callback), missing webhook handling, no idempotency on retry attempts, and race conditions when the frontend callback and the webhook both fire. Proper integration verifies every transaction against the provider's API, uses the transaction reference as a unique key, and treats the webhook as the authoritative source of truth — not the browser callback."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a webhook and why does my payment integration need one?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A webhook is a server-to-server notification sent by the payment provider when something happens — a payment succeeds, fails, is refunded, or is disputed. Unlike the frontend callback (which fails if the customer closes the tab or loses network), the webhook always arrives and can be retried. Payments without proper webhook handling lose orders every day — especially in Nigeria where mobile network drops are common mid-transaction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you integrate subscriptions and recurring billing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Paystack and Flutterwave both support recurring billing, and I build the full subscription lifecycle — plan creation, customer subscription, proration, renewals, failed payment retries, cancellation and dunning. I also build the database structure so your app knows who is on which plan, when it renews, and what happens when it fails."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does payment integration cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on scope. A single-provider integration for a simple checkout is at the lower end. Multi-provider integration, subscriptions, refunds, dispute handling, admin dashboards and reconciliation reports cost more. I quote per project after reviewing your app, and the quote is broken into clear milestones. Every quote includes proper webhook handling and server-side verification — I don't cut those for price."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with apps built using AI tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — frequently. AI tools are good at generating checkout UIs but poor at backend payment logic. Most of my payment integration work is retrofitting AI-generated apps with proper server-side verification, webhook handling, idempotency and transaction logging. The checkout screen stays; the fragile backend gets replaced."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --primary:#5A2A5F;
+    --secondary:#10964D;
+    --accent:#D4AF37;
+    --bg:#ffffff;
+    --bg-soft:#f5f4f7;
+    --text:#1f1f24;
+    --muted:#5c5c66;
+    --line:#e6e3ea;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(90,42,95,.08);
+    --shadow-lg:0 20px 50px rgba(90,42,95,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1140px,92%);margin-inline:auto}
+
+  header{
+    position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.94);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:20px}
+  .logo{font-weight:800;font-size:1.05rem;color:var(--primary);letter-spacing:-.02em}
+  .logo span{color:var(--secondary)}
+  .nav-links{display:flex;gap:22px;list-style:none;flex-wrap:wrap}
+  .nav-links a{font-size:.9rem;font-weight:500;color:var(--muted);transition:.2s}
+  .nav-links a:hover,.nav-links a.active{color:var(--primary)}
+  .nav-cta{
+    background:var(--secondary);color:#fff;padding:10px 20px;border-radius:999px;
+    font-size:.88rem;font-weight:600;white-space:nowrap;transition:.25s;
+  }
+  .nav-cta:hover{background:#0d7a3e;transform:translateY(-1px)}
+  .burger{display:none;background:none;border:0;font-size:1.5rem;color:var(--primary);cursor:pointer}
+
+  .hero{
+    background:
+      radial-gradient(900px 420px at 88% -10%,rgba(16,150,77,.13),transparent 60%),
+      radial-gradient(700px 380px at 5% 0%,rgba(90,42,95,.11),transparent 60%),
+      var(--bg-soft);
+    padding:80px 0 72px;border-bottom:1px solid var(--line);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
+    color:var(--primary);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    padding:7px 15px;border-radius:999px;margin-bottom:20px;box-shadow:var(--shadow);
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--secondary)}
+  h1{font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.14;letter-spacing:-.03em;font-weight:800;color:var(--primary)}
+  h1 em{font-style:normal;color:var(--secondary)}
+  .hero p.lead{margin-top:20px;font-size:1.09rem;color:var(--muted);max-width:620px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;padding:14px 27px;border-radius:999px;
+    font-weight:700;font-size:.95rem;transition:.25s;border:2px solid transparent;
+  }
+  .btn-wa{background:var(--secondary);color:#fff;box-shadow:0 10px 24px rgba(16,150,77,.28)}
+  .btn-wa:hover{background:#0d7a3e;transform:translateY(-2px);box-shadow:0 14px 30px rgba(16,150,77,.34)}
+  .btn-ghost{background:#fff;color:var(--primary);border-color:var(--line);box-shadow:var(--shadow)}
+  .btn-ghost:hover{border-color:var(--primary);transform:translateY(-2px)}
+  .hero-stats{display:flex;gap:34px;margin-top:40px;flex-wrap:wrap}
+  .stat b{display:block;font-size:1.75rem;font-weight:800;color:var(--primary);line-height:1.1}
+  .stat span{font-size:.82rem;color:var(--muted);font-weight:500}
+
+  .hero-card{
+    background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;
+    box-shadow:var(--shadow-lg);
+  }
+  .hero-card h3{font-size:1rem;color:var(--primary);margin-bottom:18px;font-weight:700}
+  .hero-card hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+  .hero-card ul{list-style:none;display:grid;gap:12px}
+  .hero-card li{display:flex;gap:10px;font-size:.9rem;color:var(--muted)}
+  .tick{color:var(--secondary);font-weight:800;flex-shrink:0}
+  .cross{color:#c0392b;font-weight:800;flex-shrink:0}
+  .stack{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{
+    background:var(--bg-soft);border:1px solid var(--line);color:var(--primary);
+    font-size:.79rem;font-weight:600;padding:7px 13px;border-radius:9px;
+  }
+  .chip.g{background:rgba(16,150,77,.09);border-color:rgba(16,150,77,.25);color:#0d7a3e}
+  .chip.a{background:rgba(212,175,55,.16);border-color:rgba(212,175,55,.35);color:#a5822a}
+
+  section{padding:76px 0}
+  .soft{background:var(--bg-soft)}
+  .sec-head{max-width:720px;margin-bottom:44px}
+  .kicker{
+    color:var(--secondary);font-size:.78rem;font-weight:800;letter-spacing:.13em;
+    text-transform:uppercase;margin-bottom:12px;display:block;
+  }
+  h2{font-size:clamp(1.5rem,3vw,2.15rem);line-height:1.22;letter-spacing:-.025em;font-weight:800;color:var(--primary)}
+  h3{font-size:1.12rem;font-weight:700;color:var(--primary);margin-bottom:10px}
+  .sec-head p{margin-top:16px;color:var(--muted);font-size:1.02rem}
+
+  .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:24px}
+  .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:26px}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;box-shadow:var(--shadow);transition:.28s;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(90,42,95,.22)}
+  .card p{color:var(--muted);font-size:.94rem}
+  .icon{
+    width:46px;height:46px;border-radius:12px;display:grid;place-items:center;
+    background:rgba(90,42,95,.09);color:var(--primary);font-size:1.25rem;margin-bottom:16px;font-weight:800;
+  }
+  .icon.g{background:rgba(16,150,77,.11);color:var(--secondary)}
+  .icon.a{background:rgba(212,175,55,.16);color:#a5822a}
+  .icon.r{background:rgba(192,57,43,.1);color:#c0392b}
+
+  .pain li{
+    list-style:none;display:flex;gap:12px;padding:13px 0;border-bottom:1px dashed var(--line);
+    color:var(--muted);font-size:.95rem;
+  }
+  .pain li:last-child{border-bottom:0}
+
+  /* FLOW DIAGRAM */
+  .flow-wrap{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:32px;box-shadow:var(--shadow);margin-top:34px;
+  }
+  .flow-wrap h3{margin-bottom:8px}
+  .flow-wrap > p{color:var(--muted);font-size:.94rem;margin-bottom:24px}
+  .flow{display:grid;gap:12px}
+  .step-flow{
+    display:flex;gap:18px;align-items:flex-start;padding:18px 22px;border-radius:12px;
+    background:var(--bg-soft);border:1px solid var(--line);
+  }
+  .step-flow .num{
+    width:38px;height:38px;border-radius:10px;color:#fff;flex-shrink:0;
+    display:grid;place-items:center;font-weight:800;font-size:.9rem;
+  }
+  .step-flow:nth-child(1) .num{background:var(--primary)}
+  .step-flow:nth-child(2) .num{background:#7a3a80}
+  .step-flow:nth-child(3) .num{background:var(--secondary)}
+  .step-flow:nth-child(4) .num{background:#0d7a3e}
+  .step-flow strong{color:var(--primary);font-weight:700;font-size:.98rem;display:block}
+  .step-flow span{color:var(--muted);font-size:.87rem}
+
+  /* WARNING BOX */
+  .warn-box{
+    background:rgba(192,57,43,.06);border:1px solid rgba(192,57,43,.24);
+    border-left:4px solid #c0392b;border-radius:var(--radius);
+    padding:24px 28px;margin-top:28px;
+  }
+  .warn-box h3{color:#c0392b;font-size:1.02rem;margin-bottom:8px}
+  .warn-box p{color:var(--muted);font-size:.93rem}
+
+  /* PROVIDERS */
+  .providers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+  .provider{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;box-shadow:var(--shadow);transition:.25s;
+  }
+  .provider:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--secondary)}
+  .provider h3{font-size:1rem;margin-bottom:6px}
+  .provider p{color:var(--muted);font-size:.86rem}
+
+  /* PROCESS */
+  .steps{counter-reset:s;display:grid;gap:20px}
+  .step{
+    position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 26px 26px 82px;box-shadow:var(--shadow);
+  }
+  .step::before{
+    counter-increment:s;content:counter(s);
+    position:absolute;left:24px;top:24px;width:40px;height:40px;border-radius:11px;
+    background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:800;font-size:.95rem;
+  }
+  .step h3{margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.94rem}
+
+  .quote{
+    background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);
+    border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);
+  }
+  .quote p{font-style:italic;color:var(--text);font-size:.96rem}
+  .quote footer{margin-top:14px;font-size:.85rem;font-weight:700;color:var(--primary)}
+  .quote footer span{display:block;font-weight:500;color:var(--muted);font-size:.8rem}
+
+  .faq{display:grid;gap:14px}
+  details{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:0 22px;box-shadow:var(--shadow);overflow:hidden;
+  }
+  details[open]{border-color:rgba(90,42,95,.3)}
+  summary{
+    cursor:pointer;font-weight:700;color:var(--primary);padding:20px 0;
+    display:flex;justify-content:space-between;gap:16px;align-items:center;font-size:1rem;list-style:none;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:1.35rem;color:var(--secondary);font-weight:700;transition:.25s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{padding:0 0 22px;color:var(--muted);font-size:.94rem;max-width:70ch}
+
+  .cta{
+    background:linear-gradient(135deg,var(--primary),#3d1c41 65%);
+    border-radius:22px;padding:60px 40px;text-align:center;color:#fff;
+    box-shadow:var(--shadow-lg);position:relative;overflow:hidden;
+  }
+  .cta::after{
+    content:"";position:absolute;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,rgba(16,150,77,.4),transparent 68%);top:-160px;right:-120px;
+  }
+  .cta h2{color:#fff;position:relative;z-index:1}
+  .cta p{color:rgba(255,255,255,.82);max-width:640px;margin:18px auto 0;position:relative;z-index:1}
+  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px;position:relative;z-index:1}
+  .btn-gold{background:var(--accent);color:#3a2c05;box-shadow:0 10px 26px rgba(212,175,55,.34)}
+  .btn-gold:hover{background:#c8a331;transform:translateY(-2px)}
+  .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+  .btn-outline:hover{background:rgba(255,255,255,.12);border-color:#fff;transform:translateY(-2px)}
+  .cta small{display:block;margin-top:22px;color:rgba(255,255,255,.6);font-size:.83rem;position:relative;z-index:1}
+
+  .related a{
+    display:flex;justify-content:space-between;align-items:center;gap:14px;
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 22px;box-shadow:var(--shadow);transition:.25s;font-weight:600;color:var(--primary);font-size:.94rem;
+  }
+  .related a:hover{transform:translateX(5px);border-color:var(--secondary);color:var(--secondary)}
+  .related span{color:var(--secondary);font-weight:800}
+
+  footer.site{background:#1c1220;color:rgba(255,255,255,.72);padding:58px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:34px}
+  footer.site h4{color:#fff;font-size:.95rem;margin-bottom:16px;font-weight:700}
+  footer.site a{font-size:.89rem;color:rgba(255,255,255,.68);display:block;padding:5px 0;transition:.2s}
+  footer.site a:hover{color:var(--accent)}
+  .foot-brand{font-weight:800;color:#fff;font-size:1.1rem;margin-bottom:12px}
+  .foot-brand span{color:var(--secondary)}
+  footer.site p{font-size:.89rem;max-width:34ch}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:22px;
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.83rem;
+  }
+
+  .wa-float{
+    position:fixed;right:20px;bottom:22px;z-index:1200;width:58px;height:58px;border-radius:50%;
+    background:var(--secondary);display:grid;place-items:center;
+    box-shadow:0 12px 30px rgba(16,150,77,.42);transition:.28s;
+  }
+  .wa-float:hover{transform:scale(1.09)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:38px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:760px){
+    .nav-links{
+      display:none;position:absolute;top:100%;left:0;right:0;background:#fff;
+      flex-direction:column;gap:0;padding:10px 0;border-bottom:1px solid var(--line);
+      box-shadow:var(--shadow-lg);
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{padding:13px 6%;width:100%;font-size:.95rem}
+    .burger{display:block}
+    .nav-cta{display:none}
+    section{padding:58px 0}
+    .cta{padding:44px 24px}
+    .step{padding:24px 22px}
+    .step::before{position:static;margin-bottom:14px}
+    .foot-grid{grid-template-columns:1fr;gap:26px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo">Emmanuel Adekunle <span>Peace</span></a>
+    <button class="burger" aria-label="Toggle menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html" class="active">Services</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/testimonials.html">Testimonials</a></li>
+      <li><a href="/books.html">Books</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/resources.html">Resources</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/2347032977572?text=Hi%20Emmanuel%2C%20I%20need%20payment%20integration%20for%20my%20app" class="nav-cta">Integrate Payments</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> Payment Integration · Nigeria</span>
+      <h1>Your app looks ready. <em>But can it actually take money — safely?</em></h1>
+      <p class="lead">
+        Payment integration is where most Nigerian apps quietly fail. Orders marked
+        unpaid when the customer actually paid. Double charges on retry. Money
+        collected but no record of it. Refunds that don't match. A checkout button
+        is easy. A payment system you can trust with real revenue is not.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/2347032977572?text=Hi%20Emmanuel%2C%20I%20need%20payment%20integration%20for%20my%20app" class="btn btn-wa">💬 Discuss Your App</a>
+        <a href="#flow" class="btn btn-ghost">See How It Works ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>8+</b><span>Live apps deployed</span></div>
+        <div class="stat"><b>Paystack</b><span>+ Flutterwave + Stripe</span></div>
+        <div class="stat"><b>NG</b><span>Nigeria-based, worldwide</span></div>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <h3>Payment providers I integrate</h3>
+      <div class="stack">
+        <span class="chip g">Paystack</span>
+        <span class="chip g">Flutterwave</span>
+        <span class="chip">Stripe</span>
+        <span class="chip">Monnify</span>
+        <span class="chip">Interswitch</span>
+        <span class="chip a">Subscriptions</span>
+        <span class="chip a">Webhooks</span>
+        <span class="chip a">Refunds</span>
+        <span class="chip">Dispute handling</span>
+        <span class="chip">Reconciliation</span>
+      </div>
+      <hr>
+      <ul>
+        <li><span class="tick">✓</span> Server-side verification on every payment</li>
+        <li><span class="tick">✓</span> Webhook handling with retries</li>
+        <li><span class="tick">✓</span> Transaction records you can trust</li>
+        <li><span class="tick">✓</span> Idempotency to prevent double-charges</li>
+        <li><span class="tick">✓</span> Refunds and reconciliation built in</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= 1. PROBLEM ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">The Problem</span>
+      <h2>Why payment integration breaks in most Nigerian apps</h2>
+      <p>
+        A payment flow has more moving parts than it looks. When one of them is
+        missing or wrong, the app appears to work — until real money is involved.
+        These are the failures I see most often.
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>Frontend-only confirmation</h3>
+        <p>The app marks an order as paid when the browser redirects back from checkout — without verifying the transaction server-side. Anyone can fake the redirect. And real payments fail to register when the tab closes.</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>No webhook handling</h3>
+        <p>Some payments complete after the customer leaves the tab — bank transfers, delayed card settlements, successful retries. Without webhooks, those payments never get recorded. Money comes in; the app thinks it didn't.</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>No idempotency</h3>
+        <p>If the frontend callback and the webhook both fire — or a network retry hits twice — the app processes the same payment twice. Customers get charged twice. Refund requests start arriving.</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>Secrets in the frontend</h3>
+        <p>Secret keys sometimes end up in browser code where anyone can read them. This lets attackers initiate fake transactions or read transaction data. A serious security hole — and one that gets apps shut down by providers.</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>No transaction records</h3>
+        <p>Payments live only on the provider's dashboard — not in your own database. When you need to reconcile, refund, or report, you're scrolling through a dashboard instead of querying data.</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>No refund or dispute flow</h3>
+        <p>Refunds happen manually — a WhatsApp message to the provider, a spreadsheet entry, a hope that it works. Disputes get lost in inboxes. Nothing is trackable.</p>
+      </div>
+    </div>
+
+    <ul class="pain" style="margin-top:34px">
+      <li><span class="cross">✕</span> "Customers paid but the order still shows unpaid."</li>
+      <li><span class="cross">✕</span> "We've had customers charged twice because of retries."</li>
+      <li><span class="cross">✕</span> "We don't have a record of what was actually paid and when."</li>
+      <li><span class="cross">✕</span> "Refunds are a manual mess and I can't reconcile them."</li>
+      <li><span class="cross">✕</span> "Someone told me my secret key is exposed — I don't know what that means."</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 2. FLOW DIAGRAM ================= -->
+<section class="soft" id="flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">The Right Flow</span>
+      <h2>What a properly integrated payment flow looks like</h2>
+      <p>
+        Four stages. Every one of them is required. Most broken payment systems
+        are missing at least two.
+      </p>
+    </div>
+
+    <div class="flow-wrap">
+      <h3>The correct flow — end to end</h3>
+      <p>This is the sequence I build for every payment integration. Nothing is skipped.</p>
+      <div class="flow">
+        <div class="step-flow">
+          <div class="num">1</div>
+          <div>
+            <strong>Checkout starts on the frontend</strong>
+            <span>The customer initiates payment — your app calls your backend, which starts a transaction with the provider. Only the public key is ever used on the frontend.</span>
+          </div>
+        </div>
+        <div class="step-flow">
+          <div class="num">2</div>
+          <div>
+            <strong>Provider processes the payment</strong>
+            <span>The customer pays via card, transfer, USSD or bank. The provider handles the money side — your app never touches card details directly.</span>
+          </div>
+        </div>
+        <div class="step-flow">
+          <div class="num">3</div>
+          <div>
+            <strong>Webhook fires to your backend</strong>
+            <span>The provider notifies your server (not the browser) that the payment succeeded, failed or was refunded. This is the authoritative source of truth — and it always arrives, even if the customer's tab closed.</span>
+          </div>
+        </div>
+        <div class="step-flow">
+          <div class="num">4</div>
+          <div>
+            <strong>Verification + transaction record</strong>
+            <span>Your backend verifies the transaction against the provider's API, marks the order as paid, and writes a permanent record to your database with the reference, amount, status and timestamp. Idempotency ensures processing happens once — even if the same event arrives twice.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="warn-box">
+        <h3>Why webhooks matter more than the redirect</h3>
+        <p>In Nigeria, mobile networks drop constantly. Customers close tabs. USSD sessions time out. Bank transfers arrive hours later. If your app trusts only the frontend redirect, you will lose payments every single day — payments where the customer paid and your app never knew. The webhook is what makes a payment system reliable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. WHAT I DELIVER ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">What I Deliver</span>
+      <h2>Beyond the checkout button</h2>
+      <p>
+        A checkout page is 20% of payment integration. The other 80% is what happens
+        behind it — and that's where real reliability is built.
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="icon g">🔒</div>
+        <h3>Secure Checkout</h3>
+        <p>Frontend flow that only ever exposes the public key. All sensitive logic lives server-side. Card data is never stored by your app — the provider handles it.</p>
+      </div>
+      <div class="card">
+        <div class="icon g">✅</div>
+        <h3>Server-Side Verification</h3>
+        <p>Every transaction verified against the provider's API before your app treats it as paid. No trusting the browser. No fake redirect tricks.</p>
+      </div>
+      <div class="card">
+        <div class="icon g">🔔</div>
+        <h3>Webhook Handling</h3>
+        <p>A dedicated webhook endpoint that receives events, verifies signatures, and processes them idempotently. Includes retry handling for transient failures.</p>
+      </div>
+      <div class="card">
+        <div class="icon a">🗄</div>
+        <h3>Transaction Records</h3>
+        <p>A proper database structure for payments — reference, amount, status, customer, timestamp, provider, metadata. Queryable, reportable, auditable.</p>
+      </div>
+      <div class="card">
+        <div class="icon a">💸</div>
+        <h3>Refunds &amp; Disputes</h3>
+        <p>A refund flow you can trigger from your own admin panel. Disputes tracked with statuses, notes and outcomes — not lost in an email inbox.</p>
+      </div>
+      <div class="card">
+        <div class="icon a">🔁</div>
+        <h3>Subscriptions</h3>
+        <p>Recurring billing with plan management, renewals, proration, failed payment retries, and cancellation. The full lifecycle, not just the first charge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. PROVIDERS ================= -->
+<section class="soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Providers</span>
+      <h2>Which payment gateway should you use?</h2>
+      <p>Different providers suit different businesses. Here's the honest breakdown.</p>
+    </div>
+
+    <div class="providers">
+      <div class="provider">
+        <h3>Paystack</h3>
+        <p>Best developer documentation in Nigeria. Strong webhook reliability. Cards, transfers, USSD, subscriptions. Ideal first choice for most Nigerian apps.</p>
+      </div>
+      <div class="provider">
+        <h3>Flutterwave</h3>
+        <p>Wider African coverage and multi-currency support. Good for businesses operating across borders or accepting international customers.</p>
+      </div>
+      <div class="provider">
+        <h3>Stripe</h3>
+        <p>Best for international customers paying in USD/GBP/EUR. Not available for Nigerian-registered businesses to charge Nigerian customers directly, but useful for global SaaS.</p>
+      </div>
+      <div class="provider">
+        <h3>Monnify / Interswitch</h3>
+        <p>Strong for enterprise, government and larger organisations with specific invoicing or settlement needs. More setup overhead, but robust.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:34px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)">
+      <p style="font-size:.95rem;color:var(--muted)">
+        <strong style="color:var(--primary)">Not sure which to use?</strong> I'll recommend based on what your business actually needs — customer location, ticket size, whether you need subscriptions, settlement timing, and what your existing stack already supports.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. PROCESS ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">The Process</span>
+      <h2>How we integrate payments into your app</h2>
+      <p>Structured, tested and audited. Payment code has zero tolerance for "it works most of the time."</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <h3>App review &amp; payment audit</h3>
+        <p>You share access to the codebase. I review the current state — what payment flow exists, whether verification is server-side, whether webhooks are handled, whether secrets are exposed, and what the database currently records. You receive a written assessment of what's safe and what needs rebuilding.</p>
+      </div>
+      <div class="step">
+        <h3>Provider selection &amp; account setup</h3>
+        <p>If a provider isn't already set up, I help you choose the right one and get the account configured — API keys, webhook URLs, test mode access. You keep ownership of the account; I never hold your credentials.</p>
+      </div>
+      <div class="step">
+        <h3>Backend integration</h3>
+        <p>Server-side endpoints for initiating transactions, verifying payments, handling webhooks and logging everything. Written in Node.js and integrated with your existing database structure.</p>
+      </div>
+      <div class="step">
+        <h3>Frontend checkout wiring</h3>
+        <p>The checkout flow is connected to your backend. Public key only on the frontend. Clear success, pending, failed and cancelled states handled properly — no vague "something went wrong" screens.</p>
+      </div>
+      <div class="step">
+        <h3>Testing across real scenarios</h3>
+        <p>Test mode first, then live small-amount transactions. Includes: successful payment, failed payment, abandoned payment, network drop mid-flow, webhook retry, refund, and double-charge prevention.</p>
+      </div>
+      <div class="step">
+        <h3>Documentation &amp; handover</h3>
+        <p>You receive the code, the flow documented, the webhook URL registered, and clear notes on how to trigger refunds and check transaction records. Everything stays in your control.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 6. CREDENTIALS ================= -->
+<section class="soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Credentials &amp; Proof</span>
+      <h2>Why founders trust me with payment code</h2>
+      <p>
+        Payment integration is not the place for experimentation. You're trusting
+        someone with the code that handles your revenue.
+      </p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:38px">
+      <div class="card">
+        <h3>Full Stack Developer</h3>
+        <p>React.js, Node.js, PostgreSQL, REST APIs. I build the frontend, backend and database together — so payment code isn't handed between three different developers.</p>
+      </div>
+      <div class="card">
+        <h3>Founder &amp; CEO — LabelReach Advertising Ltd</h3>
+        <p>Since 2015. Running a real Nigerian business means I understand what payments mean to you — not just as code, but as revenue, trust and reputation.</p>
+      </div>
+      <div class="card">
+        <h3>8+ Live Applications Deployed</h3>
+        <p>Real products in production with real users. Payment integrations tested against real Nigerian payment conditions — mobile networks, USSD timeouts, delayed transfers.</p>
+      </div>
+      <div class="card">
+        <h3>Vibe-Coded App Experience</h3>
+        <p>Many of my payment integration engagements are rescuing AI-built apps. I know exactly what vibe-coded payment flows look like — and what they're missing.</p>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="quote">
+        <p>"We had customers paying and the app marking them unpaid. Emmanuel rewrote the flow and we haven't lost a payment since."</p>
+        <footer>Founder <span>Lagos, Nigeria</span></footer>
+      </div>
+      <div class="quote">
+        <p>"He found our secret key exposed in the frontend. That alone was worth the fee. Then he rebuilt the whole flow properly."</p>
+        <footer>Startup CTO <span>Abuja</span></footer>
+      </div>
+      <div class="quote">
+        <p>"Refunds used to be a WhatsApp message. Now they're a button. Everything is reconciled properly."</p>
+        <footer>Business Owner <span>Port Harcourt</span></footer>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 7. FAQ ================= -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">FAQ</span>
+      <h2>What founders ask about payment integration</h2>
+    </div>
+
+    <div class="faq">
+      <details open>
+        <summary>How do I integrate Paystack or Flutterwave into my app?</summary>
+        <p>Proper integration has four parts: (1) a checkout flow on the frontend that starts a transaction, (2) a backend endpoint that verifies the transaction against the provider's API before marking an order as paid, (3) a webhook handler that listens for the provider's server-to-server events so payments that complete after the customer leaves the tab still get recorded, and (4) a transaction record in your database that logs every payment attempt with its status, reference and amount. Missing any one of these causes payment problems — most commonly, orders marked as unpaid when the customer actually paid.</p>
+      </details>
+
+      <details>
+        <summary>Why is my payment verification failing or double-charging?</summary>
+        <p>The most common causes are: not verifying transactions server-side (relying only on the frontend callback), missing webhook handling, no idempotency on retry attempts, and race conditions when the frontend callback and the webhook both fire. Proper integration verifies every transaction against the provider's API, uses the transaction reference as a unique key, and treats the webhook as the authoritative source of truth — not the browser callback.</p>
+      </details>
+
+      <details>
+        <summary>What is a webhook and why does my payment integration need one?</summary>
+        <p>A webhook is a server-to-server notification sent by the payment provider when something happens — a payment succeeds, fails, is refunded, or is disputed. Unlike the frontend callback (which fails if the customer closes the tab or loses network), the webhook always arrives and can be retried. Payments without proper webhook handling lose orders every day — especially in Nigeria where mobile network drops are common mid-transaction.</p>
+      </details>
+
+      <details>
+        <summary>Can you integrate subscriptions and recurring billing?</summary>
+        <p>Yes. Paystack and Flutterwave both support recurring billing, and I build the full subscription lifecycle — plan creation, customer subscription, proration, renewals, failed payment retries, cancellation and dunning. I also build the database structure so your app knows who is on which plan, when it renews, and what happens when it fails.</p>
+      </details>
+
+      <details>
+        <summary>How much does payment integration cost?</summary>
+        <p>It depends on scope. A single-provider integration for a simple checkout is at the lower end. Multi-provider integration, subscriptions, refunds, dispute handling, admin dashboards and reconciliation reports cost more. I quote per project after reviewing your app, and the quote is broken into clear milestones. Every quote includes proper webhook handling and server-side verification — I don't cut those for price.</p>
+      </details>
+
+      <details>
+        <summary>Do you work with apps built using AI tools?</summary>
+        <p>Yes — frequently. AI tools are good at generating checkout UIs but poor at backend payment logic. Most of my payment integration work is retrofitting AI-generated apps with proper server-side verification, webhook handling, idempotency and transaction logging. The checkout screen stays; the fragile backend gets replaced.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RELATED ================= -->
+<section class="soft" style="padding-top:0">
+  <div class="wrap" style="padding-top:76px">
+    <div class="sec-head">
+      <span class="kicker">Explore More</span>
+      <h2>Related services</h2>
+    </div>
+    <div class="grid-3 related">
+      <a href="/vibe-coded-app-rescue.html">Vibe-Coded App Rescue <span>→</span></a>
+      <a href="/nodejs-developer-nigeria.html">Node.js Developer <span>→</span></a>
+      <a href="/full-stack-developer-nigeria.html">Full Stack Developer <span>→</span></a>
+      <a href="/publish-app-play-store-nigeria.html">Publish to Play Store <span>→</span></a>
+      <a href="/hire-web-developer-nigeria.html">Hire a Web Developer <span>→</span></a>
+      <a href="/contact.html">Contact <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 8. FINAL CTA ================= -->
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <h2>Let's make your payment flow something you can trust</h2>
+      <p>
+        Tell me what payment problems you're seeing — lost payments, double
+        charges, no records, exposed keys, or a checkout flow you don't trust.
+        I'll tell you honestly what needs fixing and what it costs.
+      </p>
+      <div class="cta-actions">
+        <a href="https://wa.me/2347032977572?text=Hi%20Emmanuel%2C%20I%20need%20payment%20integration%20for%20my%20app" class="btn btn-gold">💬 WhatsApp 0703 297 7572</a>
+        <a href="mailto:info@emmanueladekunlepeace.com?subject=Payment%20Integration%20Enquiry" class="btn btn-outline">✉ Email Me</a>
+        <a href="/contact.html" class="btn btn-outline">Contact Page</a>
+      </div>
+      <small>Paystack · Flutterwave · Stripe · Nigeria-based, worldwide service</small>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Emmanuel Adekunle <span>Peace</span></div>
+        <p>Full Stack Developer, author of 25+ books and CEO of LabelReach Advertising Ltd. Building payment systems founders can trust.</p>
+      </div>
+      <div>
+        <h4>Payments &amp; Apps</h4>
+        <a href="/integrate-payment-gateway-nigeria.html">Payment Integration</a>
+        <a href="/vibe-coded-app-rescue.html">App Rescue</a>
+        <a href="/publish-app-play-store-nigeria.html">Publish to Play Store</a>
+        <a href="/web-app-to-exe-conversion.html">Web App to EXE</a>
+        <a href="/full-stack-developer-nigeria.html">Full Stack Developer</a>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="/about.html">About</a>
+        <a href="/portfolio.html">Portfolio</a>
+        <a href="/testimonials.html">Testimonials</a>
+        <a href="/books.html">Books</a>
+        <a href="/blog.html">Blog</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="https://wa.me/2347032977572">WhatsApp: 0703 297 7572</a>
+        <a href="mailto:info@emmanueladekunlepeace.com">info@emmanueladekunlepeace.com</a>
+        <a href="https://www.linkedin.com/in/emmanueladekunlep" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.amazon.com/author/emmanueladekunlepeace" target="_blank" rel="noopener">Amazon Author Page</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Emmanuel Adekunle Peace. All rights reserved.</span>
+      <span>Payment Gateway Integration · Nigeria</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/2347032977572?text=Hi%20Emmanuel%2C%20I%20found%20your%20payment%20integration%20page" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <path d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.56 4.19 1.62 6.01L4 29l8.13-1.6a12 12 0 0 0 3.9.65h.01C22.68 28.05 28.08 22.65 28.08 16S22.68 3 16.04 3zm0 21.86h-.01c-1.17 0-2.32-.31-3.32-.9l-.24-.14-4.82.95.96-4.7-.16-.25a9.9 9.9 0 0 1-1.52-5.28c0-5.5 4.48-9.97 9.99-9.97 2.67 0 5.17 1.04 7.06 2.93a9.9 9.9 0 0 1 2.92 7.05c0 5.5-4.47 9.98-9.96 9.98zm5.47-7.47c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/>
+  </svg>
+</a>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.querySelectorAll('#navlinks a').forEach(a=>{
+    a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open'));
+  });
+</script>
+</body>
+</html>

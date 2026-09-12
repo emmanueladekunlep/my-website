@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en-NG">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO META ===== -->
+<title>Turn Your Web App Into a Mobile App | iOS &amp; Android — Emmanuel Adekunle Peace</title>
+<meta name="description" content="Turn your web app into a real iOS and Android app. React Native, Expo, Flutter or PWA wrapping — chosen properly for your stack. One codebase, two app stores. WhatsApp 0703 297 7572.">
+<meta name="keywords" content="turn web app into mobile app, web app to iOS Android, React Native developer Nigeria, Expo app development, Flutter developer Nigeria, PWA to app store, mobile app from web app, vibe coded app to mobile">
+<meta name="author" content="Emmanuel Adekunle Peace (Sam Transcend)">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://emmanueladekunlepeace.com/mobile-app-from-web-app.html">
+
+<!-- ===== OPEN GRAPH ===== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Turn Your Web App Into a Mobile App | iOS &amp; Android">
+<meta property="og:description" content="One codebase, two app stores. React Native, Expo, Flutter or PWA wrapping — chosen properly for your web app.">
+<meta property="og:url" content="https://emmanueladekunlepeace.com/mobile-app-from-web-app.html">
+<meta property="og:site_name" content="Emmanuel Adekunle Peace">
+<meta property="og:locale" content="en_NG">
+<meta property="og:image" content="https://emmanueladekunlepeace.com/assets/og-mobile-app-from-web-app.jpg">
+
+<!-- ===== TWITTER ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Turn Your Web App Into a Mobile App | iOS &amp; Android">
+<meta name="twitter:description" content="One codebase, two app stores. React Native, Expo, Flutter or PWA wrapping.">
+<meta name="twitter:image" content="https://emmanueladekunlepeace.com/assets/og-mobile-app-from-web-app.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ===== JSON-LD: SERVICE ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Web App to Mobile App Conversion",
+  "name": "Turn Your Web App Into a Mobile App — iOS &amp; Android Development",
+  "description": "Convert web apps and vibe-coded projects into real iOS and Android mobile apps. React Native, Expo, Flutter and PWA wrapping — chosen properly for your stack, then packaged and shipped to both app stores.",
+  "url": "https://emmanueladekunlepeace.com/mobile-app-from-web-app.html",
+  "areaServed": [
+    { "@type": "Country", "name": "Nigeria" },
+    { "@type": "Country", "name": "Worldwide" }
+  ],
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Founders with a working web app who want iOS and Android versions"
+  },
+  "provider": {
+    "@type": "Person",
+    "name": "Emmanuel Adekunle Peace",
+    "alternateName": "Sam Transcend",
+    "jobTitle": "Full Stack &amp; Mobile Developer",
+    "url": "https://emmanueladekunlepeace.com",
+    "email": "info@emmanueladekunlepeace.com",
+    "telephone": "+2347032977572",
+    "sameAs": [
+      "https://www.linkedin.com/in/emmanueladekunlep",
+      "https://www.amazon.com/author/emmanueladekunlepeace"
+    ],
+    "knowsAbout": [
+      "React Native", "Expo", "Flutter", "Capacitor", "PWA to App Store",
+      "iOS App Store", "Google Play Store", "Node.js", "REST APIs"
+    ]
+  }
+}
+</script>
+
+<!-- ===== JSON-LD: PERSON ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Emmanuel Adekunle Peace",
+  "alternateName": "Sam Transcend",
+  "url": "https://emmanueladekunlepeace.com",
+  "image": "https://emmanueladekunlepeace.com/assets/emmanuel-adekunle-peace.jpg",
+  "jobTitle": "Full Stack &amp; Mobile Developer",
+  "email": "info@emmanueladekunlepeace.com",
+  "telephone": "+2347032977572",
+  "address": { "@type": "PostalAddress", "addressCountry": "NG" },
+  "sameAs": [
+    "https://www.linkedin.com/in/emmanueladekunlep",
+    "https://www.amazon.com/author/emmanueladekunlepeace"
+  ]
+}
+</script>
+
+<!-- ===== JSON-LD: FAQ ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I turn my existing web app into a mobile app without rebuilding it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on your web app. A Progressive Web App (PWA) can be wrapped and submitted to the Google Play Store using a Trusted Web Activity (TWA), which requires almost no code changes. But a standard web app — especially one with complex UI — usually needs at least a rebuild of the frontend using React Native, Expo or Flutter for a proper native experience. The backend and APIs you already have are reused either way."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between wrapping, React Native, Expo and Flutter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wrapping (like a TWA) puts your existing website inside a mobile shell — fastest, cheapest, but limited native feel. React Native and Expo build a genuinely native app using JavaScript/TypeScript, sharing logic with your web code if it's React-based. Flutter builds native apps using Dart with its own rendering engine, giving consistent appearance across platforms. The right choice depends on your web stack, your timeline, and how much you're willing to invest in the mobile experience."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to rebuild my backend for mobile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. If your web app already has a backend and APIs, the mobile app uses the same backend. This is one of the biggest advantages of building mobile from an existing web app — the server logic, database and business rules stay the same. What changes is the frontend and some mobile-specific integrations like push notifications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to build a mobile app from a web app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A PWA wrapped for the Play Store can take days. A React Native or Flutter rebuild of a small to medium app typically takes 4–10 weeks depending on screen count and complexity. Apps with offline features, complex authentication, in-app purchases or heavy native integrations take longer. The first step is always a scoping call to give you a realistic timeline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which app store should I launch on first?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For Nigerian audiences, Google Play is usually the right first target — Android dominates the local market and the review process is more forgiving. Apple's App Store has stricter review, requires an annual developer fee, and reaches a smaller share of the Nigerian market but a higher-spending international one. Many founders launch on Play Store first, validate, then invest in the iOS build."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you build the mobile app if my web app was vibe-coded with AI tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. AI tools are good at generating web frontends but produce nothing usable for native mobile — the technologies are fundamentally different. What I do is extract the working business logic and API structure from your vibe-coded web app, then build the mobile frontend properly using React Native, Expo or Flutter. The backend and APIs you already have are reused."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --primary:#5A2A5F;
+    --secondary:#10964D;
+    --accent:#D4AF37;
+    --bg:#ffffff;
+    --bg-soft:#f5f4f7;
+    --text:#1f1f24;
+    --muted:#5c5c66;
+    --line:#e6e3ea;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(90,42,95,.08);
+    --shadow-lg:0 20px 50px rgba(90,42,95,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1140px,92%);margin-inline:auto}
+
+  header{
+    position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.94);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:20px}
+  .logo{font-weight:800;font-size:1.05rem;color:var(--primary);letter-spacing:-.02em}
+  .logo span{color:var(--secondary)}
+  .nav-links{display:flex;gap:22px;list-style:none;flex-wrap:wrap}
+  .nav-links a{font-size:.9rem;font-weight:500;color:var(--muted);transition:.2s}
+  .nav-links a:hover,.nav-links a.active{color:var(--primary)}
+  .nav-cta{
+    background:var(--secondary);color:#fff;padding:10px 20px;border-radius:999px;
+    font-size:.88rem;font-weight:600;white-space:nowrap;transition:.25s;
+  }
+  .nav-cta:hover{background:#0d7a3e;transform:translateY(-1px)}
+  .burger{display:none;background:none;border:0;font-size:1.5rem;color:var(--primary);cursor:pointer}
+
+  .hero{
+    background:
+      radial-gradient(900px 420px at 88% -10%,rgba(16,150,77,.13),transparent 60%),
+      radial-gradient(700px 380px at 5% 0%,rgba(90,42,95,.11),transparent 60%),
+      var(--bg-soft);
+    padding:80px 0 72px;border-bottom:1px solid var(--line);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
+    color:var(--primary);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    padding:7px 15px;border-radius:999px;margin-bottom:20px;box-shadow:var(--shadow);
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--secondary)}
+  h1{font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.14;letter-spacing:-.03em;font-weight:800;color:var(--primary)}
+  h1 em{font-style:normal;color:var(--secondary)}
+  .hero p.lead{margin-top:20px;font-size:1.09rem;color:var(--muted);max-width:620px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;padding:14px 27px;border-radius:999px;
+    font-weight:700;font-size:.95rem;transition:.25s;border:2px solid transparent;
+  }
+  .btn-wa{background:var(--secondary);color:#fff;box-shadow:0 10px 24px rgba(16,150,77,.28)}
+  .btn-wa:hover{background:#0d7a3e;transform:translateY(-2px);box-shadow:0 14px 30px rgba(16,150,77,.34)}
+  .btn-ghost{background:#fff;color:var(--primary);border-color:var(--line);box-shadow:var(--shadow)}
+  .btn-ghost:hover{border-color:var(--primary);transform:translateY(-2px)}
+  .hero-stats{display:flex;gap:34px;margin-top:40px;flex-wrap:wrap}
+  .stat b{display:block;font-size:1.75rem;font-weight:800;color:var(--primary);line-height:1.1}
+  .stat span{font-size:.82rem;color:var(--muted);font-weight:500}
+
+  .hero-card{
+    background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;
+    box-shadow:var(--shadow-lg);
+  }
+  .hero-card h3{font-size:1rem;color:var(--primary);margin-bottom:18px;font-weight:700}
+  .hero-card hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+  .hero-card ul{list-style:none;display:grid;gap:12px}
+  .hero-card li{display:flex;gap:10px;font-size:.9rem;color:var(--muted)}
+  .tick{color:var(--secondary);font-weight:800;flex-shrink:0}
+  .cross{color:#c0392b;font-weight:800;flex-shrink:0}
+
+  section{padding:76px 0}
+  .soft{background:var(--bg-soft)}
+  .sec-head{max-width:720px;margin-bottom:44px}
+  .kicker{
+    color:var(--secondary);font-size:.78rem;font-weight:800;letter-spacing:.13em;
+    text-transform:uppercase;margin-bottom:12px;display:block;
+  }
+  h2{font-size:clamp(1.5rem,3vw,2.15rem);line-height:1.22;letter-spacing:-.025em;font-weight:800;color:var(--primary)}
+  h3{font-size:1.12rem;font-weight:700;color:var(--primary);margin-bottom:10px}
+  .sec-head p{margin-top:16px;color:var(--muted);font-size:1.02rem}
+
+  .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:24px}
+  .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:26px}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;box-shadow:var(--shadow);transition:.28s;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(90,42,95,.22)}
+  .card p{color:var(--muted);font-size:.94rem}
+  .icon{
+    width:46px;height:46px;border-radius:12px;display:grid;place-items:center;
+    background:rgba(90,42,95,.09);color:var(--primary);font-size:1.25rem;margin-bottom:16px;font-weight:800;
+  }
+  .icon.g{background:rgba(16,150,77,.11);color:var(--secondary)}
+  .icon.a{background:rgba(212,175,55,.16);color:#a5822a}
+  .icon.r{background:rgba(192,57,43,.1);color:#c0392b}
+
+  .pain li{
+    list-style:none;display:flex;gap:12px;padding:13px 0;border-bottom:1px dashed var(--line);
+    color:var(--muted);font-size:.95rem;
+  }
+  .pain li:last-child{border-bottom:0}
+
+  /* APPROACHES */
+  .approaches{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+  .approach{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px;box-shadow:var(--shadow);transition:.28s;position:relative;overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .approach::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:4px;
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
+  }
+  .approach:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+  .approach .tag{
+    background:rgba(90,42,95,.08);color:var(--primary);font-size:.7rem;font-weight:800;
+    letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:6px;
+    display:inline-block;margin-bottom:12px;align-self:flex-start;
+  }
+  .approach h3{margin-bottom:8px}
+  .approach p{color:var(--muted);font-size:.9rem;flex-grow:1}
+  .approach .meta{
+    display:flex;gap:12px;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);
+    flex-wrap:wrap;
+  }
+  .approach .meta span{
+    font-size:.75rem;font-weight:700;color:var(--primary);
+    background:var(--bg-soft);padding:4px 10px;border-radius:6px;
+  }
+
+  /* LAYERS */
+  .layers-wrap{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:32px;box-shadow:var(--shadow);margin-top:34px;
+  }
+  .layers-wrap h3{margin-bottom:8px}
+  .layers-wrap > p{color:var(--muted);font-size:.94rem;margin-bottom:24px}
+  .layers{display:grid;gap:12px}
+  .layer{
+    display:flex;gap:18px;align-items:flex-start;padding:18px 22px;border-radius:12px;
+    background:var(--bg-soft);border:1px solid var(--line);
+  }
+  .layer .num{
+    width:38px;height:38px;border-radius:10px;color:#fff;flex-shrink:0;
+    display:grid;place-items:center;font-weight:800;font-size:.9rem;
+  }
+  .layer:nth-child(1) .num{background:var(--primary)}
+  .layer:nth-child(2) .num{background:#7a3a80}
+  .layer:nth-child(3) .num{background:var(--secondary)}
+  .layer:nth-child(4) .num{background:#0d7a3e}
+  .layer:nth-child(5) .num{background:var(--accent);color:#3a2c05}
+  .layer strong{color:var(--primary);font-weight:700;font-size:.98rem;display:block}
+  .layer span{color:var(--muted);font-size:.87rem}
+
+  /* PROCESS */
+  .steps{counter-reset:s;display:grid;gap:20px}
+  .step{
+    position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 26px 26px 82px;box-shadow:var(--shadow);
+  }
+  .step::before{
+    counter-increment:s;content:counter(s);
+    position:absolute;left:24px;top:24px;width:40px;height:40px;border-radius:11px;
+    background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:800;font-size:.95rem;
+  }
+  .step h3{margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.94rem}
+
+  .quote{
+    background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);
+    border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);
+  }
+  .quote p{font-style:italic;color:var(--text);font-size:.96rem}
+  .quote footer{margin-top:14px;font-size:.85rem;font-weight:700;color:var(--primary)}
+  .quote footer span{display:block;font-weight:500;color:var(--muted);font-size:.8rem}
+
+  .faq{display:grid;gap:14px}
+  details{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:0 22px;box-shadow:var(--shadow);overflow:hidden;
+  }
+  details[open]{border-color:rgba(90,42,95,.3)}
+  summary{
+    cursor:pointer;font-weight:700;color:var(--primary);padding:20px 0;
+    display:flex;justify-content:space-between;gap:16px;align-items:center;font-size:1rem;list-style:none;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:1.35rem;color:var(--secondary);font-weight:700;transition:.25s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{padding:0 0 22px;color:var(--muted);font-size:.94rem;max-width:70ch}
+
+  .cta{
+    background:linear-gradient(135deg,var(--primary),#3d1c41 65%);
+    border-radius:22px;padding:60px 40px;text-align:center;color:#fff;
+    box-shadow:var(--shadow-lg);position:relative;overflow:hidden;
+  }
+  .cta::after{
+    content:"";position:absolute;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,rgba(16,150,77,.4),transparent 68%);top:-160px;right:-120px;
+  }
+  .cta h2{color:#fff;position:relative;z-index:1}
+  .cta p{color:rgba(255,255,255,.82);max-width:640px;margin:18px auto 0;position:relative;z-index:1}
+  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px;position:relative;z-index:1}
+  .btn-gold{background:var(--accent);color:#3a2c05;box-shadow:0 10px 26px rgba(212,175,55,.34)}
+  .btn-gold:hover{background:#c8a331;transform:translateY(-2px)}
+  .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+  .btn-outline:hover{background:rgba(255,255,255,.12);border-color:#fff;transform:translateY(-2px)}
+  .cta small{display:block;margin-top:22px;color:rgba(255,255,255,.6);font-size:.83rem;position:relative;z-index:1}
+
+  .related a{
+    display:flex;justify-content:space-between;align-items:center;gap:14px;
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 22px;box-shadow:var(--shadow);transition:.25s;font-weight:600;color:var(--primary);font-size:.94rem;
+  }
+  .related a:hover{transform:translateX(5px);border-color:var(--secondary);color:var(--secondary)}
+  .related span{color:var(--secondary);font-weight:800}
+
+  footer.site{background:#1c1220;color:rgba(255,255,255,.72);padding:58px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:34px}
+  footer.site h4{color:#fff;font-size:.95rem;margin-bottom:16px;font-weight:700}
+  footer.site a{font-size:.89rem;color:rgba(255,255,255,.68);display:block;padding:5px 0;transition:.2s}
+  footer.site a:hover{color:var(--accent)}
+  .foot-brand{font-weight:800;color:#fff;font-size:1.1rem;margin-bottom:12px}
+  .foot-brand span{color:var(--secondary)}
+  footer.site p{font-size:.89rem;max-width:34ch}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:22px;
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.83rem;
+  }
+
+  .wa-float{
+    position:fixed;right:20px;bottom:22px;z-index:1200;width:58px;height:58px;border-radius:50%;
+    background:var(--secondary);display:grid;place-items:center;
+    box-shadow:0 12px 30px rgba(16,150,77,.42);transition:.28s;
+  }
+  .wa-float:hover{transform:scale(1.09)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:38px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:760px){
+    .nav-links{
+      display:none;position:absolute;top:100%;left:0;right:0;background:#fff;
+      flex-direction:column;gap:0;padding:10px 0;border-bottom:1px solid var(--line);
+      box-shadow:var(--shadow-lg);
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{padding:13px 6%;width:100%;font-size:.95rem}
+    .burger{display:block}
+    .nav-cta{display:none}
+    section{padding:58px 0}
+    .cta{padding:44px 24px}
+    .step{padding:24px 22px}
+    .step::before{position:static;margin-bottom:14px}
+    .foot-grid{grid-template-columns:1fr;gap:26px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo">Emmanuel Adekunle <span>Peace</span></a>
+    <button class="burger" aria-label="Toggle menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html" class="active">Services</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/testimonials.html">Testimonials</a></li>
+      <li><a href="/books.html">Books</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/resources.html">Resources</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/2347032977572?text=Hi%20Emmanuel%2C%20I%20want%20to%20turn%20my%20web%20app%20into%20a%20mobile%20app" class="nav-cta">Build My App</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> Web → Mobile · iOS &amp; Android</span>
+      <h1>Your web app works. <em>Now your users want it on their phone.</em></h1>
+      <p class="lead">
+        Not in a browser — as a real app. On their home screen. With push
+        notifications, native gestures, offline support and an icon they tap.
+        I convert web apps into real iOS and Android apps, choosing the right
+        approach for your stack instead of forcing one approach on every project.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/2347032977572?text=Hi%20Emmanuel%2C%20I%20want%20to%20turn%20my%20web%20app%20into%20a%20mobile%20app" class="btn btn-wa">💬 Discuss Your App</a>
+        <a href="#approaches" class="btn btn-ghost">See Approaches ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>8+</b><span>Live apps deployed</span></div>
+        <div class="stat"><b>1</b><span>Codebase for both platforms</span></div>
+        <div class="stat"><b>NG</b><span>Nigeria-based, worldwide</span></div>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <h3>What your mobile app gets</h3>
+      <ul>
+        <li><span class="tick">✓</span> Home screen icon and native launch experience</li>
+        <li><span class="tick">✓</span> Push notifications to bring users back</li>
+        <li><span class="tick">✓</span> Camera, location and file access</li>
+        <li><span class="tick">✓</span> Offline read support where sensible</li>
+        <li><span class="tick">✓</span> Biometric login (Face ID / fingerprint)</li>
+        <li><span class="tick">✓</span> Native swipe, tap and gesture behaviour</li>
+        <li><span class="tick">✓</span> Submit to Google Play and Apple App Store</li>
+      </ul>
+      <hr>
+      <p style="font-size:.88rem;color:var(--muted)">
+        The backend you already built stays. What changes is the frontend and the
+        mobile-specific features that make the app feel native.
+      </p>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= 1. PROBLEM ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">The Problem</span>
+      <h2>Why a web app doesn't just "become" a mobile app</h2>
+      <p>
+        Founders often assume the mobile app is a small additional step. It isn't.
+        The technologies, the interaction model and the store requirements are
+        all different. Here's what actually changes.
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>The interface has to be redesigned</h3>
+        <p>Web layouts assume a mouse and a wide screen. Mobile requires touch targets, swipe gestures, bottom navigation and single-column flows. A responsive web page is not a mobile app.</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>Navigation works differently</h3>
+        <p>Mobile users expect a hardware back button, swipe-back gestures, tab bars and modal sheets. The web equivalents — browser back, page reloads — don't apply in a native app.</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>Native features require real integration</h3>
+        <p>Push notifications, camera access, location services, biometric login, offline storage — none of these work through the browser alone. Each needs proper native integration.</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>Two app stores, two sets of rules</h3>
+        <p>Google Play and Apple's App Store have different submission processes, review criteria, packaging formats and privacy requirements. Both need to be handled separately.</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>Updates stop being instant</h3>
+        <p>Web apps update on refresh. Mobile apps require a new build and app store review for major changes. Minor changes can go over-the-air, but only within limits.</p>
+      </div>
+      <div class="card">
+        <div class="icon r">⚠</div>
+        <h3>Choosing the wrong approach wastes months</h3>
+        <p>A TWA wrapping is right for some apps. React Native or Flutter is right for others. Choosing wrong means an app that feels slow, lacks features or needs a full rebuild later.</p>
+      </div>
+    </div>
+
+    <ul class="pain" style="margin-top:34px">
+      <li><span class="cross">✕</span> "I don't know whether to wrap my web app or rebuild it."</li>
+      <li><span class="cross">✕</span> "I tried a website-to-app tool and the result felt cheap."</li>
+      <li><span class="cross">✕</span> "I need push notifications but the browser version can't do it properly."</li>
+      <li><span class="cross">✕</span> "I don't know if I should launch on Play Store first or both stores."</li>
+      <li><span class="cross">✕</span> "I don't want to rebuild the whole backend just for mobile."</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 2. APPROACHES ================= -->
+<section class="soft" id="approaches">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Approaches</span>
+      <h2>Four ways to get from web to mobile — and when to use each</h2>
+      <p>
+        There's no universal right answer. The right approach depends on your
+        existing web stack, your timeline, your budget and how native you want
+        the experience to feel.
+      </p>
+    </div>
+
+    <div class="approaches">
+      <div class="approach">
+        <span class="tag">Fastest</span>
+        <h3>PWA Wrapping</h3>
+        <p>Your existing Progressive Web App is wrapped in a Trusted Web Activity and submitted to Google Play. Almost no code changes. iOS is more limited — the app essentially runs as a bookmark.</p>
+        <div class="meta">
+          <span>Days</span>
+          <span>Low cost</span>
+        </div>
+      </div>
+      <div class="approach">
+        <span class="tag">Most common</span>
+        <h3>React Native / Expo</h3>
+        <p>Rebuild the frontend in React Native using JavaScript/TypeScript. Shares logic and patterns with your React web codebase. One project targets both iOS and Android. The default choice for most web-to-mobile conversions.</p>
+        <div class="meta">
+          <span>4–10 weeks</span>
+          <span>True native feel</span>
+        </div>
+      </div>
+      <div class="approach">
+        <span class="tag">Cross-platform</span>
+        <h3>Flutter</h3>
+        <p>Rebuild the frontend in Dart using Flutter's own rendering engine. Excellent performance and pixel-consistent across platforms. Good choice if your web stack isn't React-based or if you want to prioritise design consistency.</p>
+        <div class="meta">
+          <span>4–10 weeks</span>
+          <span>Design-focused</span>
+        </div>
+      </div>
+      <div class="approach">
+        <span class="tag">Existing project</span>
+        <h3>Capacitor</h3>
+        <p>Wraps an existing React, Vue or Angular web app in a native container with access to native features. Less native feel than React Native or Flutter, but minimal rework of your existing codebase.</p>
+        <div class="meta">
+          <span>2–5 weeks</span>
+          <span>Minimal rewrite</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:34px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)">
+      <p style="font-size:.95rem;color:var(--muted)">
+        <strong style="color:var(--primary)">Which approach for you?</strong> If your web app is React-based, React Native or Expo is usually the right call — you reuse logic and patterns. If it's a well-built PWA and you only need Play Store presence quickly, wrapping is fine. If your stack is unfamiliar or you want maximum design control, Flutter. I recommend based on your actual situation, not on what's trendiest.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. LAYERS ================= -->
+<section id="layers">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">What's Involved</span>
+      <h2>The five layers of a proper mobile conversion</h2>
+      <p>
+        A working mobile app is not just a responsive frontend. Each of these
+        layers matters — and skipping one produces an app that feels unfinished.
+      </p>
+    </div>
+
+    <div class="layers-wrap">
+      <div class="layers">
+        <div class="layer">
+          <div class="num">1</div>
+          <div>
+            <strong>Mobile-first frontend rebuild</strong>
+            <span>Redesigning for touch — single-column layouts, bottom tab navigation, swipe gestures, native components. Not a squeezed version of the web design.</span>
+          </div>
+        </div>
+        <div class="layer">
+          <div class="num">2</div>
+          <div>
+            <strong>Backend and API reuse</strong>
+            <span>Your existing backend and APIs stay. Where needed, mobile-specific endpoints are added — for things like push notification tokens or app version checks.</span>
+          </div>
+        </div>
+        <div class="layer">
+          <div class="num">3</div>
+          <div>
+            <strong>Native feature integration</strong>
+            <span>Push notifications (Firebase Cloud Messaging), camera access, location services, biometric login, local storage and secure credential handling.</span>
+          </div>
+        </div>
+        <div class="layer">
+          <div class="num">4</div>
+          <div>
+            <strong>App store preparation</strong>
+            <span>Icons, splash screens, screenshots, descriptions, privacy policies, age ratings, store listings, and both iOS and Android submission processes.</span>
+          </div>
+        </div>
+        <div class="layer">
+          <div class="num">5</div>
+          <div>
+            <strong>Testing on real devices</strong>
+            <span>iOS and Android behave differently — navigation, permissions, keyboard, notifications. The app is tested on real devices before submission, not just simulators.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. PROCESS ================= -->
+<section class="soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">The Process</span>
+      <h2>How we build the mobile app</h2>
+      <p>Structured, honest and paced. You see progress on real devices throughout.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <h3>Scoping and approach decision</h3>
+        <p>A conversation about your web app — its stack, its users, and what the mobile version needs to do. I recommend the right approach (wrapping, React Native, Flutter or Capacitor) and produce a written scope with timeline and fixed price.</p>
+      </div>
+      <div class="step">
+        <h3>Mobile design and structure</h3>
+        <p>Before coding, we map out screens, navigation flow and mobile-specific interactions. If you already have designs, they're adapted for touch. If not, we agree on the layout in this phase.</p>
+      </div>
+      <div class="step">
+        <h3>Build the mobile frontend</h3>
+        <p>The app is built in stages with development builds on real devices for review. You can tap through each iteration as it's completed — no waiting until the end to see it working.</p>
+      </div>
+      <div class="step">
+        <h3>Integrate native features</h3>
+        <p>Push notifications, camera, location, biometric login and any other native functionality the app needs. Each integration is tested on both iOS and Android because they behave differently.</p>
+      </div>
+      <div class="step">
+        <h3>Store preparation and submission</h3>
+        <p>Icons, screenshots, descriptions, privacy policies and store listings prepared. The app is built into release packages and submitted to Google Play (and Apple App Store if you want iOS). Rejection issues are diagnosed and resolved.</p>
+      </div>
+      <div class="step">
+        <h3>Handover and update workflow</h3>
+        <p>You receive the source code, documentation on how to build updates, and notes on the app store accounts. Future updates are handled either by you or by me — your choice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. CREDENTIALS ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Credentials &amp; Proof</span>
+      <h2>Why founders trust me with the mobile build</h2>
+      <p>
+        Mobile apps aren't web apps with a different screen size. Building them
+        well requires someone who understands both platforms — and how they
+        connect back to the backend.
+      </p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:38px">
+      <div class="card">
+        <h3>Full Stack Developer</h3>
+        <p>React.js, Node.js, PostgreSQL, REST APIs. I build and maintain the backend your mobile app will talk to — so the integration works cleanly, not through guesswork.</p>
+      </div>
+      <div class="card">
+        <h3>8+ Live Applications Deployed</h3>
+        <p>Real apps in production. I understand the deployment, update and store submission process on both platforms — not just the initial build.</p>
+      </div>
+      <div class="card">
+        <h3>Vibe-Coded App Experience</h3>
+        <p>Many of my mobile conversions come from AI-built web apps. AI tools can't produce native mobile code — I extract the working logic and rebuild the frontend properly.</p>
+      </div>
+      <div class="card">
+        <h3>Founder &amp; CEO — LabelReach Advertising Ltd</h3>
+        <p>Since 2015. Running a business means I treat your app store accounts, your users and your data with the seriousness they deserve. No experiments with live accounts.</p>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="quote">
+        <p>"He recommended React Native over wrapping because he understood our long-term plan. Six months later we're glad he did — the app feels genuinely native."</p>
+        <footer>Founder <span>Lagos, Nigeria</span></footer>
+      </div>
+      <div class="quote">
+        <p>"Our web app was AI-built and we didn't think it could become a real mobile app. Emmanuel used the existing backend and rebuilt the frontend from scratch. It works perfectly."</p>
+        <footer>Startup CTO <span>Abuja</span></footer>
+      </div>
+      <div class="quote">
+        <p>"He handled both the Play Store and App Store submission. That alone saved us weeks of confusion."</p>
+        <footer>Business Owner <span>Port Harcourt</span></footer>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 6. FAQ ================= -->
+<section id="faq" class="soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">FAQ</span>
+      <h2>What founders ask about going mobile</h2>
+    </div>
+
+    <div class="faq">
+      <details open>
+        <summary>Can I turn my existing web app into a mobile app without rebuilding it?</summary>
+        <p>It depends on your web app. A Progressive Web App (PWA) can be wrapped and submitted to the Google Play Store using a Trusted Web Activity (TWA), which requires almost no code changes. But a standard web app — especially one with complex UI — usually needs at least a rebuild of the frontend using React Native, Expo or Flutter for a proper native experience. The backend and APIs you already have are reused either way.</p>
+      </details>
+
+      <details>
+        <summary>What is the difference between wrapping, React Native, Expo and Flutter?</summary>
+        <p>Wrapping (like a TWA) puts your existing website inside a mobile shell — fastest, cheapest, but limited native feel. React Native and Expo build a genuinely native app using JavaScript/TypeScript, sharing logic with your web code if it's React-based. Flutter builds native apps using Dart with its own rendering engine, giving consistent appearance across platforms. The right choice depends on your web stack, your timeline, and how much you're willing to invest in the mobile experience.</p>
+      </details>
+
+      <details>
+        <summary>Do I need to rebuild my backend for mobile?</summary>
+        <p>No. If your web app already has a backend and APIs, the mobile app uses the same backend. This is one of the biggest advantages of building mobile from an existing web app — the server logic, database and business rules stay the same. What changes is the frontend and some mobile-specific integrations like push notifications.</p>
+      </details>
+
+      <details>
+        <summary>How long does it take to build a mobile app from a web app?</summary>
+        <p>A PWA wrapped for the Play Store can take days. A React Native or Flutter rebuild of a small to medium app typically takes 4–10 weeks depending on screen count and complexity. Apps with offline features, complex authentication, in-app purchases or heavy native integrations take longer. The first step is always a scoping call to give you a realistic timeline.</p>
+      </details>
+
+      <details>
+        <summary>Which app store should I launch on first?</summary>
+        <p>For Nigerian audiences, Google Play is usually the right first target — Android dominates the local market and the review process is more forgiving. Apple's App Store has stricter review, requires an annual developer fee, and reaches a smaller share of the Nigerian market but a higher-spending international one. Many founders launch on Play Store first, validate, then invest in the iOS build.</p>
+      </details>
+
+      <details>
+        <summary>Can you build the mobile app if my web app was vibe-coded with AI tools?</summary>
+        <p>Yes. AI tools are good at generating web frontends but produce nothing usable for native mobile — the technologies are fundamentally different. What I do is extract the working business logic and API structure from your vibe-coded web app, then build the mobile frontend properly using React Native, Expo or Flutter. The backend and APIs you already have are reused.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RELATED ================= -->
+<section style="padding-top:0">
+  <div class="wrap" style="padding-top:76px">
+    <div class="sec-head">
+      <span class="kicker">Explore More</span>
+      <h2>Related services</h2>
+    </div>
+    <div class="grid-3 related">
+      <a href="/publish-app-play-store-nigeria.html">Publish to Play Store <span>→</span></a>
+      <a href="/web-app-to-exe-conversion.html">Web App to EXE <span>→</span></a>
+      <a href="/vibe-coded-app-rescue.html">Vibe-Coded App Rescue <span>→</span></a>
+      <a href="/deploy-web-app-nigeria.html">Deploy Web App <span>→</span></a>
+      <a href="/full-stack-developer-nigeria.html">Full Stack Developer <span>→</span></a>
+      <a href="/contact.html">Contact <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 7. FINAL CTA ================= -->
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <h2>Let's put your app on people's home screens</h2>
+      <p>
+        Tell me what your web app does, what stack it's built on, and where you
+        want the mobile version to go. I'll recommend the right approach and tell
+        you honestly what it takes.
+      </p>
+      <div class="cta-actions">
+        <a href="https://wa.me/2347032977572?text=Hi%20Emmanuel%2C%20I%20want%20to%20turn%20my%20web%20app%20into%20a%20mobile%20app" class="btn btn-gold">💬 WhatsApp 0703 297 7572</a>
+        <a href="mailto:info@emmanueladekunlepeace.com?subject=Mobile%20App%20from%20Web%20App%20Enquiry" class="btn btn-outline">✉ Email Me</a>
+        <a href="/contact.html" class="btn btn-outline">Contact Page</a>
+      </div>
+      <small>React Native · Expo · Flutter · Capacitor · Nigeria-based, worldwide service</small>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Emmanuel Adekunle <span>Peace</span></div>
+        <p>Full Stack Developer, author of 25+ books and CEO of LabelReach Advertising Ltd. Helping founders turn web apps into real mobile apps.</p>
+      </div>
+      <div>
+        <h4>Build &amp; Ship</h4>
+        <a href="/mobile-app-from-web-app.html">Mobile from Web App</a>
+        <a href="/publish-app-play-store-nigeria.html">Publish to Play Store</a>
+        <a href="/web-app-to-exe-conversion.html">Web App to EXE</a>
+        <a href="/deploy-web-app-nigeria.html">Deploy Web App</a>
+        <a href="/vibe-coded-app-rescue.html">App Rescue</a>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="/about.html">About</a>
+        <a href="/portfolio.html">Portfolio</a>
+        <a href="/testimonials.html">Testimonials</a>
+        <a href="/books.html">Books</a>
+        <a href="/blog.html">Blog</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="https://wa.me/2347032977572">WhatsApp: 0703 297 7572</a>
+        <a href="mailto:info@emmanueladekunlepeace.com">info@emmanueladekunlepeace.com</a>
+        <a href="https://www.linkedin.com/in/emmanueladekunlep" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.amazon.com/author/emmanueladekunlepeace" target="_blank" rel="noopener">Amazon Author Page</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Emmanuel Adekunle Peace. All rights reserved.</span>
+      <span>Web App to Mobile App · Nigeria &amp; Worldwide</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/2347032977572?text=Hi%20Emmanuel%2C%20I%20found%20your%20web%20to%20mobile%20page" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <path d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.56 4.19 1.62 6.01L4 29l8.13-1.6a12 12 0 0 0 3.9.65h.01C22.68 28.05 28.08 22.65 28.08 16S22.68 3 16.04 3zm0 21.86h-.01c-1.17 0-2.32-.31-3.32-.9l-.24-.14-4.82.95.96-4.7-.16-.25a9.9 9.9 0 0 1-1.52-5.28c0-5.5 4.48-9.97 9.99-9.97 2.67 0 5.17 1.04 7.06 2.93a9.9 9.9 0 0 1 2.92 7.05c0 5.5-4.47 9.98-9.96 9.98zm5.47-7.47c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/>
+  </svg>
+</a>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.querySelectorAll('#navlinks a').forEach(a=>{
+    a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open'));
+  });
+</script>
+</body>
+</html>
